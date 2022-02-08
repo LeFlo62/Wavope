@@ -1,0 +1,51 @@
+
+.square_btn1{
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 25px;
+        margin: 5px;
+        text-decoration: none;
+        font-family: sans-serif;
+        color: #fd7d7d;
+        background-color: white;
+        border-color:white;
+        border-style: solid;
+        border-width: thin;
+        transition: .4s;
+        margin-right: 20px;
+         
+    }
+    
+    .square_btn1:hover {
+    
+        background: none;
+        color: white;
+        transition:0.2s;
+    }
+    
+    .square_btn2{
+        display: inline-block;
+        padding: 12px 20px;
+        margin: 5px;
+        border-radius: 25px;
+        text-decoration: none;
+        border-style: solid;
+        border-width: thin;
+        border-color: none;
+        /* A CHANGER: DEBUT */
+        font-family: sans-serif;
+        border-color:#3a3a3a;
+        color: #3a3a3a;
+        /* A CHANGER: FIN */  
+        transition: 0.3s;
+    }
+    
+    .square_btn2:hover {
+    
+        background: none;
+        /* A CHANGER: DEBUT */
+        border-color:#325820;
+        color: #325820;
+        /* A CHANGER: FIN */
+        transition:0.3s;
+    }

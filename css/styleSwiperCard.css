@@ -1,0 +1,99 @@
+ 
+.sectionAllSwiperCard{
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration:none;
+    justify-content: center;
+    }
+    
+    .allSwiperCard{
+    
+    position: absolute;
+    height: 38%;
+    width:70%;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    text-decoration:none;
+    justify-content: center;
+    
+    
+    
+    }
+    
+    .SwiperCard{
+    
+    position: relative;
+    height:100%;
+    width: 33.333%;
+    top: 0px;
+    /* background-color: brown; */
+    transition:0.2s ease;
+    
+    }
+    
+    .SwiperCard:hover{
+    
+    cursor: pointer;
+    width: 36%;
+    height:104%;
+    transition:0.4s ease;
+    
+    }
+    
+    .blockSwiperCardImage{
+    
+    position: relative;
+    height:56%;
+    width: auto;
+    top: 0px;
+    border-radius: 1em;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin:20px;
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    
+    }
+    
+    .SwiperCardImage{
+    
+    position: absolute;
+    height:100%;
+    width:100%;
+    border-radius: 1em;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    
+    }
+    
+    
+    .blockSwiperCardText{
+    
+    position: relative;
+    height:44%;
+    display: flex;
+    text-decoration:none;
+    justify-content: center;
+    margin:20px;
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    background-color: rgb(245, 245, 245);
+    border-radius: 1em;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    
+    }
+    
+    .SwiperCardText{
+        
+        font-family: sans-serif;
+        font-weight: bold;
+        margin:20px;
+        font-size:18px;
+    }
+    
