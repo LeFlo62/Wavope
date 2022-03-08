@@ -16,6 +16,7 @@
 
     <!-- menuBAR : DEBUT    -->
     <nav  class="blockmenuBar">
+        <div class="logoMenuBar"></div>
         <div class="menuBar">
             <div class="itemMenuBar">— Wavope —</div>
             <div class="itemMenuBar">Se connecter</div>
