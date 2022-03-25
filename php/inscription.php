@@ -24,6 +24,10 @@
                 $createdId = $bdh->getInstance()->lastInsertId();
                 $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data(user_id, firstname, lastname, birthdate, user_rank) VALUES (?, ?, ?, ?, ?)');
                 $reqinfocreate->execute(array($createdId, $firstname, $lastname, $birthdate, 'user'));
+
+                $_SESSION['id'] = $createdId;
+				$_SESSION['firstname'] = $firstname;
+
                 header("Location: /?registrationSuccess=1");
             } else {
                 header("Location: /inscription.php?error=exists");
