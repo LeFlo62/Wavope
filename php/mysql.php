@@ -16,7 +16,7 @@
 				
 				$this->db = new PDO($host, 'wavope', 'wavope_password!', $params);
 			} catch (PDOException $e) {
-				die('Erreur de connexion à la base de donné !');
+				die('Erreur de connexion à la base de données !');
 			}
 		}
 		

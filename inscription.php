@@ -27,15 +27,15 @@
             <form id="inscription" method="post" action="php/inscription.php"  class="InscriptionForm">
             
                 <label class="fieldInput">E-mail*<input type="email" name="email" id="nameUtilisateur" placeholder="mail@example.com"/></label>
-                <label class="fieldInput">Prénom*<input type="email" name="firstname" id="nameUtilisateur" placeholder="Jean"/></label>
-                <label class="fieldInput">Nom*<input type="email" name="lastname" id="nameUtilisateur" placeholder="Dupont"/></label>
+                <label class="fieldInput">Prénom*<input type="text" name="firstname" id="nameUtilisateur" placeholder="Jean"/></label>
+                <label class="fieldInput">Nom*<input type="text" name="lastname" id="nameUtilisateur" placeholder="Dupont"/></label>
                 <label class="fieldInput">Date de naissance*<input type="date" name="birthdate" id="nameUtilisateur"/></label>
 
                 <label class="fieldInput">Mot de passe*<input name="password" id="passwordUtilisateur" type="password" /></label>
                 <label class="fieldInput">Confirmation du Mot de passe*<input id="nameUtilisateur2" type="password" /></label>
             
                 <div class=boiteCheck>
-                    <input class="checkboxClass"  type="checkbox" id="chbox2" name="chbox2">
+                    <input class="checkboxClass"  type="checkbox" id="chbox2" name="cgu">
                     <label for="chbox2" > J'accepte la politique de confidentialité * </label>
                 </div>
                 
