@@ -18,7 +18,7 @@
     <div class="block">
         <div class="block1"></div>   
         <p id="ErrorMdp">Les mots de passe ne correspondent pas !</p>
-        <p id="ChampIncomplet">Tous les champs obligatoires ne sont pas renseignés. </p>
+        <p id="ChampIncomplet">Tous les champs obligatoires ne sont pas renseignés.</p>
 
         
         <div class="block2">
