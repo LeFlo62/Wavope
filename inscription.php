@@ -16,7 +16,7 @@
     <?php include 'navbar.php' ?>
     
     <div class="block">
-        <div class="block1"></div>   
+        <div class="block1"></div>
         <p id="ErrorMdp">Les mots de passe ne correspondent pas !</p>
         <p id="ChampIncomplet">Tous les champs obligatoires ne sont pas renseignés.</p>
         
@@ -26,15 +26,17 @@
             
             <form id="inscription" method="post" action="php/inscription.php"  class="InscriptionForm">
             
-                <label class="fieldInput">E-mail*<input type="email" name="username" id="nameUtilisateur" placeholder=" exemple.mail@gmail.fr"/></label>
+                <label class="fieldInput">E-mail*<input type="email" name="email" id="nameUtilisateur" placeholder="mail@example.com"/></label>
+                <label class="fieldInput">Prénom*<input type="email" name="firstname" id="nameUtilisateur" placeholder="Jean"/></label>
+                <label class="fieldInput">Nom*<input type="email" name="lastname" id="nameUtilisateur" placeholder="Dupont"/></label>
+                <label class="fieldInput">Date de naissance*<input type="date" name="birthdate" id="nameUtilisateur"/></label>
+
                 <label class="fieldInput">Mot de passe*<input name="password" id="passwordUtilisateur" type="password" /></label>
                 <label class="fieldInput">Confirmation du Mot de passe*<input id="nameUtilisateur2" type="password" /></label>
             
                 <div class=boiteCheck>
-                    <input class="checkboxClass"  type="checkbox" id="chbox1" name="chbox1">
-                    <label class="checkboxClass" for="chbox1"> Je souhaite recevoir la newsletter </label><br>
                     <input class="checkboxClass"  type="checkbox" id="chbox2" name="chbox2">
-                    <label for="chbox2" > J'accepte la politique de confidentialité * </label>  
+                    <label for="chbox2" > J'accepte la politique de confidentialité * </label>
                 </div>
                 
                 <div class="divbtnCo">
