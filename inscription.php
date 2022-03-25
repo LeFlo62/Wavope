@@ -2,46 +2,18 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior:smooth;">
 <head>
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>INSCRIPTION</title>
     
-    <link rel="stylesheet" href="styleInscription.css">
-    <link rel="stylesheet" href="./css/menuBar/styleMenuBar.css">
+    <link rel="stylesheet" href="/css/styleInscription.css"/>
+    
 
 </head>
 <body>
 
-    <!-- menuBAR : DEBUT    -->
-    <nav  class="blockmenuBar">
-        <div class="menuBar">
-            <div class="itemMenuBar">— Wavope —</div>
-            <div class="itemMenuBar">Se connecter</div>
-            <div class="itemMenuBar">Nous contacter</div>
-            <div class="itemMenuBar">Autres</div>
-        </div>
-
-        <div id="hamburger">
-            <nav role="navigation"> 
-                <div id="menuToggle">
-                    <input type="checkbox" />
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <ul id="menuHamburger">
-                    <a href="#"><li>Rechercher</li></a>
-                    <a href="#"><li>Se connecter</li></a>
-                    <a href="" target="_blank"><li>Informations</li></a>
-                    </ul>
-                   
-                </div>
-            </nav>
-        </div>
-    </nav>
-    <!-- menuBAR : FIN    -->
+    <?php include 'navbar.php' ?>
     
     <div class="block">
         <div class="block1"></div>   

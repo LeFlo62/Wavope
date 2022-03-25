@@ -1,4 +1,5 @@
 <!-- menuBAR : DEBUT    -->
+<link rel="stylesheet" href="/css/menuBar/styleMenuBar.css"/>
 <nav  class="blockmenuBar">
         <div class="logoMenuBar">
         <?xml version="1.0" standalone="no"?>
@@ -132,10 +133,10 @@
 
         </div>
         <div class="menuBar">
-            <div class="itemMenuBar">— Wavope —</div>
-            <div class="itemMenuBar">Se connecter</div>
-            <div class="itemMenuBar">Nous contacter</div>
-            <div class="itemMenuBar">Autres</div>
+            <a class="itemMenuBar" href="/">— Wavope —</a>
+            <a class="itemMenuBar">Se connecter</a>
+            <a class="itemMenuBar" href="formulaire.php">Nous contacter</a>
+            <a class="itemMenuBar">Autres</a>
         </div>
 
         <div id="hamburger">
