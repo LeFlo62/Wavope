@@ -137,6 +137,7 @@
             <a class="itemMenuBar" href = "login.php">Se connecter</a>
             <a class="itemMenuBar" href="formulaire.php">Nous contacter</a>
             <a class="itemMenuBar">Autres</a>
+            <a class="itemMenuBar" href="about.php">À propos</a>
         </div>
 
         <div id="hamburger">
