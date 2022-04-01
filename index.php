@@ -26,8 +26,8 @@
                 semper congue, euismod non, mi.
             </div>
             <div class="blockButtonTop">
-                <a href="#" class="square_btn1" href="inscription.php" >S'INSCRIRE</a>
-                <a href="#" class="square_btn2">SE CONNECTER</a>
+                <a href="inscription.php" class="square_btn1" >S'INSCRIRE</a>
+                <a href="login.php" class="square_btn2">SE CONNECTER</a>
             </div>
         </div>
 
