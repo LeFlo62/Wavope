@@ -2,6 +2,7 @@
 	session_start();
 	
 	include_once 'mysql.php';
+
 	
 	function login($username, $password){
 		$bdh = new DBHandler();
@@ -29,3 +30,4 @@
 		}
 	}
 ?>
+

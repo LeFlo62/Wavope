@@ -134,7 +134,7 @@
         </div>
         <div class="menuBar">
             <a class="itemMenuBar" href="/">— Wavope —</a>
-            <a class="itemMenuBar">Se connecter</a>
+            <a class="itemMenuBar" href = "login.php">Se connecter</a>
             <a class="itemMenuBar" href="formulaire.php">Nous contacter</a>
             <a class="itemMenuBar">Autres</a>
         </div>
