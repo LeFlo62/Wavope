@@ -90,7 +90,6 @@ label{
     position: relative;
     width:100% ;
     height: 10%;
-    background-color: #fff;
     display: flex;
     padding-top: 20px;
     align-items: center;
@@ -135,8 +134,4 @@ label{
     font-weight: bold;
     /* A CHANGER: FIN */
     transition:0.3s;
-}
-
-.svgWave{
-    z-index: 100;
 }
