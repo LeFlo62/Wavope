@@ -2,7 +2,6 @@ body{
         
     padding: 0px;
     margin: 0px;
-    background: rgb(118, 177, 100);
 
 }
 h2{
@@ -42,7 +41,6 @@ h2{
 
     position: absolute;
     width: 500px;
-    height: 1000px;
     /* background-color: rgb(141, 83, 83); */
     left: 35%;
     top: 20%;
@@ -137,4 +135,8 @@ label{
     font-weight: bold;
     /* A CHANGER: FIN */
     transition:0.3s;
+}
+
+.svgWave{
+    z-index: 100;
 }
