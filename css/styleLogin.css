@@ -1,0 +1,140 @@
+body{
+        
+    padding: 0px;
+    margin: 0px;
+    background: rgb(118, 177, 100);
+
+}
+h2{
+    /* color: rgb(118, 177, 100); */
+    font-family: 'Roboto', sans-serif;
+}
+.box{
+
+    width: 80%;
+    height: 100%;
+    justify-content: center;
+
+    background-color: red;
+}
+.SectionTopPage{
+
+    position:absolute;
+    top: -20px;
+    width: 100%;
+    height: 115%;
+    background-color: white;
+
+}
+.svgWave{
+
+    position: absolute;
+    bottom: 0px;
+
+}
+.svgWaveCaracteristique{
+
+    fill:rgb(118, 177, 100);
+    fill-opacity:1;
+}
+
+.blockFormulaire{
+
+    position: absolute;
+    width: 500px;
+    height: 1000px;
+    /* background-color: rgb(141, 83, 83); */
+    left: 35%;
+    top: 20%;
+    display:block;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration:none;
+    justify-content: center;
+
+}
+
+.blockTextInput{
+    position: relative;
+    width: 100%;
+    height: 90px;
+    /* background-color: rgb(238, 186, 186); */
+    margin-top: 20px;
+    padding-left: 20%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: left;
+    text-decoration:none;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    flex-direction: column;
+}
+label{
+    left: 10px;
+    padding: 10px;
+}
+
+.search-input{
+
+    position: relative;
+    width:64%;
+    height: 50px;
+    background-color: rgb(247, 247, 247);
+    border: none;
+    border-radius: 2em;
+    padding-left: 10px;
+
+
+}
+.blockButtonSendMessage{
+
+    position: relative;
+    width:100% ;
+    height: 10%;
+    background-color: #fff;
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+    text-decoration:none;
+    justify-content: center;
+    flex-direction: column;
+}
+.pasIncrit{
+    
+    display: flex;
+}
+.pasIncrit a{
+    color: rgb(118, 177, 100);
+    align-items: center;
+    text-decoration:none;
+    justify-content: center;
+}
+.square_btn2{
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    text-decoration: none;
+    /* border-style: solid; */
+    border-width: thin;
+    border-color: none;
+    /* A CHANGER: DEBUT */
+    font-family: sans-serif;
+    color: white;
+    border-color:#3a3a3a;
+    font-weight: bold;
+    background-color: rgb(118, 177, 100);
+    /* A CHANGER: FIN */  
+    transition: 0.3s;
+}
+
+.square_btn2:hover {
+
+    background: #568a37;
+    /* A CHANGER: DEBUT */
+   
+    font-weight: bold;
+    /* A CHANGER: FIN */
+    transition:0.3s;
+}
