@@ -5,15 +5,17 @@ body{
 
 }
 h2{
-    /* color: rgb(118, 177, 100); */
+    color: rgb(118, 177, 100);
     font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 88px;
 }
 .box{
 
     width: 80%;
     height: 100%;
     justify-content: center;
-
+    align-items: center;
     background-color: red;
 }
 .SectionTopPage{
@@ -21,7 +23,7 @@ h2{
     position:absolute;
     top: -20px;
     width: 100%;
-    height: 115%;
+    height: 110%;
     background-color: white;
 
 }
@@ -42,7 +44,7 @@ h2{
     position: absolute;
     width: 500px;
     /* background-color: rgb(141, 83, 83); */
-    left: 35%;
+    left: 34%;
     top: 20%;
     display:block;
     border-radius: 12px;
@@ -100,12 +102,19 @@ label{
 .pasIncrit{
     
     display: flex;
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
 }
 .pasIncrit a{
     color: rgb(118, 177, 100);
-    align-items: center;
+
     text-decoration:none;
-    justify-content: center;
+
+}
+.pasIncrit a :hover{
+    color: rgb(118, 177, 100);
+    
 }
 .square_btn2{
     display: inline-block;
