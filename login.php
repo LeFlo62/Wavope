@@ -18,7 +18,7 @@
             
             <div class="blockFormulaire">
                 <h1>CONNECTEZ-VOUS</h1>
-                <form action="#" method="post">
+                <form class="formulaire" action="#" method="post">
                     
                     <div class="blockTextInput">
                         <label for="emailField">Email*</label>

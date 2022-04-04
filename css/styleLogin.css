@@ -43,7 +43,6 @@ h1{
 .blockFormulaire{
 
     position: absolute;
-    width: 600px;
     
     /* background-color: rgb(141, 83, 83); */
     /* left: 34% */
@@ -55,6 +54,10 @@ h1{
     justify-content: center;
     flex-direction: column;
 
+}
+
+.formulaire{
+    width: 300px;
 }
 
 .blockTextInput{
