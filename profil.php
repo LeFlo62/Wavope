@@ -11,15 +11,23 @@
 
 	<?php include 'navbar.php' ?>
 
-	<div class="manage">
+	<div class="information">
 		<h1> Gérer son profil </h1>
 		<pre>
 		<form id="profil" method="post" action="php/profil.php" class="profileForm">
-			<label class="fieldInput">Adresse e-mail actuelle*<input type="email" name="email" id="nameUtilisateur" placeholder="mail@example.com"/></label>
-			<label class="fieldInput">Mot de passe actuelle*<input name="password" id="passwordUtilisateur" type="password" /></label>
-			<label class="fieldInput">Modifier son prénom*<input type="text" name="firstname" id="nameUtilisateur" placeholder="Jean"/></label>
-			<label class="fieldInput">Modifier son nom*<input type="text" name="lastname" id="nameUtilisateur" placeholder="Dupont"/></label>
+			<label class="fieldInput">Prénom
+			<input type="text" name="firstname" id="nameUtilisateur" placeholder="Jean"/></label>
+
+			<label class="fieldInput">Nom
+			<input type="text" name="lastname" id="nameUtilisateur" placeholder="Dupont"/></label>
+
+			<label class="fieldInput">Date de naissance
+			<input type="date" name="birthdate" id="nameUtilisateur"/></label>
+			
+			<div class="button">
+            <input type="submit" name="buttonModif" value="Modifier"/>
 		</form>
+        </div>
 		</pre>
 	</div>
 
