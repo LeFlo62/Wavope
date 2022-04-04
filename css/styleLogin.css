@@ -4,16 +4,19 @@ body{
     margin: 0px;
 
 }
-h2{
-    /* color: rgb(118, 177, 100); */
+h1{
+    color: rgb(118, 177, 100);
     font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-top: 88px;
 }
 .box{
 
-    width: 80%;
+    width: 100%;
     height: 100%;
+    display: flex;
     justify-content: center;
-
+    align-items: center;
     background-color: red;
 }
 .SectionTopPage{
@@ -21,7 +24,7 @@ h2{
     position:absolute;
     top: -20px;
     width: 100%;
-    height: 115%;
+    height: 110%;
     background-color: white;
 
 }
@@ -40,15 +43,17 @@ h2{
 .blockFormulaire{
 
     position: absolute;
-    width: 500px;
+    width: 600px;
+    
     /* background-color: rgb(141, 83, 83); */
-    left: 35%;
-    top: 20%;
-    display:block;
+    /* left: 34% */
+    top: 0%;
+    display:flex;
     border-radius: 12px;
     align-items: center;
     text-decoration:none;
     justify-content: center;
+    flex-direction: column;
 
 }
 
@@ -56,9 +61,7 @@ h2{
     position: relative;
     width: 100%;
     height: 90px;
-    /* background-color: rgb(238, 186, 186); */
     margin-top: 20px;
-    padding-left: 20%;
     margin-bottom: 20px;
     display: flex;
     align-items: left;
@@ -76,7 +79,7 @@ label{
 .search-input{
 
     position: relative;
-    width:64%;
+    width:100%;
     height: 50px;
     background-color: rgb(247, 247, 247);
     border: none;
@@ -100,12 +103,19 @@ label{
 .pasIncrit{
     
     display: flex;
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
 }
 .pasIncrit a{
     color: rgb(118, 177, 100);
-    align-items: center;
+
     text-decoration:none;
-    justify-content: center;
+
+}
+.pasIncrit a :hover{
+    color: rgb(118, 177, 100);
+    
 }
 .square_btn2{
     display: inline-block;

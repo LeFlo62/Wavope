@@ -9,7 +9,8 @@
 
 
 <body>
-    <div class="presTeam">
+    <?php include 'navbar.php' ?>
+    <div class="presTeam" style="">
         <h1>Notre équipe :</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor aliquam, tincidunt urna at, tincidunt lorem. Aenean velit felis, pharetra a varius quis, rhoncus blandit ante. Vivamus ullamcorper tempus nisi, nec bibendum lacus facilisis in. In sodales malesuada sagittis. Nunc venenatis nulla eu mauris porta, id semper justo interdum. Fusce pharetra ipsum at arcu porta, ut sollicitudin dolor mattis. In ultrices dolor fringilla turpis gravida maximus. Donec sit amet est dapibus, tempus eros vel, vehicula felis. Nunc quis elementum massa. Praesent eu elit vitae libero fermentum maximus ac ac nisl. Vestibulum vulputate ipsum erat. Nullam vitae eros id dolor pulvinar tincidunt. Vivamus sed dui scelerisque, finibus leo et, dignissim ante.</p>
        <div class="Images">
@@ -20,6 +21,12 @@
         <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 5.jpg" alt="image 5"></a>
         <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 6.jpg" alt="image 6"></a>
         </div>
+    </div>
+
+    <div class="presProject">
+        <h2>Notre projet :</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor aliquam, tincidunt urna at, tincidunt lorem. Aenean velit felis, pharetra a varius quis, rhoncus blandit ante. Vivamus ullamcorper tempus nisi, nec bibendum lacus facilisis in. In sodales malesuada sagittis. Nunc venenatis nulla eu mauris porta, id semper justo interdum. Fusce pharetra ipsum at arcu porta, ut sollicitudin dolor mattis. In ultrices dolor fringilla turpis gravida maximus. Donec sit amet est dapibus, tempus eros vel, vehicula felis. Nunc quis elementum massa. Praesent eu elit vitae libero fermentum maximus ac ac nisl. Vestibulum vulputate ipsum erat. Nullam vitae eros id dolor pulvinar tincidunt. Vivamus sed dui scelerisque, finibus leo et, dignissim ante.</p>
+
     </div>
 </body>
 </html>
