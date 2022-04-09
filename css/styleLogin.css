@@ -104,8 +104,6 @@ label{
     flex-direction: column;
 }
 .pasIncrit{
-    
-    display: flex;
     margin-top: 5px;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
