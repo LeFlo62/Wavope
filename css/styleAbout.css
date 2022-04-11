@@ -2,3 +2,72 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
+.blockAll{
+    position: absolute;
+    height: 200%;
+    width: 100%;
+    display: flex;
+    background: green;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.blockTitre {
+    position: relative;
+    width: 80%;
+    height: 6%;
+    background: orange;
+}
+
+.presTeam{
+    position: relative;
+    width: 80%;
+    height: 14%;
+    background: blue;
+}
+
+.presTeamText{
+    margin: 20px;
+}
+
+.blockProfil{
+    position: relative;
+    width: 80%;
+    height: 10%;
+    background: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.blockProfilImage{
+    position: relative;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: aquamarine;
+}
+
+.imageProfil{
+    position: absolute;
+    width: 100%;
+    max-height: 100%;
+    left: 0%;
+    top: 0px;
+    border-radius: 50%;
+}
+.blockProfilDescription{
+    position: relative;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: brown;
+}
+
