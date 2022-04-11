@@ -54,7 +54,7 @@
                             <input type="submit" name="forminscription" class="square_btn2" value="S'INSCRIRE"/>
                         </div>
                 </form>
-                <p class="alreadySubscrire">Deja inscrit? <a href="logementInscription.php">Se connecter</a></p>
+                <p class="alreadySubscrire">Deja inscrit? <a href="login.php">Se connecter</a></p>
             </div>
         </div>
     </body>    
