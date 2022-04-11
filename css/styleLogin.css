@@ -114,9 +114,9 @@ label{
     text-decoration:none;
 
 }
-.pasIncrit a :hover{
-    color: rgb(118, 177, 100);
-    
+.pasIncrit :hover{
+    color: rgb(23, 34, 20);
+    transition: 0.3s
 }
 .square_btn2{
     display: inline-block;
@@ -124,7 +124,7 @@ label{
     margin: 5px;
     border-radius: 25px;
     text-decoration: none;
-    /* border-style: solid; */
+    border-style:none;
     border-width: thin;
     border-color: none;
     /* A CHANGER: DEBUT */
