@@ -38,7 +38,7 @@ h1{
 }
 .svgWave{
 
-    position: absolute;
+    position: fixed;
     bottom: 0px;
 
 }
@@ -89,7 +89,6 @@ label{
 }
 
 .fieldInput{
-
     position: relative;
     width:100%;
     height: 50px;
@@ -97,6 +96,7 @@ label{
     border: none;
     border-radius: 2em;
     padding: 10px;
+}
 
 
 }
