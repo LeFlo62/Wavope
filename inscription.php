@@ -19,7 +19,7 @@
             <div class="blockFormulaire">
                 <h1>Inscrivez-vous !</h1>
                 
-                <form id="inscription" method="post" action="php/inscription.php" class="formulaire">
+                <form id="inscription" method="post" action="php/inscription.php">
                         <div class="blockTextInput">
                             <label for="email">E-mail*</label>
                             <input class="fieldInput" type="email" name="email" id="email" placeholder="mail@example.com"/>
@@ -50,8 +50,8 @@
                             <label for="chbox2" > J'accepte la politique de confidentialité * </label>
                         </div>
                         
-                        <div class="divbtnCo">
-                            <input type="submit" name="forminscription" class="square_btn2" value="S'INSCRIRE"/>
+                        <div class="register">
+                            <input type="submit" name="forminscription" class="submit_btn" value="S'INSCRIRE"/>
                         </div>
                 </form>
                 <p class="alreadySubscrire">Deja inscrit? <a href="login.php">Se connecter</a></p>
