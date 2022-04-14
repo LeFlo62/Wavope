@@ -26,7 +26,6 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
 }
 .SectionTopPage{
 
@@ -81,6 +80,15 @@ label{
     padding: 10px;
 }
 
+label[required]::after{
+    content: '*';
+    color: red;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+
 .fieldInput{
     position: relative;
     width:100%;
@@ -89,10 +97,6 @@ label{
     border: none;
     border-radius: 2em;
     padding: 10px;
-}
-
-input[type="submit"]:hover{
-    cursor: pointer;
 }
 
 .blockButtonSendMessage{

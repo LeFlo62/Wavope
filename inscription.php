@@ -21,33 +21,33 @@
                 
                 <form id="inscription" method="post" action="php/inscription.php">
                         <div class="blockTextInput">
-                            <label for="email">E-mail*</label>
+                            <label for="email" required>E-mail</label>
                             <input class="fieldInput" type="email" name="email" id="email" placeholder="mail@example.com"/>
                         </div>
                         <div class="blockTextInput">
-                            <label for="firstname">Prénom*</label>
+                            <label for="firstname" required>Prénom</label>
                             <input class="fieldInput" type="text" name="firstname" id="firstname" placeholder="Jean"/>
                         </div>
                         <div class="blockTextInput">
-                            <label for="lastname">Nom*</label>
+                            <label for="lastname" required>Nom</label>
                             <input class="fieldInput" type="text" name="lastname" id="nameUtilisateur" placeholder="Dupont"/>
                         </div>
                         <div class="blockTextInput">
-                            <label for="birthdate">Date de naissance*</label>
+                            <label for="birthdate" required>Date de naissance</label>
                             <input class="fieldInput" type="date" name="birthdate" id="birthdate"/>
                         </div>
                         <div class="blockTextInput">
-                            <label for="password">Mot de passe*</label>
+                            <label for="password" required>Mot de passe</label>
                             <input class="fieldInput" name="password" id="password" type="password" />
                         </div>
                         <div class="blockTextInput">
-                            <label for="passwordCheck">Confirmation du Mot de passe*</label>
+                            <label for="passwordCheck" required>Confirmation du Mot de passe</label>
                             <input class="fieldInput" id="passwordCheck" type="password" />
                         </div>
 
                         <div class=boiteCheck>
                             <input class="checkboxClass"  type="checkbox" id="chbox2" name="cgu">
-                            <label for="chbox2" > J'accepte la politique de confidentialité * </label>
+                            <label for="chbox2" required> J'accepte la politique de confidentialité</label>
                         </div>
                         
                         <div class="register">
