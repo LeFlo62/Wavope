@@ -79,8 +79,51 @@ h1{
 }
 
 .blockButtonTop{
-
     position: absolute;
     margin: 2%;
+}
+
+.register_button{
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 25px;
+    margin: 5px;
+    text-decoration: none;
+    font-family: sans-serif;
+    color:  rgb(118, 177, 100);
+    background-color: white;
+    border-style: solid;
+    border-width: thin;
+    transition: .4s;
+    margin-right: 20px;
+     
+}
+
+.register_button:hover {
+    transform: scale(1.1);
+    transition:0.2s;
+}
+
+.login_button{
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    text-decoration: none;
+    border-style: solid;
+    border-width: thin;
+    border-color: none;
+    /* A CHANGER: DEBUT */
+    font-family: sans-serif;
+    border-color:#3a3a3a;
+    color: #3a3a3a;
+    background-color: white;
+    /* A CHANGER: FIN */  
+    transition: 0.3s;
+}
+
+.login_button:hover {
+    transform: scale(1.1);
+    transition:0.3s;
 }
 
