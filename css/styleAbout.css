@@ -11,10 +11,12 @@ body {
     background-color: white;
 }
 
+
 .svgWave{
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0%;
+    fill: rgb(118, 177, 100);
 }
 
 .blockAll{
@@ -31,6 +33,7 @@ body {
     position: relative;
     width: 80%;
     height: 6%;
+    padding-top: 100px;
 
 }
 
@@ -81,11 +84,14 @@ body {
 }
 
 .presProject{
-
+    background-color: purple;
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    margin: 20px;
 }
 
-.presProjectText{
 
-}
 
 

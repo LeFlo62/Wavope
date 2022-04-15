@@ -17,6 +17,20 @@
            
 
             <div class="blockFormulaire">
+                <?php
+                    if(isset($_GET['error'])){
+                        echo '<p class="error">';
+                        switch($_GET['error']){
+                            case 'completion':
+                                echo 'Vous devez compléter tous les champs !';
+                                break;
+                            case 'exists':
+                                echo 'Un compte existe déjà avec cette adresse E-Mail !';
+                                break;
+                        }
+                        echo '</p>';
+                    }
+                ?>
                 <h1>Inscrivez-vous !</h1>
                 
                 <form id="inscription" method="post" action="php/inscription.php">
