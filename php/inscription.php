@@ -13,8 +13,9 @@
 
             $bdh = new DBHandler();
 
-            $requser = $bdh->getInstance()->prepare("SELECT * FROM users WHERE email = ?");
-		    $requser->execute(array($email));
+            $requser = $bdh->getInstance()->prepare("SELECT * FROM users WHERE email = :email");
+            $requser->bindparam("email", $email, PDO::PARAM_STR);
+		    $requser->execute();
 		    $userexist = $requser->rowCount();
 
             if($userexist == 0){
@@ -22,7 +23,12 @@
                 $reqcreate->execute(array($email, $password));
 
                 $createdId = $bdh->getInstance()->lastInsertId();
-                $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data(user_id, firstname, lastname, birthdate, user_rank) VALUES (?, ?, ?, ?, ?)');
+                $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data(user_id, firstname, lastname, birthdate, user_rank) VALUES (:user_id, :firstname, :lastname, :birthdate, :user_rank)');
+                $reqinfocreate->bindparam("user_id", $createdId, PDO::PARAM_INT);
+                $reqinfocreate->bindparam("firstname", $createdId, PDO::PARAM_STR);
+                $reqinfocreate->bindparam("lastname", $createdId, PDO::PARAM_STR);
+                $reqinfocreate->bindparam("birthdate", $createdId, PDO::PARAM_STR);
+                $reqinfocreate->bindparam("rank", $createdId, PDO::PARAM_STR);
                 $reqinfocreate->execute(array($createdId, $firstname, $lastname, $birthdate, 'user'));
 
                 $_SESSION['id'] = $createdId;
