@@ -11,6 +11,10 @@
 
 <body>
     <?php include 'navbar.php' ?>
+<div class="topPage">
+    <svg class="svgWave" viewBox="0 0 1440 320"><path class="svgWaveCaracteristique"  d="M0,160L48,160C96,160,192,160,288,181.3C384,203,480,245,576,229.3C672,213,768,139,864,96C960,53,1056,43,1152,48C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+</div>
+
 
     <section class="blockAll">
         <div class="blockTitre">
@@ -66,9 +70,11 @@
         </div>
 
 
+        <div class="blockTitre">
+            <h1>Présentation du projet</h1>
+        </div>
         <div class="presProject">
-            <h2>Notre projet :</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor aliquam, tincidunt urna at, tincidunt lorem. Aenean velit felis, pharetra a varius quis, rhoncus blandit ante. Vivamus ullamcorper tempus nisi, nec bibendum lacus facilisis in. In sodales malesuada sagittis. Nunc venenatis nulla eu mauris porta, id semper justo interdum. Fusce pharetra ipsum at arcu porta, ut sollicitudin dolor mattis. In ultrices dolor fringilla turpis gravida maximus. Donec sit amet est dapibus, tempus eros vel, vehicula felis. Nunc quis elementum massa. Praesent eu elit vitae libero fermentum maximus ac ac nisl. Vestibulum vulputate ipsum erat. Nullam vitae eros id dolor pulvinar tincidunt. Vivamus sed dui scelerisque, finibus leo et, dignissim ante.</p>
+            <p class="presProjectText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor aliquam, tincidunt urna at, tincidunt lorem. Aenean velit felis, pharetra a varius quis, rhoncus blandit ante. Vivamus ullamcorper tempus nisi, nec bibendum lacus facilisis in. In sodales malesuada sagittis. Nunc venenatis nulla eu mauris porta, id semper justo interdum. Fusce pharetra ipsum at arcu porta, ut sollicitudin dolor mattis. In ultrices dolor fringilla turpis gravida maximus. Donec sit amet est dapibus, tempus eros vel, vehicula felis. Nunc quis elementum massa. Praesent eu elit vitae libero fermentum maximus ac ac nisl. Vestibulum vulputate ipsum erat. Nullam vitae eros id dolor pulvinar tincidunt. Vivamus sed dui scelerisque, finibus leo et, dignissim ante.</p>
         </div>
 
     </section>
@@ -84,10 +90,8 @@
         </div>
     </div>
 
-    <div class="presProject">
-        <h2>Notre projet :</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel dolor aliquam, tincidunt urna at, tincidunt lorem. Aenean velit felis, pharetra a varius quis, rhoncus blandit ante. Vivamus ullamcorper tempus nisi, nec bibendum lacus facilisis in. In sodales malesuada sagittis. Nunc venenatis nulla eu mauris porta, id semper justo interdum. Fusce pharetra ipsum at arcu porta, ut sollicitudin dolor mattis. In ultrices dolor fringilla turpis gravida maximus. Donec sit amet est dapibus, tempus eros vel, vehicula felis. Nunc quis elementum massa. Praesent eu elit vitae libero fermentum maximus ac ac nisl. Vestibulum vulputate ipsum erat. Nullam vitae eros id dolor pulvinar tincidunt. Vivamus sed dui scelerisque, finibus leo et, dignissim ante.</p>
 
     </div>
+
 </body>
 </html>

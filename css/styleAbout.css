@@ -1,6 +1,20 @@
 body {
     padding: 0px;
     margin: 0px;
+    background-color: #8cfd7d;
+}
+
+.topPage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.svgWave{
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
 }
 
 .blockAll{
@@ -8,7 +22,6 @@ body {
     height: 200%;
     width: 100%;
     display: flex;
-    background: green;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -18,14 +31,13 @@ body {
     position: relative;
     width: 80%;
     height: 6%;
-    background: orange;
+
 }
 
 .presTeam{
     position: relative;
     width: 80%;
     height: 14%;
-    background: blue;
 }
 
 .presTeamText{
@@ -36,7 +48,6 @@ body {
     position: relative;
     width: 80%;
     height: 10%;
-    background: lightblue;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,7 +61,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: aquamarine;
 }
 
 .imageProfil{
@@ -68,6 +78,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: brown;
 }
+
+.presProject{
+
+}
+
+.presProjectText{
+
+}
+
 
