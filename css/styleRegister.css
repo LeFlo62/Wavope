@@ -7,7 +7,8 @@
 }
 
 body{
-        
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
     padding: 0px;
     margin: 0px;
 
@@ -25,7 +26,6 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
 }
 .SectionTopPage{
 
@@ -38,7 +38,7 @@ h1{
 }
 .svgWave{
 
-    position: absolute;
+    position: fixed;
     bottom: 0px;
 
 }
@@ -49,23 +49,15 @@ h1{
 }
 
 .blockFormulaire{
-
-    position: absolute;
-    
-    /* background-color: rgb(141, 83, 83); */
-    /* left: 34% */
-    top: 0%;
     display:flex;
+    position: absolute;
+    top: 0%;
     border-radius: 12px;
     align-items: center;
     text-decoration:none;
     justify-content: center;
     flex-direction: column;
 
-}
-
-.formulaire{
-    width: 300px;
 }
 
 .blockTextInput{
@@ -88,8 +80,16 @@ label{
     padding: 10px;
 }
 
-.fieldInput{
+label[required]::after{
+    content: '*';
+    color: red;
+}
 
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+.fieldInput{
     position: relative;
     width:100%;
     height: 50px;
@@ -97,9 +97,8 @@ label{
     border: none;
     border-radius: 2em;
     padding: 10px;
-
-
 }
+
 .blockButtonSendMessage{
 
     position: relative;
@@ -129,31 +128,38 @@ label{
     color: rgb(118, 177, 100);
     
 }
-.square_btn2{
-    display: inline-block;
+
+.register{
+    position: relative;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.submit_btn{
+    display: block;
     padding: 12px 20px;
     margin: 5px;
     border-radius: 25px;
     text-decoration: none;
-    /* border-style: solid; */
     border-width: thin;
     border-color: none;
-    /* A CHANGER: DEBUT */
     font-family: sans-serif;
     color: white;
     border-color:#3a3a3a;
     font-weight: bold;
     background-color: rgb(118, 177, 100);
-    /* A CHANGER: FIN */  
     transition: 0.3s;
+    float: right;
 }
 
-.square_btn2:hover {
-
+.submit_btn:hover {
     background: #568a37;
-    /* A CHANGER: DEBUT */
-   
     font-weight: bold;
-    /* A CHANGER: FIN */
     transition:0.3s;
 }
