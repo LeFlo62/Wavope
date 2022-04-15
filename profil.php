@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="button">
-                        <input type="submit" name="buttonModified" class="buttonModif" value="MODIFIER"/>
+                        <input type="submit" name="buttonModified" class="buttonModif" value="MODIFIER" href="profil.php"/>
                     </div>
                 </form> 
             </div>
