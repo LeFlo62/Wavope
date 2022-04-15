@@ -35,6 +35,7 @@ h1{
 
 .blockFormulaire{
     display:flex;
+    margin-bottom: 33px;
     border-radius: 12px;
     align-items: center;
     text-decoration:none;
@@ -97,11 +98,11 @@ label{
     font-size: 12px;
 }
 .pasIncrit a{
-    color: black;
+    color:rgb(23, 34, 20); 
     text-decoration:none;
 }
 .pasIncrit :hover{
-    color: rgb(23, 34, 20);
+    color: rgb(118, 177, 100);
     transition: 0.3s
 }
 .square_btn2{
