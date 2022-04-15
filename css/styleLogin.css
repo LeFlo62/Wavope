@@ -97,10 +97,8 @@ label{
     font-size: 12px;
 }
 .pasIncrit a{
-    color: rgb(118, 177, 100);
-
+    color: black;
     text-decoration:none;
-
 }
 .pasIncrit :hover{
     color: rgb(23, 34, 20);
