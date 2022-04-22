@@ -102,7 +102,7 @@ label{
     text-decoration:none;
 }
 .pasIncrit :hover{
-    color: rgb(118, 177, 100);
+    color: #375d22;
     transition: 0.3s
 }
 .square_btn2{

@@ -29,7 +29,7 @@
                 $reqinfocreate->bindparam("lastname", $createdId, PDO::PARAM_STR);
                 $reqinfocreate->bindparam("birthdate", $createdId, PDO::PARAM_STR);
                 $reqinfocreate->bindparam("rank", $createdId, PDO::PARAM_STR);
-                $reqinfocreate->execute(array($createdId, $firstname, $lastname, $birthdate, 'user'));
+                $reqinfocreate->execute();
 
                 $_SESSION['id'] = $createdId;
 				$_SESSION['firstname'] = $firstname;
