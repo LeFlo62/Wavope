@@ -10,10 +10,10 @@
             $productNumber = handleText($_POST['productnumber']);
             
             if(verify_product_number($productNumber)){
-                $email = handleText($_POST['email']);
-                $firstname = handleText($_POST['firstname']);
-                $lastname = handleText($_POST['lastname']);
-                $birthdate = handleText($_POST['birthdate']);
+                $email = sanitize($_POST['email']);
+                $firstname = sanitize($_POST['firstname']);
+                $lastname = sanitize($_POST['lastname']);
+                $birthdate = sanitize($_POST['birthdate']);
                 $rank = 'user';
 
                 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -62,7 +62,7 @@
         header("Location: /inscription.php?error=validation");
     }
 
-    function handleText($donne){   
+    function sanitize($donne){   
         $donne = trim($donne);
         $donne = stripslashes($donne);
         $donne = strip_tags($donne);

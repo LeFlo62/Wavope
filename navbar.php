@@ -1,4 +1,7 @@
 <!-- menuBAR : DEBUT    -->
+<?php
+    session_start();
+?>
 <head>
     <link rel="stylesheet" href="/css/menuBar/styleMenuBar.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,7 +146,15 @@
             <a class="itemMenuBar" href="formulaire.php">Contact</a>
             <a class="itemMenuBar">Autres</a>
             <a class="itemMenuBar" href="about.php">À propos</a>
-            <a class="itemMenuBar" href = "login.php">Se connecter</a>
+            
+
+            <?php
+                if(isset($_SESSION['id'])){
+                    echo '<a class="itemMenuBar" href = "login.php">'. $_SESSION["firstname"] .'</a>';
+                } else {
+                    echo '<a class="itemMenuBar" href = "login.php">Se connecter</a>';
+                }
+            ?>
         </div>
 
         <a href="javascript:void(0)" id="hamburger" onclick="openNavbar()">☰</a>

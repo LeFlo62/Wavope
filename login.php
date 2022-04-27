@@ -16,22 +16,42 @@
 
         <div class="box">
             <div class="blockFormulaire">
+                <?php
+                    if(isset($_GET['error'])){
+                        echo '<p class="error">';
+                        switch($_GET['error']){
+                            case 'completion':
+                                echo 'Vous devez compléter tous les champs !';
+                                break;
+                            case 'missing':
+                                echo 'Ce compte n\'existe pas !';
+                                break;
+                            case 'validation':
+                                echo 'Vous devez passer par ce formulaire !';
+                                break;
+                            case 'password':
+                                echo 'Mot de passe incorrecte !';
+                                break;
+                        }
+                        echo '</p>';
+                    }
+                ?>
                 <h1>CONNECTEZ-VOUS</h1>
-                <form class="formulaire" action="#" method="post">
+                <form class="formulaire" action="php/login.php" method="post">
                     
                     <div class="blockTextInput">
                         <label for="emailField">Email*</label>
-                        <input class="search-input" type="email" id="emailField" name="emailTextField" required>
+                        <input class="search-input" type="email" id="emailField" name="email" required>
                     </div>
 
 
                     <div class="blockTextInput">
                         <label for="passwordField">Mot de passe*</label>
-                        <input class="search-input" type="password" id="passwordField" name="passwordField" required>
+                        <input class="search-input" type="password" id="passwordField" name="password" required>
                     </div>
 
                     <div class="blockButtonSendMessage">
-                        <input type="submit" name="formlogin" class="square_btn2" value="SE CONNECTER"/>
+                        <input type="submit" name="login" class="square_btn2" value="SE CONNECTER"/>
                         
                         <div class="pasIncrit"><a href="inscription.php">Pas encore inscrit?</a></div>
                     </div>
