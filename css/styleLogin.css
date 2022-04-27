@@ -23,7 +23,7 @@ h1{
 }
 .svgWave{
 
-    position: absolute;
+    position: fixed;
     bottom: 0px;
 
 }
