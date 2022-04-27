@@ -27,6 +27,9 @@
                             case 'exists':
                                 echo 'Un compte existe déjà avec cette adresse E-Mail !';
                                 break;
+                            case 'product_number':
+                                echo 'Le Numéro Produit est invalide !';
+                                break;
                         }
                         echo '</p>';
                     }
@@ -58,7 +61,10 @@
                             <label for="passwordCheck" required>Confirmation du Mot de passe</label>
                             <input class="fieldInput" id="passwordCheck" type="password" />
                         </div>
-
+                        <div class="blockTextInput">
+                            <label for="productnumber" required>Numéro Produit</label>
+                            <input class="fieldInput" type="text" name="productnumber" id="productnumber" placeholder="123456789"/>
+                        </div>
                         <div class=boiteCheck>
                             <input class="checkboxClass"  type="checkbox" id="chbox2" name="cgu">
                             <label for="chbox2" required> J'accepte la politique de confidentialité</label>
