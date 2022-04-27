@@ -1,54 +1,42 @@
 /* style menuBar */
 .blockmenuBar{
-    position:absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height:8%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    z-index: 1;
+ /*  position:absolute; */
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height:8%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 1;
+}
 
-  }
-
-  .logoMenuBar{
-position: absolute;
-left: 100px;
-width: 8%;
-height: 80%;
-/* background-color: red;  */
-
-  }
+.logoMenuBar{
+  position: absolute;
+  left: 100px;
+  width: 8%;
+}
 
 .menuBar{
-    position: absolute;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    width:44%;
-    right: 0px;
-  }
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width:44%;
+  right: 0px;
+}
 
 .itemMenuBar{
-    position: relative;
-    padding: 4px;
-    margin-left: 4%;
-    margin-right:4%;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    color: black;
-  }
+  position: relative;
+  padding: 4px;
+  margin-left: 4%;
+  margin-right:4%;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}
 
 .itemMenuBar::after {
   position: absolute;
@@ -71,7 +59,7 @@ height: 80%;
   transform-origin: left;
 }
 
-  .itemMenuBar::after {
+.itemMenuBar::after {
   position: absolute;
   content: "";
   width: 100%;
@@ -94,18 +82,36 @@ height: 80%;
 
 #hamburger{
   display: none;
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: solid black 3px;
+  border-radius: 25px;
+  padding: 6px 20px;
+  text-decoration: none;
+  color: black;
+  margin: 4px;
 }
 
 @media screen and (max-width: 800px) {
   #hamburger{
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
     display: block;
   }
 
   .menuBar{
+    position: relative;
     display: none;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .blockmenuBar{
+    height: auto;
+  }
+
+  .itemMenuBar{
+    display: block;
   }
 }

@@ -4,6 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 </head>
 <nav  class="blockmenuBar">
         <div class="logoMenuBar">
@@ -139,29 +140,24 @@
         </div>
         <div class="menuBar">
             <a class="itemMenuBar" href="/">Wavope</a>
-            <a class="itemMenuBar" href = "login.php">Se connecter</a>
             <a class="itemMenuBar" href="formulaire.php">Contact</a>
             <a class="itemMenuBar">Autres</a>
             <a class="itemMenuBar" href="about.php">À propos</a>
+            <a class="itemMenuBar" href = "login.php">Se connecter</a>
         </div>
 
-        <div id="hamburger">
-            <nav role="navigation"> 
-                <div id="menuToggle">
-                    <input type="checkbox" />
+        <a href="javascript:void(0)" id="hamburger" onclick="openNavbar()">☰</a>
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                    <ul id="menuHamburger">
-                    <a href="#"><li>Rechercher</li></a>
-                    <a href="#"><li>Se connecter</li></a>
-                    <a href="" target="_blank"><li>Informations</li></a>
-                    </ul>
-                   
-                </div>
-            </nav>
-        </div>
+        <script>
+            function openNavbar(){
+                if($(".menuBar").css("display") == "none"){
+                    $(".menuBar").css({"display": "flex"});
+                    $("#hamburger").html("╳");
+                } else {
+                    $(".menuBar").css({"display": "none"});
+                    $("#hamburger").html("☰");
+                }
+            }
+        </script>
     </nav>
     <!-- menuBAR : FIN    -->
