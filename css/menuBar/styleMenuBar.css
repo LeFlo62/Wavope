@@ -18,20 +18,18 @@
 }
 
 .menuBar{
-  position: absolute;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  width:44%;
-  right: 0px;
+  float: right;
 }
 
 .itemMenuBar{
   position: relative;
   padding: 4px;
-  margin-left: 4%;
-  margin-right:4%;
+  margin-left: 20px;
+  margin-right: 20px;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
