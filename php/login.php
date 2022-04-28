@@ -26,6 +26,7 @@
 
 					$_SESSION['id'] = $usercredits['id'];
                     $_SESSION['firstname'] = $userdata['firstname'];
+					$_SESSION['user_rank'] = $userdata['user_rank'];
 
 					header("Location: /?loginSuccess=1");
 				} else {

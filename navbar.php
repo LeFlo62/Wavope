@@ -150,7 +150,16 @@
 
             <?php
                 if(isset($_SESSION['id'])){
-                    echo '<a class="itemMenuBar" href = "login.php">'. $_SESSION["firstname"] .'</a>';
+                    echo '<div class="itemMenuBar dropdown">
+                            <a class="dropdown-activator">'
+                                . ($_SESSION['user_rank'] === 'admin' ? '★' : ''). $_SESSION["firstname"] 
+                            .'</a>
+                            <div class="dropdown-content dropdown-content-right">'
+                                .($_SESSION['user_rank'] === 'admin' ? '<a href="/backoffice.php">Back-Office</a>' : '')
+                             . '<a href="#">Mes appareils</a>
+                                <a href="/modifyprofile.php">Paramètres</a>
+                            </div>
+                        </div>';
                 } else {
                     echo '<a class="itemMenuBar" href = "login.php">Se connecter</a>';
                 }

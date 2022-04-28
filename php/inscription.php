@@ -47,6 +47,7 @@
 
                     $_SESSION['id'] = $createdId;
                     $_SESSION['firstname'] = $firstname;
+                    $_SESSION['user_rank'] = $rank;
 
                     header("Location: /?registrationSuccess=1");
                 } else {
