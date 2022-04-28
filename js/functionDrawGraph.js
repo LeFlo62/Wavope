@@ -1,7 +1,4 @@
 function drawChart(canvasId,x,y,title="",chartType="line"){
-
-    
-
     var ctx = document.getElementById(canvasId).getContext('2d');
     var myChart = new Chart(ctx, {
        
@@ -26,22 +23,6 @@ function drawChart(canvasId,x,y,title="",chartType="line"){
                 borderWidth: 2,
                 // hoverOffset: 4
             },
-    
-            // {
-            //     type: 'bar',
-            //     label: 'BarTest',
-            //     data: [2, 9, 14, 4, 2, 1],
-            //     backgroundColor: [
-            //         'rgba(255, 109, 132, 0.2)',
-            //         'rgba(75, 192, 192, 0.2)',
-            //     ],
-            //     borderColor: [
-            //         'rgba(255, 99, 132, 1)',
-            //     //    "blue",
-            //     ],
-            //     borderWidth: 2,
-            
-            // }
         ]
         },
     
