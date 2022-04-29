@@ -121,6 +121,9 @@
 .dropdown-content a:hover {
   background-color: #C2C2C2;
 }
+.dropdown-content a.disconnection:hover {
+  background-color: #FF2242;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
