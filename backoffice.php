@@ -3,6 +3,16 @@
 		session_start(); 
 	}
 
+    if(!isset($_SESSION['id'])) { 
+		header("Location: /login.php");
+        exit;
+	}
+
+    if($_SESSION['user_rank'] !== 'admin'){
+        header("Location: /");
+        exit;
+    }
+
     if(!isset($_GET['p'])){
         header("Location: ?p=users");
         exit;
@@ -36,7 +46,22 @@
             <a <?php if($_GET['p'] === 'devices') { echo 'class="selected"';} ?> href="?p=devices">Appareils</a>
         </div>
         <div class="content">
-            Test
+            <?php
+                switch($_GET['p']){
+                    default:
+                        header('Location: ?p=users');
+                        break;
+                    case 'cards':
+                        include './back-office/cards.php';
+                        break;
+                    case 'users':
+                        include './back-office/users.php';
+                        break;
+                    case 'devices':
+                        include './back-office/devices.php';
+                        break;
+                }
+            ?>
         </div>
     </body>    
 </html>
