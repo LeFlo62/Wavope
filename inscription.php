@@ -1,4 +1,13 @@
+<?php
+    if(!isset($_SESSION)) { 
+        session_start(); 
+    }
 
+    if(isset($_SESSION['id'])) { 
+        header("Location: /");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr" style="scroll-behavior:smooth;">
     <head>

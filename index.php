@@ -1,3 +1,8 @@
+<?php
+    if(!isset($_SESSION)) { 
+        session_start(); 
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -25,10 +30,15 @@
                     adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, 
                     semper congue, euismod non, mi.
                 </div>
-                <div class="blockButtonTop">
-                    <a href="inscription.php" class="register_button" >S'INSCRIRE</a>
-                    <a href="login.php" class="login_button">SE CONNECTER</a>
-                </div>
+
+                <?php
+                    if(!isset($_SESSION['id'])) { 
+                        echo '<div class="blockButtonTop">
+                        <a href="inscription.php" class="register_button" >S\'INSCRIRE</a>
+                        <a href="login.php" class="login_button">SE CONNECTER</a>
+                         </div>';
+                    }
+                ?>
             </div>
         </section>
 
