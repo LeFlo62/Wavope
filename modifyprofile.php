@@ -1,3 +1,19 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['id'])){
+        header("Location: /");
+        exit;
+    }
+
+    include_once './php/mysql.php';
+
+    $bdh = new DBHandler();
+    $requserdata = $bdh->getInstance()->prepare('SELECT * FROM user_data WHERE user_id = :user_id');
+    $requserdata->bindparam('user_id', $_SESSION['id'], PDO::PARAM_INT);
+    $requserdata->execute();
+    $userdata = $requserdata->fetch();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,18 +35,24 @@
                     
                     <div class="blockText">
                         <label for="firstnameField">Prénom</label>
-                        <input class="fieldInput" type="text" id="firstname" name="firstname" required placeholder="Jean">
+                        <input class="fieldInput" type="text" id="firstname" name="firstname" required placeholder="Jean" value="<?php
+                                echo $userdata['firstname'];
+                            ?>">
                     </div>
 
 
                     <div class="blockText">
                         <label for="lastnameField">Nom</label>
-                        <input class="fieldInput" type="text" id="lastname" name="lastname" required placeholder="Dupont">
+                        <input class="fieldInput" type="text" id="lastname" name="lastname" required placeholder="Dupont" value="<?php
+                                echo $userdata['lastname'];
+                            ?>">
                     </div>
 
                     <div class="blockText">
                         <label for="birthdateField">Date de naissance</label>
-                        <input class="fieldInput" type="date" id="birthdate" name="birthdate" required>
+                        <input class="fieldInput" type="date" id="birthdate" name="birthdate" value="<?php
+                                echo $userdata['birthdate'];
+                            ?>" required>
                     </div>
 
                     <div class="button">
