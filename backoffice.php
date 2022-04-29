@@ -1,5 +1,12 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)) { 
+		session_start(); 
+	}
+
+    if(!isset($_GET['p'])){
+        header("Location: ?p=users");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr" style="scroll-behavior:smooth;">
