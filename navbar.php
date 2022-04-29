@@ -160,6 +160,7 @@
                                 .($_SESSION['user_rank'] === 'admin' ? '<a href="/backoffice.php?p=users">Back-Office</a>' : '')
                              . '<a href="/product.php">Mes appareils</a>
                                 <a href="/modifyprofile.php">Paramètres</a>
+                                <a class="disconnection" href="/disconnect.php">Se déconnecter</a>
                             </div>
                         </div>';
                 } else {
