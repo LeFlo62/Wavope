@@ -24,11 +24,14 @@
                             case 'completion':
                                 echo 'Vous devez compléter tous les champs !';
                                 break;
-                            case 'exists':
+                            case 'user_exists':
                                 echo 'Un compte existe déjà avec cette adresse E-Mail !';
                                 break;
                             case 'product_number':
                                 echo 'Le Numéro Produit est invalide !';
+                                break;
+                            case 'number_registered':
+                                echo 'Ce numéro produit est déjà enregistré !';
                                 break;
                         }
                         echo '</p>';

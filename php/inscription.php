@@ -1,5 +1,12 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)) { 
+		session_start(); 
+	}
+
+    if(isset($_SESSION['id'])) { 
+		header("Location: /");
+        exit;
+	}
 
     include_once 'mysql.php';
     
@@ -7,7 +14,7 @@
         if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['birthdate']) && isset($_POST['productnumber']) && isset($_POST['cgu'])
             && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['productnumber']) && !empty($_POST['birthdate'])){
             
-            $productNumber = handleText($_POST['productnumber']);
+            $productNumber = sanitize($_POST['productnumber']);
             
             if(verify_product_number($productNumber)){
                 $email = sanitize($_POST['email']);
@@ -26,32 +33,41 @@
                 $userexist = $requser->rowCount();
 
                 if($userexist == 0){
-                    $reqcreate = $bdh->getInstance()->prepare("INSERT INTO users(email, password) VALUES (:email, :password)");
-                    $reqcreate->bindparam('email', $email, PDO::PARAM_STR);
-                    $reqcreate->bindparam('password', $password, PDO::PARAM_STR);
-                    $reqcreate->execute();
+                    $reqproduct = $bdh->getInstance()->prepare('SELECT * FROM products WHERE product_number = :product_number');
+                    $reqproduct->bindparam('product_number', $productNumber, PDO::PARAM_INT);
+                    $reqproduct->execute();
+                    $productregistered = $reqproduct->rowCount();
 
-                    $createdId = $bdh->getInstance()->lastInsertId();
-                    $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data VALUES (:user_id, :firstname, :lastname, :birthdate, :user_rank)');
-                    $reqinfocreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
-                    $reqinfocreate->bindparam('firstname', $firstname, PDO::PARAM_STR);
-                    $reqinfocreate->bindparam('lastname', $lastname, PDO::PARAM_STR);
-                    $reqinfocreate->bindparam('birthdate', $birthdate, PDO::PARAM_STR);
-                    $reqinfocreate->bindparam('user_rank', $rank, PDO::PARAM_STR);
-                    $reqinfocreate->execute();
+                    if($productregistered == 0){
+                        $reqcreate = $bdh->getInstance()->prepare("INSERT INTO users(email, password) VALUES (:email, :password)");
+                        $reqcreate->bindparam('email', $email, PDO::PARAM_STR);
+                        $reqcreate->bindparam('password', $password, PDO::PARAM_STR);
+                        $reqcreate->execute();
 
-                    $reqproductcreate = $bdh->getInstance()->prepare('INSERT INTO products(product_number, user_id) VALUES (:product_number, :user_id)');
-                    $reqproductcreate->bindparam('product_number', $productNumber, PDO::PARAM_INT);
-                    $reqproductcreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
-                    $reqproductcreate->execute();
+                        $createdId = $bdh->getInstance()->lastInsertId();
+                        $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data VALUES (:user_id, :firstname, :lastname, :birthdate, :user_rank)');
+                        $reqinfocreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
+                        $reqinfocreate->bindparam('firstname', $firstname, PDO::PARAM_STR);
+                        $reqinfocreate->bindparam('lastname', $lastname, PDO::PARAM_STR);
+                        $reqinfocreate->bindparam('birthdate', $birthdate, PDO::PARAM_STR);
+                        $reqinfocreate->bindparam('user_rank', $rank, PDO::PARAM_STR);
+                        $reqinfocreate->execute();
 
-                    $_SESSION['id'] = $createdId;
-                    $_SESSION['firstname'] = $firstname;
-                    $_SESSION['user_rank'] = $rank;
+                        $reqproductcreate = $bdh->getInstance()->prepare('INSERT INTO products(product_number, user_id) VALUES (:product_number, :user_id)');
+                        $reqproductcreate->bindparam('product_number', $productNumber, PDO::PARAM_INT);
+                        $reqproductcreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
+                        $reqproductcreate->execute();
 
-                    header("Location: /?registrationSuccess=1");
+                        $_SESSION['id'] = $createdId;
+                        $_SESSION['firstname'] = $firstname;
+                        $_SESSION['user_rank'] = $rank;
+
+                        header("Location: /?registrationSuccess=1");
+                    } else {
+                        header("Location: /inscription.php?error=number_registered");
+                    }
                 } else {
-                    header("Location: /inscription.php?error=exists");
+                    header("Location: /inscription.php?error=user_exists");
                 }
             } else {
                 header("Location: /inscription.php?error=product_number");
