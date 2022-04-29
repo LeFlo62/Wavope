@@ -1,6 +1,8 @@
 <!-- menuBAR : DEBUT    -->
 <?php
-    session_start();
+    if(!isset($_SESSION)) { 
+		session_start(); 
+	}
 ?>
 <head>
     <link rel="stylesheet" href="/css/menuBar/styleMenuBar.css"/>
@@ -155,8 +157,8 @@
                                 . ($_SESSION['user_rank'] === 'admin' ? '★' : ''). $_SESSION["firstname"] 
                             .'</a>
                             <div class="dropdown-content dropdown-content-right">'
-                                .($_SESSION['user_rank'] === 'admin' ? '<a href="/backoffice.php">Back-Office</a>' : '')
-                             . '<a href="#">Mes appareils</a>
+                                .($_SESSION['user_rank'] === 'admin' ? '<a href="/backoffice.php?p=users">Back-Office</a>' : '')
+                             . '<a href="/product.php">Mes appareils</a>
                                 <a href="/modifyprofile.php">Paramètres</a>
                             </div>
                         </div>';
