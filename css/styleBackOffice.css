@@ -69,4 +69,44 @@ html, body{
     position: absolute;
     margin-top: var(--masthead-height);
     margin-left: var(--navbar-width);
+    width: calc(100% - var(--navbar-width));
+    height: calc(100% - var(--masthead-height));
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    #masthead{
+        position: relative;
+        height: auto;
+        max-height: auto;
+    }
+
+    #topbar-corner{
+        width: 100%;
+        float: none;
+    }
+
+    .masthead-spacer{
+        margin: 0;
+    }
+
+    .navbar{
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+
+    .navbar a{
+        text-align: center;
+    }
+
+    .content{
+        position: relative;
+        margin: 0;
+        width: 100%;
+        height: auto;
+    }
 }
