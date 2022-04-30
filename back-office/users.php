@@ -56,7 +56,7 @@
                 <p class="hint">E-Mail: </p><p>'. $row['email'] .'</p> <i data-type="email" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>
             </div>
             <div class="users-table-col">
-                <p class="hint">Date de naissance: </p>'. $row['birthdate'] .'
+                <p class="hint">Date de naissance: </p><p>'. $row['birthdate'] .'</p> <i data-type="birthdate" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>
             </div>
             <div class="users-table-col">
                 <p class="hint">Type: </p>'. $row['user_rank'] .'
@@ -75,7 +75,13 @@
 
             $('.modify-pen').hide();
             var oldData = field.html();
-            field.html('<input id="modifying" type="text" value="'+ field.html() +'">');
+            
+            if(type == 'birthdate'){
+                field.html('<input id="modifying" type="date" value="'+ field.html() +'">');
+            } else {
+                field.html('<input id="modifying" type="text" value="'+ field.html() +'">');
+            }
+
             $('#modifying').focus();
 
             var done = false;
@@ -102,7 +108,11 @@
                         $('#snackbar').removeClass(['show', responseObj.return_type]);
                     }, 3000);
 
-                    field.html(data);
+                    if(responseObj.return_type == 'success'){
+                        field.html(data);
+                    } else {
+                        field.html(oldData);
+                    }
                 })
                 .fail(function(){
                     alert("error");

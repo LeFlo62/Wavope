@@ -14,7 +14,7 @@
             exit;
         }
     
-        define('DATA_TYPES', array("firstname", "lastname", "email"));
+        define('DATA_TYPES', array("firstname", "lastname", "email", "birthdate"));
     
         if(isset($_POST) && isset($_POST['user_id']) && isset($_POST['data_type']) && isset($_POST['data'])){
             if(in_array($_POST['data_type'], DATA_TYPES)){
