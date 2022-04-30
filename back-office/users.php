@@ -64,6 +64,7 @@
         </div>';
         }
     ?>
+    <div id="snackbar"></div>
     <script>
         $('.modify-pen').click(function() {
             var pen = $(this);
@@ -73,7 +74,7 @@
             var field = pen.closest(".users-table-col").find("p:not(.hint)");
 
             $('.modify-pen').hide();
-
+            var oldData = field.html();
             field.html('<input id="modifying" type="text" value="'+ field.html() +'">');
             $('#modifying').focus();
 
@@ -88,10 +89,19 @@
                 $(this).remove();
                 $('.modify-pen').show();
 
+                if(data == oldData){
+                    field.html(data);
+                    return;
+                }
+
                 $.post("./back-office/php/modifyuser.php", {user_id: id, data_type: type, data: data})
                 .done(function(response){
                     var responseObj = JSON.parse(response);
-                    console.log(responseObj);
+                    $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
+                    setTimeout(function(){
+                        $('#snackbar').removeClass(['show', responseObj.return_type]);
+                    }, 3000);
+
                     field.html(data);
                 })
                 .fail(function(){
