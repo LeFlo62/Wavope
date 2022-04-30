@@ -22,6 +22,9 @@
 <div class="users-table">
     <div class="users-table-row title">
         <div class="users-table-col">
+            Id
+        </div>
+        <div class="users-table-col">
             Prénom
         </div>
         <div class="users-table-col">
@@ -50,6 +53,9 @@
             $modifiable = $row['id'] === $_SESSION['id'] || RANK_POWER[$row['user_rank']] < RANK_POWER[$_SESSION['user_rank']];
 
             echo '<div class="users-table-row">
+            <div class="users-table-col">
+                <p class="hint">Id: </p><p>'. $row['id'] .'</p>
+            </div>
             <div class="users-table-col">
                 <p class="hint">Prénom: </p><p>'. $row['firstname'] .'</p>' . ($modifiable ? ' <i data-type="firstname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
