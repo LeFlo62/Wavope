@@ -1,4 +1,6 @@
 <?php
+    define('RANK_POWER', array('user' => 0, 'collaborateur' => 1, 'admin' => 2));
+
     if(is_ajax()){
         if(!isset($_SESSION)) { 
             session_start(); 
@@ -9,20 +11,25 @@
             exit;
         }
     
-        if($_SESSION['user_rank'] !== 'admin'){
+        if(RANK_POWER[$_SESSION['user_rank']] < 1){
             header("Location: /");
             exit;
         }
     
-        define('DATA_TYPES', array("firstname", "lastname", "email", "birthdate"));
+        define('DATA_TYPES', array("firstname", "lastname", "email", "birthdate", "user_rank"));
     
         if(isset($_POST) && isset($_POST['user_id']) && isset($_POST['data_type']) && isset($_POST['data'])){
             if(in_array($_POST['data_type'], DATA_TYPES)){
-                include_once '../../php/mysql.php';
-    
                 $user_id = sanitize($_POST['user_id']);
                 $data_type = sanitize($_POST['data_type']);
                 $data = sanitize($_POST['data']);
+
+                if($data_type == 'user_rank' && (in_array($data, RANK_POWER) && RANK_POWER[$_SESSION['user_rank']] <= RANK_POWER[$data])){
+                    echo json_encode(array('return_type' => 'error', 'message' => 'Vous n\'avez pas la permission de changer cela.'));
+                    exit;
+                }
+
+                include_once '../../php/mysql.php';
     
                 $bdh = new DBHandler();
     
@@ -37,7 +44,7 @@
     
                 echo json_encode(array('return_type' => 'success', 'message' => 'Donnée modifiée'));
             } else {
-                echo json_encode(array('return_type' => 'error', 'message' => 'Cette donnée ne peut être modifiée.'));
+                echo json_encode(array('return_type' => 'error', 'message' => 'Cette donnée ne peut pas être modifiée.'));
             }
         } else {
             echo json_encode(array('return_type' => 'error', 'message' => 'Aucune donnée transmise'));

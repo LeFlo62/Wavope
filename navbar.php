@@ -1,5 +1,7 @@
 <!-- menuBAR : DEBUT    -->
 <?php
+    define('RANK_POWER', array('user' => 0, 'collaborateur' => 1, 'admin' => 2));
+
     if(!isset($_SESSION)) { 
 		session_start(); 
 	}
@@ -154,10 +156,10 @@
                 if(isset($_SESSION['id'])){
                     echo '<div class="itemMenuBar dropdown">
                             <a class="dropdown-activator">'
-                                . ($_SESSION['user_rank'] === 'admin' ? '★' : ''). $_SESSION["firstname"] 
+                                .  $_SESSION["firstname"] 
                             .'</a>
                             <div class="dropdown-content dropdown-content-right">'
-                                .($_SESSION['user_rank'] === 'admin' ? '<a href="/backoffice.php?p=users">Back-Office</a>' : '')
+                                .(RANK_POWER[$_SESSION['user_rank']] > RANK_POWER['user'] ? '<a href="/backoffice.php?p=users">Back-Office</a>' : '')
                              . '<a href="/product.php">Mes appareils</a>
                                 <a href="/modifyprofile.php">Paramètres</a>
                                 <a class="disconnection" href="/disconnect.php">Se déconnecter</a>

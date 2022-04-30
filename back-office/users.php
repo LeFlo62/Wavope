@@ -8,7 +8,7 @@
         exit;
 	}
 
-    if($_SESSION['user_rank'] !== 'admin'){
+    if(RANK_POWER[$_SESSION['user_rank']] < 1){
         header("Location: /");
         exit;
     }
@@ -45,21 +45,23 @@
         $data = $reqdata->fetchAll();
 
         foreach($data as $row){
+            $modifiable = $row['id'] === $_SESSION['id'] || RANK_POWER[$row['user_rank']] < RANK_POWER[$_SESSION['user_rank']];
+
             echo '<div class="users-table-row">
             <div class="users-table-col">
-                <p class="hint">Prénom: </p><p>'. $row['firstname'] .'</p> <i data-type="firstname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">Prénom: </p><p>'. $row['firstname'] .'</p>' . ($modifiable ? ' <i data-type="firstname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Nom: </p><p>'. $row['lastname'] .'</p> <i data-type="lastname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">Nom: </p><p>'. $row['lastname'] .'</p>' . ($modifiable ? '<i data-type="lastname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">E-Mail: </p><p>'. $row['email'] .'</p> <i data-type="email" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">E-Mail: </p><p>'. $row['email'] .'</p>' . ($modifiable ? '<i data-type="email" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Date de naissance: </p><p>'. $row['birthdate'] .'</p> <i data-type="birthdate" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">Date de naissance: </p><p>'. $row['birthdate'] .'</p>' . ($modifiable ? '<i data-type="birthdate" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Type: </p>'. $row['user_rank'] .'
+                <p class="hint">Type: </p><p>'. $row['user_rank'] . '</p>' . ($modifiable ? '<i data-type="user_rank" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
         </div>';
         }
@@ -76,7 +78,15 @@
             $('.modify-pen').hide();
             var oldData = field.html();
             
-            if(type == 'birthdate'){
+            if(type == 'user_rank'){
+                field.html('<select id="modifying"><?php
+                    foreach(RANK_POWER as $rank => $power){
+                        if($power < RANK_POWER[$_SESSION['user_rank']]){
+                            echo '<option value="'. $rank .'">'. $rank .'</option>';
+                        }
+                    }
+                 ?></select>');
+            } else if(type == 'birthdate'){
                 field.html('<input id="modifying" type="date" value="'+ field.html() +'">');
             } else {
                 field.html('<input id="modifying" type="text" value="'+ field.html() +'">');
@@ -90,7 +100,12 @@
                     return;
                 }
                 done = true;
-                var data = $(this).val();
+                var data;
+                if(type == 'user_rank'){
+                    data = $(this).find(':selected').text();
+                } else {
+                    data = $(this).val();
+                }
 
                 $(this).remove();
                 $('.modify-pen').show();

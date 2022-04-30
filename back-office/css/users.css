@@ -18,7 +18,7 @@
 
 .users-table-col{
     --email-width: 35%;
-    --user-type-width: 10%;
+    --user-type-width: 15%;
     width: calc((100% - var(--email-width) - var(--user-type-width))/3);
 }
 

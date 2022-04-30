@@ -1,4 +1,6 @@
 <?php
+    define('RANK_POWER', array('user' => 0, 'collaborateur' => 1, 'admin' => 2));
+
     if(!isset($_SESSION)) { 
 		session_start(); 
 	}
@@ -8,7 +10,7 @@
         exit;
 	}
 
-    if($_SESSION['user_rank'] !== 'admin'){
+    if(RANK_POWER[$_SESSION['user_rank']] < 1){
         header("Location: /");
         exit;
     }
