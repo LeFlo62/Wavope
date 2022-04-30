@@ -1,4 +1,6 @@
 <?php
+    include_once $_SERVER["DOCUMENT_ROOT"]. '/php/variables.php';
+
     if(!isset($_SESSION)) { 
         session_start(); 
     }
@@ -86,6 +88,7 @@
                         }
                     }
                  ?></select>');
+                 $('#modifying option:contains("' + oldData + '")').prop('selected', true);
             } else if(type == 'birthdate'){
                 field.html('<input id="modifying" type="date" value="'+ field.html() +'">');
             } else {

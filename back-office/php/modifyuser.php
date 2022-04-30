@@ -1,5 +1,5 @@
 <?php
-    define('RANK_POWER', array('user' => 0, 'collaborateur' => 1, 'admin' => 2));
+    include_once $_SERVER["DOCUMENT_ROOT"]. '/php/variables.php';
 
     if(is_ajax()){
         if(!isset($_SESSION)) { 
