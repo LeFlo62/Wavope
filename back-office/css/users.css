@@ -30,9 +30,18 @@
     width: var(--user-type-width);
 }
 
+.users-table-col > p:not(.hint) {
+    display: inline;
+}
+
 .hint{
     display: none;
     font-weight: bold;
+}
+
+.modify-pen:hover{
+    cursor: pointer;
+    color: #2186D6;
 }
 
 @media screen and (max-width: 800px) {
