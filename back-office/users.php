@@ -69,7 +69,7 @@
                 <p class="hint">Date de naissance: </p><p>'. $row['birthdate'] .'</p>' . ($modifiable ? '<i data-type="birthdate" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Type: </p><p>'. $row['user_rank'] . '</p>' . ($modifiable ? '<i data-type="user_rank" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
+                <p class="hint">Type: </p><p>'. $row['user_rank'] . '</p>' . ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i data-type="user_rank" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
         </div>';
         }
