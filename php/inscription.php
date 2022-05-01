@@ -11,9 +11,14 @@
     include_once 'mysql.php';
     
     if(isset($_POST) && isset($_POST['forminscription'])){
-        if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['birthdate']) && isset($_POST['productnumber']) && isset($_POST['cgu'])
-            && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['productnumber']) && !empty($_POST['birthdate'])){
+        if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['birthdate']) && isset($_POST['productnumber']) && isset($_POST['cgu']) && isset($_POST['password_check'])
+            && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_check']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['productnumber']) && !empty($_POST['birthdate'])){
             
+            if($_POST['password'] != $_POST['password_check']){
+                header("Location: /inscription.php?error=passwords");
+                exit;
+            }
+
             $productNumber = sanitize($_POST['productnumber']);
             
             if(verify_product_number($productNumber)){

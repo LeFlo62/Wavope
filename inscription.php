@@ -42,6 +42,9 @@
                             case 'number_registered':
                                 echo 'Ce numéro produit est déjà enregistré !';
                                 break;
+                            case 'passwords':
+                                echo 'Les mots de passes ne sont pas identiques !';
+                                break;
                         }
                         echo '</p>';
                     }
@@ -71,7 +74,7 @@
                         </div>
                         <div class="blockTextInput">
                             <label for="passwordCheck" required>Confirmation du Mot de passe</label>
-                            <input class="fieldInput" id="passwordCheck" type="password" />
+                            <input class="fieldInput" name="password_check" id="passwordCheck" type="password" />
                         </div>
                         <div class="blockTextInput">
                             <label for="productnumber" required>Numéro Produit</label>
