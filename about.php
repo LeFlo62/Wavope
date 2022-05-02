@@ -28,7 +28,7 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 2.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/florentin-leclercq-b874a021b/"><img src="./Images/Florentin.jpeg" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Entré à l'ISEP en première année du cycle ingénieur cette année, Florentin est le développeur de notre équipe. Il maitrise les dernières technologies du moment</p>
@@ -37,7 +37,7 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 2.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/qiulin-chen"><img src="./Images/Qiulin.jpg" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
@@ -64,7 +64,7 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Hugo.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/hugo-pabich-89a23519a/"><img src="./Images/Hugo.jpg" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
@@ -73,7 +73,7 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Yves.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/yves-le-dauphin-62852a220/"><img src="./Images/Yves.jpg" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
