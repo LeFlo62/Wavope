@@ -17,6 +17,10 @@
         <title>Inscription</title>
 
         <link rel="stylesheet" href="./css/styleRegister.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="https://releases.jquery.com/git/jquery-3.x-git.min.js"></script>
     </head>
     <body>
         <?php include 'navbar.php' ?>
@@ -91,6 +95,15 @@
                 </form>
                 <p class="alreadySubscrire">Deja inscrit? <a href="login.php">Se connecter</a></p>
             </div>
+                <script>
+                    $('input:not("[type="submit"]")').focusout(function(){
+                        if($(this).val().length == 0){
+                            $(this).addClass('empty-field');
+                        } else if($(this).hasClass('empty-field')) {
+                            $(this).removeClass('empty-field');
+                        }
+                    });
+                </script>
         </div>
     </body>    
 </html>
