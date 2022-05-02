@@ -101,6 +101,19 @@ input[type="submit"]:hover{
     padding: 10px;
 }
 
+.empty-field{
+    border: 2px solid red;
+    box-shadow: 0 0 10px red;
+}
+
+.empty-field::placeholder{
+    color: red;
+}
+
+.fieldInput:focus{
+    box-shadow: none;
+}
+
 .blockButtonSendMessage{
 
     position: relative;
