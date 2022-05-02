@@ -148,7 +148,11 @@
         <div class="menuBar">
             <a class="itemMenuBar" href="/">Wavope</a>
             <a class="itemMenuBar" href="formulaire.php">Contact</a>
-            <a class="itemMenuBar">Autres</a>
+            <?php
+                if(isset($_SESSION['id'])){
+                    echo '<a class="itemMenuBar">Jeu</a>';
+                }
+            ?>
             <a class="itemMenuBar" href="about.php">À propos</a>
             
 
