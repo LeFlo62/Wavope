@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/styleAbout.css">
 </head>
 
+<body>
+
 <?php include 'navbar.php' ?>
 
 <section class="blockAll">
@@ -29,7 +31,7 @@
             <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 2.jpg" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
-            <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
+            <p>Entré à l'ISEP en première année du cycle ingénieur cette année, Florentin est le développeur de notre équipe. Il maitrise les dernières technologies du moment</p>
         </div>
     </div>
 
@@ -44,7 +46,7 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 2.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Raphael.png" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
@@ -53,7 +55,7 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 2.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Maxime.png" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
@@ -62,7 +64,16 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/image random 2.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Hugo.jpg" alt="image 2" class="imageProfil"></a>
+        </div>
+        <div class="blockProfilDescription">
+            <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
+        </div>
+    </div>
+
+    <div class="blockProfil">
+        <div class="blockProfilImage">
+            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Yves.jpg" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>lorem ipsum amet, consectetur adipiscing elit. Integer vel</p>
