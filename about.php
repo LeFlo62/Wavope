@@ -11,7 +11,6 @@
 
 <body>
 
-<!-- <?php include 'navbar.php' ?> -->
 <section class="blockAll">
     <div class="topPage">
         <div class="blockText"> <div class="text">Une équipe.</div></div>
