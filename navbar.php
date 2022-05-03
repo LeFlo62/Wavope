@@ -150,7 +150,7 @@
             <a class="itemMenuBar" href="formulaire.php">Contact</a>
             <?php
                 if(isset($_SESSION['id'])){
-                    echo '<a class="itemMenuBar">Jeu</a>';
+                    echo '<a class="itemMenuBar" href="/game.php">Jeu</a>';
                 }
             ?>
             <a class="itemMenuBar" href="about.php">À propos</a>
