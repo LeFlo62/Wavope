@@ -1,28 +1,23 @@
+@import url('htpps://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 body {
     padding: 0px;
     margin: 0px;
-    background-color: #8cfd7d;
-    font-family: Roboto;
-}
-
-.topPage{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: white;
+    font-family: 'Roboto',  sans-serif;
+    
 }
 
 
-.svgWave{
-    position: fixed;
-    width: 100%;
-    bottom: 0%;
-    Fill: rgb(118, 177, 100);
+.blockSvg{
+    width: 20%;
+    height: 80%;
 }
+
+
 
 .blockAll{
     position: absolute;
-    height: 200%;
+    height: 300%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -30,67 +25,183 @@ body {
     flex-direction: column;
 }
 
+.topPage{
+    position: absolute;
+    width: 100%;
+    height: 33%;
+    top: 0px;
+    /* background-color: white; */
+    /* background-color: f7f8fc;   */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
 .blockTitre {
     position: relative;
     width: 80%;
     height: 6%;
     padding-top: 100px;
+    /* border-color: ; */
 
+}
+
+.blockText {
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    
+ }
+
+.text{
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    font-family: Montserrat;
+    font-weight: bolder;
+    font-size: 60px;
+    animation: spanFadeIn 500ms ease forwards;
+}
+
+.second{
+    animation-delay: 200ms;
+}
+.third{
+    animation-delay:400ms ;
+}
+
+.fourth{
+    animation-delay:600ms ;
+}
+
+
+@keyframes spanFadeIn {
+0% { transform: translateY(100%);
+        overflow: hidden;    
+}
+100%   { transform: translateY(0); }
 }
 
 .presTeam{
     position: relative;
     width: 80%;
-    height: 14%;
+    height:10%;
 }
 
 .presTeamText{
     margin: 20px;
 }
 
-.blockProfil{
+.middlePage{
     position: relative;
-    width: 80%;
-    height: 10%;
+    top: 32%;
+    height:100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 20px;
+    flex-direction: column;
+
 }
+
+.blockProfil{
+    position: relative;
+    width: 80%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 15px 1px rgb(231, 231, 231);
+    transition: 0.6s ease; 
+
+}
+
+.blockProfil:hover{
+    transform: scale(1.05);
+    transition: 0.6s ease; 
+}
+
 
 .blockProfilImage{
     position: relative;
     height: 100%;
     width: 12%;
+    padding-right: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .imageProfil{
-    position: absolute;
+    position: relative;
     width: 100%;
     max-height: 100%;
     left: 0%;
-    top: 0px;
-    border-radius: 30%;
+    /* top: 0px; */
+    border-radius: 50%;
 }
 .blockProfilDescription{
     position: relative;
     height: 100%;
-    width: 80%;
+    width: 60%;
+    padding-right: 60px;
+    /* right: 0px; */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* background-color: green; */
 }
 
 .presProject{
-    background-color: purple;
+    /* background-color: purple; */
     height: 10%;
     width: 100%;
     position: absolute;
     bottom: 0px;
     margin: 20px;
+}
+
+.presTeam{
+
+    position: relative;
+
+
+}
+@keyframes buttonAnimation {
+    0% {   transform: scale(1);  
+    }
+    50%   { transform: scale(1.1); }
+    100%   { transform: translateY(1); }
+    }
+    
+
+.reveal{
+    opacity: 0;
+    transform: translateY(-30px);
+
+}
+
+.reveal-visible{
+
+    opacity: 1;
+    transform: translateY(0);
+    transition: 1s cubic-bezier(0.5,0,0,1);
+
+}
+
+
+
+.duration1{
+    transition-duration: .8s;
+
 }
 
 
