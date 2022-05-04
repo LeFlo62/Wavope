@@ -4,9 +4,10 @@ const questions=["Qu’est-ce qui peut faire le tour du monde en restant dans so
 const answers= [["Un timbre","lorem2","lorem3"],["La migraine","lorem2","lorem3","lorem4"],["Un champignon","lorem2","lorem3"]]
 
 function nextStepQuizz(){
-    document.getElementById("percentage").innerHTML=100*step/(questions.length) +"%";
-    document.documentElement.style.setProperty('--h', 100*step/(questions.length)+ '%')
-    if (step/(questions.length)==1){
+    let percentageValue=100*step/(questions.length);
+    document.getElementById("percentage").innerHTML= percentageValue+"%";
+    document.documentElement.style.setProperty('--h', percentageValue+ '%') //Change the progressBar Value
+    if (percentageValue==100){
         newQuestion("Vous avez terminé le quizz",[]);
         console.log("Réponse de l'utilisateur:" + userAnswers);
     }
@@ -16,17 +17,16 @@ function nextStepQuizz(){
     }
 }
 function newQuestion(question,answers){
-    document.getElementById("answerBlock").innerHTML = '';
-        document.getElementById("question").innerHTML=question;
-        for(var i=0;i<answers.length;i++){
-            let  newAnswer = document.createElement("div");
-            newAnswer.classList.add("answer");
-            let newContent = document.createTextNode(answers[i]);
-            newAnswer.appendChild(newContent);
-            document.getElementById('answerBlock').appendChild(newAnswer);
-        }
-    var answerElement = document.getElementsByClassName("answer");
-    
+    document.getElementById("answerBlock").innerHTML = ''; //Delete the previous Question/Answer
+    document.getElementById("question").innerHTML=question;
+    for(var i=0;i<answers.length;i++){
+        let  newAnswer = document.createElement("div");
+        newAnswer.classList.add("answer");
+        let newContent = document.createTextNode(answers[i]);
+        newAnswer.appendChild(newContent);
+        document.getElementById('answerBlock').appendChild(newAnswer);
+    }
+    let answerElement = document.getElementsByClassName("answer");
     for (var i = 0; i < answerElement.length; i++) {
         answerElement[i].addEventListener('click', function(){
             userAnswers.push(this.innerHTML);
