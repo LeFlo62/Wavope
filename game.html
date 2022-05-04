@@ -1,17 +1,27 @@
-<!-- game -->
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
+    <title>Jeu</title>
+    <link rel="stylesheet" href="./css/styleQuizz.css">
     <script src="gameFunctions.js"></script>
     <link rel="stylesheet" href="styleGame.css">
-
 </head>
 <body>
+    <section class="blockAllQuizz">
+        <div class="blockQuizz">
+            <div class="progress-container">
+                <progress id="progressBar" max="100" value="0"></progress>
+              </div>
+              <span id="percentage">0%</span>
+            <div id="question"></div>
+            <div id ="answerBlock" class="answerBlock"> 
+            </div>
+        </div>
+    </section>
+
     <section class="blockGameWindow">
         <h1> Bienvenue sur le jeu ! (touche "espace" pour commencer)</h1>
         <div class="gameWindow">
@@ -22,6 +32,9 @@
             <img id="obstacle" src="./Images/gameSprite/plastic.png">
         </div>
     </section>
-    
+
+
+    <script type="text/javascript" src="./js/functionQuizz.js"></script>
+
 </body>
 </html>
