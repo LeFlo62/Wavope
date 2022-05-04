@@ -102,16 +102,18 @@ label{
     justify-content: center;
     flex-direction: column;
 }
-.pasIncrit{
+.sublinks{
     margin-top: 5px;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
 }
-.pasIncrit a{
+.sublinks a{
     color:rgb(23, 34, 20); 
     text-decoration:none;
+    margin: 5px;
+    display: block;
 }
-.pasIncrit :hover{
+.sublinks :hover{
     color: #375d22;
     transition: 0.3s
 }

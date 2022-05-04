@@ -63,7 +63,10 @@
                     <div class="blockButtonSendMessage">
                         <input type="submit" name="login" class="square_btn2" value="SE CONNECTER"/>
                         
-                        <div class="pasIncrit"><a href="inscription.php">Pas encore inscrit?</a></div>
+                        <div class="sublinks">
+                            <a href="resetpassword.php?r=f">Mot de passe oublié ?</a><br/>
+                            <a href="inscription.php">Pas encore inscrit?</a>
+                        </div>
                     </div>
                 </form>
             </div>
