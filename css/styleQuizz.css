@@ -1,0 +1,110 @@
+:root {
+    --h: 10%;
+  }
+  
+  body{
+      padding: 0;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+  
+  }
+  .blockAllQuizz{
+  
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgb(252, 252, 252);
+      display: flex;
+      text-decoration:none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+  
+  .blockQuizz{
+      
+      position: absolute;
+      height: 60%;
+      width: 60%;
+      background-color: rgb(255, 255, 255);
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px 1px rgb(224, 224, 224);
+      display: flex;
+      text-decoration:none;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+  
+  }
+  #question{
+      font-size: 30px;
+      /* background-color: green; */
+      margin: 40px;
+  }
+  
+  progress {
+    opacity: 0;
+  }
+  .progress-container {
+      position: relative;
+      display: inline-block;
+      background: rgb(247, 247, 247);
+      height: 20px;
+      width: 80%;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      text-decoration:none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+  
+  .progress-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--h);
+    background: rgb(130, 233, 99);
+  }
+  
+  #percentage{
+      margin: 10px;
+  }
+  
+  #answerBlock{
+      position: relative;
+      height: 40%;
+      width: 90%;
+      /* background-color: blue; */
+      display: flex;
+      text-decoration:none;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .answer{
+  
+      position: relative;
+      height: 60px;
+      width: 140px;
+      font-family: 'Roboto', sans-serif;
+      /* background-color: rgb(172, 20, 141); */
+      border-radius: 10px;
+      background-color: rgb(247, 247, 247);
+      display: flex;
+      margin: 10px;
+      text-decoration:none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+      transition: 0.5s ease;    
+  }
+  
+  .answer:hover{
+      transform: scale(1.15);
+      transition: 0.5s ease; 
+  }

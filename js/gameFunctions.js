@@ -16,6 +16,9 @@ var isRunning=false;
             if (isRunning==true){
                 setInterval( function() { displayPoint(); }, 10 );
             }   
+            else{
+                document.getElementById("point").innerHTML= 0;
+            }
         }
 
         function jump(idName){            
