@@ -1,7 +1,7 @@
 var step=0;
 var userAnswers=[];
 const questions=["Qu’est-ce qui peut faire le tour du monde en restant dans son coin ?","Quel est l’ami qu’on ne peut pas supporter ?","J’ai un chapeau, mais pas de tête. J’ai un pied mais pas de chaussures. Qui suis-je?"]
-const answers= [["Un timbre","lorem2","lorem3"],["La migraine","lorem3","lorem4","La migraine","lorem2"],["Un champignon","lorem2","lorem3"]]
+const answers= [["Un timbre","lorem2","lorem3"],["La migraine","lorem2","lorem3","lorem4"],["Un champignon","lorem2","lorem3"]]
 
 function nextStepQuizz(){
     let percentageValue=100*step/(questions.length);
