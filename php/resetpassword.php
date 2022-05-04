@@ -14,7 +14,20 @@
 	include_once 'mysql.php';
 
 	if(isset($_POST)){
-        if(isset($_POST['method']) && $_POST['method'] === 'r'){
+        if(isset($_POST['method']) && $_POST['method'] === 'c' && isset($_POST['token'])){
+            $bdh = new DBHandler();
+
+            $token = sanitize($_POST['token']);
+
+            $reqremoveold = $bdh->getInstance()->prepare("DELETE FROM reset_password WHERE date < SUBTIME(NOW(), '00:15:00')");
+            $reqremoveold->execute();
+
+            $reqresetreq = $bdh->getInstance()->prepare('DELETE FROM reset_password WHERE token = :token');
+            $reqresetreq->bindparam('token', $token, PDO::PARAM_STR);
+            $reqresetreq->execute();
+
+            echo json_encode(array('return_type' => 'success', 'message' => 'La requête a été annulée.'));
+        } else if(isset($_POST['method']) && $_POST['method'] === 'r'){
             $bdh = new DBHandler();
 
             $reqremoveold = $bdh->getInstance()->prepare("DELETE FROM reset_password WHERE date < SUBTIME(NOW(), '00:15:00')");

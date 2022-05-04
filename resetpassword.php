@@ -23,6 +23,9 @@
         <title>Changement de mot de passe</title>
         
         <link rel="stylesheet" href="./css/styleResetpassword.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script type="text/javascript" src="https://releases.jquery.com/git/jquery-3.x-git.min.js"></script>
 
     </head>
@@ -134,6 +137,24 @@
                                     window.location.href = "?r=r&error=completion'. ((isset($_GET['token'])) ? ('&token='. $_GET['token']) : '') .'";
                                 }
                             }
+                        </script>';
+                    } else if($_GET['r'] === 'c' && isset($_GET['token'])){
+                        echo '<h1>Nous sommes navrés...</h1><p>Cette requête de modification de mot de passe a été annulée.</p>
+                        <script>
+                            var method = "c";
+                            var token = "'. $_GET['token'] .'";
+                            $.post("./php/resetpassword.php", {method: method, token: token})
+                            .done(function(response){
+                                alert(response);
+                                var responseObj = JSON.parse(response);
+                                $("#snackbar").html(responseObj.message).addClass(["show", responseObj.return_type]);
+                                setTimeout(function(){
+                                    $("#snackbar").removeClass(["show", responseObj.return_type]);
+                                }, 3000);
+                            })
+                            .fail(function(){
+                                alert("error");
+                            });
                         </script>';
                     } else {
                         header("Location: /logi.php");
