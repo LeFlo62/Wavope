@@ -28,6 +28,10 @@
         <div class="box">
             <div class="blockFormulaire">
                 <?php
+                    if(isset($_GET['registrationSuccess'])){
+                        echo '<p class="registrationInfo">Confirmez votre compte dans votre e-mail.</p>';
+                    }
+
                     if(isset($_GET['error'])){
                         echo '<p class="error">';
                         switch($_GET['error']){
@@ -42,6 +46,9 @@
                                 break;
                             case 'password':
                                 echo 'Mot de passe incorrecte !';
+                                break;
+                            case 'confirmation':
+                                echo 'Votre compte n\'a pas été confirmé !';
                                 break;
                         }
                         echo '</p>';

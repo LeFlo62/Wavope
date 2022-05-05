@@ -15,9 +15,19 @@
 			$requser->bindparam('email', $email, PDO::PARAM_STR);
 			$requser->execute();
 			$userexist = $requser->rowCount();
+			$usercredits = $requser->fetch();
+			
+			$reqregister = $bdh->getInstance()->prepare('SELECT * FROM register_confirmation WHERE user_id = :user_id');
+			$reqregister->bindparam('user_id', $usercredits['id'], PDO::PARAM_INT);
+			$reqregister->execute();
+			$registered = $reqregister->rowCount();
+
+			if($registered == 1){
+				header("Location: /login.php?error=confirmation");
+				exit;
+			}
 
 			if($userexist == 1){
-				$usercredits = $requser->fetch();
 				$hashedPassword = $usercredits['password'];
 
 				if(password_verify($_POST['password'], $hashedPassword)){
