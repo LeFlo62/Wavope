@@ -16,6 +16,7 @@
     $requserdata->execute();
     $userdata = $requserdata->fetch();
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -37,7 +38,7 @@
                     if(isset($_GET['success'])){
                         echo '<p class="success">Informations modifiées !</p>';
                     }
-
+                    
                     if(isset($_GET['error'])){
                         echo '<p class="error">';
                         switch($_GET['error']){
@@ -85,5 +86,4 @@
             </div>
         </div>
     </body>
-
 </html>

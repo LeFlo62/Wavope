@@ -15,8 +15,10 @@
                 <div class="blockTitreInformation"><h1>Contactez-Nous</h1></div>
                 <div class="blockTextInformation">
                     <div class="textInformation">
-                        <h2>Téléphone: 06 66 66 66 66</h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt autem necessitatibus officia doloribus aliquam neque voluptate sed sit repudiandae facilis, reiciendis atque quis eum accusamus est ut eveniet explicabo itaque.
-                        <h3>Wavope: wavope@gmail.com</h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt autem necessitatibus officia doloribus aliquam neque voluptate sed sit repudiandae facilis, reiciendis atque quis eum accusamus est ut eveniet explicabo itaque.
+                        <h2>Téléphone: 06 66 66 66 66</h2>Si vous rencontrez des soucis, vous pouvez nous contacter via le numéro de téléphone ci-dessus. Notre service client 
+                        est disponible 24h/24 et 7j/7.
+                        <h3>Wavope: wavope@gmail.com</h3>Vous avez également la possibilité de nous contacter via l'adresse e-mail indiquée ci-dessus. Notre personnel 
+                        vous répondra dans les meilleurs délais.
                     </div>
                 </div>
             </div>
