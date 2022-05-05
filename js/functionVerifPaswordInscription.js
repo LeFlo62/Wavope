@@ -6,15 +6,11 @@
             }
         }
         return false;
-
     }
 
-    
     function isPasswordToMuchEasy(passwordIdName){
-
         let password=document.getElementById(passwordIdName).value;
         let minPassLength=10;
-
         if (password.length < minPassLength){           
             return true;
         }
@@ -23,8 +19,5 @@
                 return false;
             }
         }
-        
         return true;
-        
-
     }

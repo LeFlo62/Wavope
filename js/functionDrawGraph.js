@@ -6,11 +6,11 @@ function drawChart(canvasId,x,y,title="",chartType="line"){
             labels: x, //[1, 2,3,4,5,6],  //Ici les X
             datasets: [{
                 type: chartType, // 'line',   //line,pie,scatter,bar,polarArea,doughnut...
-                label: 'Ligne Test',
+                label: 'Evolution',
                 data:y, // [12, 19, 3, 50, 200, 300],   //Ici les Y
                 backgroundColor: [
                     'rgba(255, 109, 132,1)',
-                    'rgba(75, 192, 192, 1)',
+                    // 'rgba(75, 192, 192, 1)',
                 ],
                 borderColor: [
                     'black',
@@ -27,6 +27,14 @@ function drawChart(canvasId,x,y,title="",chartType="line"){
         },
     
         options: {
+            scales: {
+                xAxes: [{
+                  type: 'time'
+                }]
+            },
+          
+
+
             responsive: true,
             maintainAspectRatio: false,
             plugins: { 
@@ -49,3 +57,11 @@ function drawChart(canvasId,x,y,title="",chartType="line"){
     });
     
     }
+
+function drawMultipleGraphs(){
+
+
+
+
+
+}
