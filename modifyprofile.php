@@ -65,14 +65,6 @@
         </div>
 	</div>
 
-    <!-- <?php
-        if(isset($_POST('MODIFIER'))){
-
-        }
-    ?>
-    -->
-
-
 </body>
 
 </html>
