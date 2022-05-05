@@ -29,14 +29,23 @@ html, body{
     float: left;
 }
 
+.search{
+    padding: 10px;
+    border: solid 2px #1b2f40;
+    background-color: #2c3e50;
+    min-width: 350px;
+    color: white;
+    border-radius: 5px;
+}
+
 #middle-bar{
+    display: flex;
     position: absolute;
     text-align: center;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    max-height: var(--masthead-height);
+    height: var(--masthead-height);
 }
 
 #master-page-title{
