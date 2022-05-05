@@ -35,6 +35,8 @@
     </head>
     <body>
         <div id="masthead">
+            <div id="middle-bar">
+            </div>
             <div id="topbar-corner">
                 <p id="master-page-title">Back-Office</p>
                 <a id="back-to-site" href="/">Retours à Wavope</a>

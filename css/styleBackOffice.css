@@ -1,6 +1,6 @@
 * {
     --navbar-width: 150px;
-    --masthead-height: 80px;
+    --masthead-height: 65px;
     --tools-bars-color: #34495e;
 }
 
@@ -17,7 +17,7 @@ html, body{
     width: 100%;
     background-color: var(--tools-bars-color);
     z-index: 10;
-    max-height: var(--masthead-height);
+    height: var(--masthead-height);
 }
 
 #topbar-corner{
@@ -27,6 +27,16 @@ html, body{
     flex-direction: column;
     justify-content: center;
     float: left;
+}
+
+#middle-bar{
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-height: var(--masthead-height);
 }
 
 #master-page-title{
