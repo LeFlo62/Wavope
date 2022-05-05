@@ -27,7 +27,7 @@
         $requserid = $bdh->getInstance()->prepare('SELECT user_id FROM register_confirmation WHERE token = :token');
         $requserid->bindparam('token', $token, PDO::PARAM_STR);
         $requserid->execute();
-        echo $requserid->rowCount();
+        
         if($requserid->rowCount() == 1){
             $reqresetreq = $bdh->getInstance()->prepare('DELETE FROM register_confirmation WHERE token = :token');
             $reqresetreq->bindparam('token', $token, PDO::PARAM_STR);
