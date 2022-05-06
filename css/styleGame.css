@@ -65,8 +65,8 @@ body{
 #playerSprite{
 
     position: absolute;
-    width: 80px;
-    height: 160px;
-    background-color: rgb(130, 233, 99);
+    max-width: 80px;
+    /* height: 160px; */
+    /* background-color: rgb(130, 233, 99); */
     bottom: 0px;
 }
