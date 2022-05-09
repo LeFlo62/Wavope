@@ -26,7 +26,6 @@
                     <h1>WAVOPE</h1>
                 </div>
                 <div class="TextPhoneTop reveal duration1" >
-                    Wavope est une startup composée de 6 personnes offrant des prestations dans le domaine de l'informatique à différents clients.
                     La société InfiniteMeasure développe un système complet de mesure de la qualité environnementale des personnes. 
                     Les différentes données sont récoltées et présentées dans le site. Des conseils de professionnels sont également disponibles
                     et vous pourrez avoir accès à un jeu ludique vous permettant de vous instruire sur cette thématique.
