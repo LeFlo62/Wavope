@@ -79,20 +79,20 @@
                     return (el.textContent || el.innerText).toLowerCase().indexOf(p[3].toLowerCase()) === 0;
                 }
             });
-
+            <?php $p = $_GET['p']; ?>
             $('input.search').on('change input paste keyup', function(){
                 var value = $(this).val();
                 if(value != ''){
-                    $('.users-table').children(".users-table-row").not('.title').css({'display': 'none'});
-                    var findings = $('.users-table').children('.users-table-row:has(p:starts-with-lowercase("' + value + '"))');
+                    $('.<?php echo $p; ?>-table').children(".<?php echo $p; ?>-table-row").not('.title').css({'display': 'none'});
+                    var findings = $('.<?php echo $p; ?>-table').children('.<?php echo $p; ?>-table-row:has(p:starts-with-lowercase("' + value + '"))');
 
                     if(findings.length == 0){
-                        findings = $('.users-table').children('.users-table-row:contains("' + value + '")');
+                        findings = $('.<?php echo $p; ?>-table').children('.<?php echo $p; ?>-table-row:contains("' + value + '")');
                     }
 
                     findings.css({'display': 'flex'});
                 } else {
-                    $('.users-table').children('.users-table-row').css({'display': 'flex'});
+                    $('.<?php echo $p; ?>-table').children('.<?php echo $p; ?>-table-row').css({'display': 'flex'});
                 }
             });
         </script>
