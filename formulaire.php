@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/styleContactForm.css">
 </head>
 <body>
+<?php include 'navbar.php' ?>
+
     <section class="contactSection">
         <div class="blockAll">
             <div class="blockInformation">
