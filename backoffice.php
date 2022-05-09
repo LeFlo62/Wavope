@@ -39,7 +39,7 @@
         <div id="masthead">
             <div id="middle-bar">
                 <?php
-                    if($_GET['p'] !== 'cards'){
+                    if($_GET['p'] !== 'cards' && $_GET['p'] !== 'faq'){
                         echo '<input type="text" class="search" placeholder="Recherche"></input>';
                     }
                 ?>
@@ -52,8 +52,10 @@
         <div class="navbar">
             <div class="masthead-spacer"></div>
             <a <?php if($_GET['p'] === 'cards') { echo 'class="selected"';} ?> href="?p=cards">Cartes</a>
+            <a <?php if($_GET['p'] === 'faq') { echo 'class="selected"';} ?> href="?p=faq">FAQ</a>
             <a <?php if($_GET['p'] === 'users') { echo 'class="selected"';} ?> href="?p=users">Utilisateurs</a>
             <a <?php if($_GET['p'] === 'devices') { echo 'class="selected"';} ?> href="?p=devices">Appareils</a>
+
         </div>
         <div class="content">
             <?php
@@ -69,6 +71,9 @@
                         break;
                     case 'devices':
                         include './back-office/devices.php';
+                        break;
+                    case 'faq':
+                        include './back-office/faq.php';
                         break;
                 }
             ?>

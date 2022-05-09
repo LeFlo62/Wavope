@@ -153,7 +153,7 @@
                     echo '<a class="itemMenuBar" href="/game.php">Jeu</a>';
                 }
             ?>
-            <a class="itemMenuBar" href="about.php">À propos</a>
+            <a class="itemMenuBar" href="faq.php">FAQ</a>
             
 
             <?php
