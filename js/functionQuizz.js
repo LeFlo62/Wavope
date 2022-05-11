@@ -1,7 +1,7 @@
 var step=0;
 var userAnswers=[];
 const questions=["Combient de temps met une bouteille en plastique pour se décomposer ?","Quel est le pourcentage d'énergies renouvelables dans le mix énergétique français ?","Combien de membres compte la convention citoyenne sur le climat ?","combien d'hectares sont brulés chaque année par les incendies (en moyenne) ?",""]
-const answers= [["10-20 ans","20-50 ans","100-1000 ans*"],["9,3 %","25,3 %*","32,1 %"],["110","127","150*"],["200 000 000","350 000 000 ","454 000 000"],["","",""]]
+const answers= [["10-20 ans","20-50 ans","100-1000 ans*"],["9,3 %","25,3 %*","32,1 %"],["110","127","150*"],["200 000 000","350 000 000* ","454 000 000"],["","",""]]
 
 function nextStepQuizz(){
     let percentageValue=100*step/(questions.length);
