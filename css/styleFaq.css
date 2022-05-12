@@ -49,6 +49,7 @@ h1{
     text-decoration:none;
     justify-content: center;
     flex-direction: column;
+    width: 80%;
 
 }
 
