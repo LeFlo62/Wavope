@@ -17,6 +17,10 @@
   width: 8%;
 }
 
+.logoMenuBar img{
+  width: 100%;
+}
+
 .menuBar{
   display: flex;
   flex-wrap: nowrap;
