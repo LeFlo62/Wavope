@@ -25,60 +25,60 @@
     <div id="middlePage" class="middlePage">
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/florentin-leclercq-b874a021b/"><img src="./Images/Florentin.jpeg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/zakia-kazi-aoul-0a29ab8/"><img src="./Images/zakia_kazi_aoul.png" alt="image 1" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
-            <p>Arrivé en première année du cycle ingénieur de l’ISEP, c’est notre développeur en Chef. Il maîtrise parfaitement chacun des langages informatiques utilisés et saura intégrer des fonctionnalités dans vos projets. Avec lui rigueur, travail et excellence sont de misent. </p>
+            <p>Zakia Kazi-Aoul est une enseignante-chercheuse et responsable du domaine informatique de l'ISEP.</p>
         </div>
         <a class="square_btn1">Voir plus </a>
     </div>
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/qiulin-chen"><img src="./Images/Qiulin.jpg" alt="image 2" class="imageProfil"></a>
+            <a href=""><img src="./Images/mariam_camara.png" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
-            <p>Issue du cycle intégré international de l’ISEP, il est le chargé du développement international du projet. Maîtrisant parfaitement la langue la plus parlée du monde, il saura exporter vos projets aux mondes entiers pour séduire de nouveaux marchés.</p>
+            <p>Mariam Camara est une enseignante-chercheuse de l'ISEP.</p>
         </div>
         <a class="square_btn1">Voir plus </a>
     </div>
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Raphael.png" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-amiel-911a5a20/"><img src="./Images/frederic_amiel.png" alt="image 3" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
-            <p>Issue du cycle intégré international de l’ISEP, il est le chargé du développement commercial du projet. Il saura vous écouter afin de vous proposer les meilleurs fonctionnalités pour votre projet. </p>
+            <p>Frédéric Amiel est un enseignant-chercheur et responsable du domaine électronique de l'ISEP.</p>
         </div>
         <a class="square_btn1">Voir plus </a>
     </div>
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/raphael-gradus/"><img src="./Images/Maxime.png" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/florence-rossant-37469962/"><img src="./Images/florence_rossant.png" alt="image 4" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
-            <p>Arrivé en première année du cycle ingénieur de l’ISEP, il est nôtre développeur web. Aucune langage ne lui fait peur. Il saura s’adapter et innover afin de de transformer vos simples projets en réussite mondiale. </p>
+            <p>Florence Rossant est une enseignante-chercheuse de l'ISEP. Elle est responsable du groupe DASSIP et possède une Habilitation à Diriger les Recherches (HDR).</p>
         </div>
         <a class="square_btn1">Voir plus </a>
     </div>
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/hugo-pabich-89a23519a/"><img src="./Images/Hugo.jpg" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/samiaoukemeni/"><img src="./Images/samia_oukemeni.png" alt="image 5" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
-            <p>Issu du cycle préparatoire associé de l’ISEP, il est celui qui étudier la faisabilité de votre projet et saura vous conseiller sur ce qui est essentiel pour la réussite de votre projet.</p>
+            <p>Samia Oukemeni est une enseignante-chercheuse de l'ISEP.</p>
         </div>
         <a class="square_btn1">Voir plus </a>
     </div>
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/yves-le-dauphin-62852a220/"><img src="./Images/Yves.png" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/ahmed-messaoudi-29147a112/"><img src="./Images/ahmed_messaoudi.png" alt="image 6" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
-            <p>Issu du cycle préparatoire associé de l’ISEP, il incarne le Chef de Projet de notre équipe. Il est celui qui fera que votre projet arrive à son terme dans les temps et avec la qualité GOOD Corp.</p>
+            <p>Ahmed Messaoudi est un enseignant de l'ISEP.</p>
         </div>
         <a class="square_btn1">Voir plus </a>
     </div>
