@@ -24,7 +24,7 @@
     </section>
 
     <section class="blockGameWindow">
-        <h1> Bienvenue sur le jeu ! (touche "espace" pour commencer)</h1>
+        <h1 font-family= "Roboto", sans-serif> Bienvenue sur le jeu ! (touche "espace" pour commencer)</h1>
         <div class="gameWindow">
             <div class="blockPoint">
                 vous avez : <span id="point">0</span> point(s)
