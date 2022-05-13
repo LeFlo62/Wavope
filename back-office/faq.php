@@ -40,10 +40,10 @@
         var answer = questionAnswer.find('.answer');
         var caret = questionAnswer.find('i');
         if(answer.css('display') === 'none'){
-            answer.css({'display': 'block'});
+            answer.slideDown();
             caret.removeClass('fa-caret-down').addClass('fa-caret-up');
         } else {
-            answer.css({'display': 'none'});
+            answer.slideUp();
             caret.addClass('fa-caret-down').removeClass('fa-caret-up');
         }
     });
