@@ -8,6 +8,7 @@
 body{
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .svgWave{
@@ -59,6 +60,7 @@ body{
 }
 h1{
     font-family: 'Roboto', sans-serif;
+    color: red;
 }
 
 .blockPoint{
