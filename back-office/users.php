@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="./back-office/css/users.css">
 <script src="https://kit.fontawesome.com/0f6a392601.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://releases.jquery.com/git/jquery-3.x-git.min.js"></script>
-
 <div class="users-table">
     <div class="users-table-row title">
         <div class="users-table-col">
@@ -38,6 +37,9 @@
         </div>
         <div class="users-table-col">
             Type
+        </div>
+        <div class="users-table-col">
+            Contrôles
         </div>
     </div>
     <?php
@@ -71,11 +73,30 @@
             <div class="users-table-col">
                 <p class="hint">Type: </p><p>'. $row['user_rank'] . '</p>' . ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i data-type="user_rank" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
+            <div class="users-table-col">
+                <p class="hint">Contrôles: </p>'. ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i user-id="'. $row['id'] .'" class="delete fa-solid fa-xmark"></i><i user-id="'. $row['id'] .'" class="ban fa-solid fa-gavel"></i>' : '')
+            .'</div>
         </div>';
         }
     ?>
     <div id="snackbar"></div>
     <script>
+        $('.delete').click(function(){
+            $('#modal-background').fadeIn();
+
+            $('#modal').css({'display': 'flex'})
+            .html('<p class="modal-title" style="color: red;">Suppression ?</p><p>Voulez-vous vraiment supprimer ce compte ?</p><div class="buttons"><div class="accept">Confirmer</div><div class="cancel">Annuler</div></div>')
+            .animate({'opacity': '1'});
+        });
+
+        $('div.cancel').click(function(){
+            $('#modal-background').fadeOut();
+            $('#modal').animate({'opacity': '0'}, function(){
+                $("#modal").css({'display': 'none'});
+                alert("finish");
+            });
+        });
+
         $('.modify-pen').click(function() {
             var pen = $(this);
             var type = pen.attr("data-type");
@@ -155,3 +176,5 @@
         });
     </script>
 </div>
+<div id="modal-background"></div>
+<div id="modal"></div>

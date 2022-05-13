@@ -1,3 +1,60 @@
+#modal-background{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 5;
+}
+
+#modal{
+    display: none;
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 12px 0 black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 300px;
+}
+
+#modal .modal-title{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+#modal .buttons{
+    bottom: 0;
+}
+
+#modal .buttons .accept{
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    background-color: #2ecc71;
+    border: solid 2px #2ecc71;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#modal .buttons .cancel{
+    display: inline-block;
+    padding: 5px; 
+    margin: 5px;
+    color: #e74c3c;
+    border: solid 2px #e74c3c;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .users-table{
     display: flex;
     flex-direction: column;
@@ -18,9 +75,10 @@
 
 .users-table-col{
     --id-width: 6%;
-    --email-width: 40%;
-    --user-type-width: 9%;
-    width: calc((100% - var(--email-width) - var(--user-type-width) - var(--id-width))/3);
+    --email-width: 35%;
+    --user-type-width: 12%;
+    --controls-with: 8%;
+    width: calc((100% - var(--email-width) - var(--user-type-width) - var(--id-width) - var(--controls-with))/3);
 }
 
 .users-table-col:nth-of-type(1){
@@ -33,6 +91,20 @@
 
 .users-table-col:nth-of-type(6){
     width: var(--user-type-width);
+}
+
+.users-table-col:nth-of-type(7){
+    width: var(--controls-with);
+}
+
+.users-table-col:nth-of-type(7) i{
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.users-table-col:nth-of-type(7) i.fa-xmark{
+    color: red;
 }
 
 .users-table-col > p:not(.hint) {
@@ -99,7 +171,7 @@
 }
 
 @media screen and (max-width: 800px) {
-    .users-table-col, .users-table-col:nth-of-type(1), .users-table-col:nth-of-type(4), .users-table-col:nth-of-type(6){
+    .users-table-col, .users-table-col:nth-of-type(1), .users-table-col:nth-of-type(4), .users-table-col:nth-of-type(6), .users-table-col:nth-of-type(7){
         width: 100%;
     }
 
