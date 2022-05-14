@@ -124,3 +124,70 @@ h1{
     transition:0.3s;
 }
 
+.blockTile {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height:100%;
+    top: 550px;
+}
+
+.blockSubject {
+    top: 0px;
+    background-color: rgb(144, 238, 144);
+    border-radius: 2em;
+    box-shadow: 5px 5px 5px red;
+    margin:40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: 4mm ridge
+}
+
+.blockTitle {
+    position: relative;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin:20px;
+    margin-top: 5px;
+    border: solid green;
+}
+
+.blockDate {
+    position: relative;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    text-decoration:none;
+    margin: 20px;
+    margin-top: 5px;
+    border: solid green;
+}
+
+.blockParagraphe {
+    position: relative;
+    height: 55%;
+    display: flex;
+    align-items: center; 
+    text-decoration:none;
+    justify-content: center;
+    margin:20px;
+    border: solid green;
+}
+
+p {
+    color: black;
+    position: relative;
+    display: flex;
+    align-items: center; 
+    text-decoration:none;
+    justify-content: center;
+    margin:20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.blockSubject:hover {
+    background-color: white;
+    cursor: pointer;
+}

@@ -42,6 +42,52 @@
             </div>
         </section>
 
+        <section class="blockTile">
+            <div class="blockSubject">
+                <div class="blockTitle">
+                    <p> Titre du sujet : </p>
+                </div>
+
+                <div class="blockDate">
+                    <p> Date du sujet : </p>
+                </div>
+
+                <div class="blockParagraphe">
+                    <p> Wavope est une entreprise composée de 6 employés très motivés </p>
+                </div>
+            </div>
+
+
+
+            <div class="blockSubject">
+                <div class="blockTitle">
+                    <p> Titre du sujet : </p>
+                </div>
+
+                <div class="blockDate">
+                    <p> Date du sujet : </p>
+                </div>
+
+                <div class="blockParagraphe">
+                    <p> Wavope est une entreprise composée de 6 employés très motivés </p>
+                </div>
+            </div>
+
+            <div class="blockSubject">
+                <div class="blockTitle">
+                    <p> Titre du sujet : </p>
+                </div>
+
+                <div class="blockDate">
+                    <p> Date du sujet : </p>
+                </div>
+
+                <div class="blockParagraphe">
+                    <p> Wavope est une entreprise composée de 6 employés très motivés </p>
+                </div>
+            </div>
+        </section>
+
             <script type="text/javascript" src="./js/revealDefilementScript.js"> </script>
     </body>
 </html>
