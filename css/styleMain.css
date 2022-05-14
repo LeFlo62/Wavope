@@ -42,12 +42,12 @@ h1{
 
 .jumbotron{
     position: absolute;
-    padding-left: 9%;
     top: 20%;
 }
 
 .home{
     width: 40%;
+    margin-left: 9%;
 }
 
 .title{
@@ -156,4 +156,10 @@ h1{
     font-size: 1rem;
     margin-top: 20px;
     overflow: hidden;
+}
+
+@media screen and (max-width: 1700px) {
+    .card{
+        width: 480px;
+    }
 }

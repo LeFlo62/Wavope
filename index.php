@@ -12,7 +12,6 @@
         <title>Wavope</title>
         <link rel="stylesheet" href="./css/styleButton.css">
         <link rel="stylesheet" href="./css/styleSwiperCard.css">
-        <link rel="stylesheet" href="./css/styleAnimationOnScroll.css">
         <link rel="stylesheet" href="./css/styleMain.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +44,16 @@
             </div>
 
             <div class="cards">
+                <div class="card">
+                    <p class="card-title">Titre de la carte</p>
+                    <p class="card-date">Le 18/05/2022</p>
+                    <p class="card-preview">Le saviez-vous ? Pendant longtemp la femme la plus vielle du monde était française, mais ce titre est de plus en plus attribué aux femmes chinoises. Cette différence de longévité n'est pas encore connu de manière certaine. Cependant, nous pouvons attribuer cela au fait que en comparant la population, on remarque que la population chinoise est 20 fois suppérieure à celle de la France. Une personne sur cinq est chinoise.</p>
+                </div>
+                <div class="card">
+                    <p class="card-title">Titre de la carte</p>
+                    <p class="card-date">Le 18/05/2022</p>
+                    <p class="card-preview">Le saviez-vous ? Pendant longtemp la femme la plus vielle du monde était française, mais ce titre est de plus en plus attribué aux femmes chinoises. Cette différence de longévité n'est pas encore connu de manière certaine. Cependant, nous pouvons attribuer cela au fait que en comparant la population, on remarque que la population chinoise est 20 fois suppérieure à celle de la France. Une personne sur cinq est chinoise.</p>
+                </div>
                 <div class="card">
                     <p class="card-title">Titre de la carte</p>
                     <p class="card-date">Le 18/05/2022</p>
