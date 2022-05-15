@@ -112,7 +112,7 @@
                             $('.ban[user-id='+ userId +']').closest('.users-table-row').addClass('banned');
                             $('.ban[user-id='+ userId +']').removeClass('fa-gavel').addClass('fa-hands-praying');
                         } else if(responseObj.message.includes('supprimé')){
-                            $('.ban[user-id='+ userId +']').closest('.users-table-row').removeClass('banned');
+                            $('.ban[user-id='+ userId +']').closest('.users-table-row').remove();
                         }
                     }
                 })
