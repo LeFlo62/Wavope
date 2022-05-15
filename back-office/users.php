@@ -47,14 +47,14 @@
 
         $bdh = new DBHandler();
 
-        $reqdata = $bdh->getInstance()->prepare("SELECT id,firstname,lastname,email,birthdate,user_rank FROM users JOIN user_data ON users.id = user_data.user_id GROUP BY users.id;");
+        $reqdata = $bdh->getInstance()->prepare("SELECT id,firstname,lastname,email,birthdate,user_rank,banned FROM users JOIN user_data ON users.id = user_data.user_id GROUP BY users.id;");
         $reqdata->execute();
         $data = $reqdata->fetchAll();
 
         foreach($data as $row){
             $modifiable = $row['id'] === $_SESSION['id'] || RANK_POWER[$row['user_rank']] < RANK_POWER[$_SESSION['user_rank']];
-
-            echo '<div class="users-table-row">
+            $banned = $row['banned'];
+            echo '<div class="users-table-row'. ($banned ? ' banned' : '') .'">
             <div class="users-table-col">
                 <p class="hint">Id: </p><p>'. $row['id'] .'</p>
             </div>
@@ -74,7 +74,7 @@
                 <p class="hint">Type: </p><p>'. $row['user_rank'] . '</p>' . ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i data-type="user_rank" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Contrôles: </p>'. ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i user-id="'. $row['id'] .'" class="delete fa-solid fa-xmark"></i><i user-id="'. $row['id'] .'" class="ban fa-solid fa-gavel"></i>' : '')
+                <p class="hint">Contrôles: </p>'. ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i user-id="'. $row['id'] .'" class="delete fa-solid fa-xmark"></i><i user-id="'. $row['id'] .'" class="ban fa-solid '. ($banned ? 'fa-hands-praying' : 'fa-gavel') .'"></i>' : '')
             .'</div>
         </div>';
         }
@@ -93,7 +93,7 @@
             $('#modal-background').fadeIn();
 
             $('#modal').css({'display': 'flex'})
-            .html('<p class="modal-title" style="color: red;">Bannissement ?</p><p>Voulez-vous vraiment bannir ce compte ?</p><div class="buttons"><div class="accept" action="ban" user-id=' + $(this).attr("user-id") + '>Confirmer</div><div class="cancel">Annuler</div></div>')
+            .html('<p class="modal-title" style="color: red;">' + ($(this).hasClass('fa-gavel') ? "B" : "Déb") +'annissement ?</p><p>Voulez-vous vraiment bannir ce compte ?</p><div class="buttons"><div class="accept" action="ban" user-id=' + $(this).attr("user-id") + '>Confirmer</div><div class="cancel">Annuler</div></div>')
             .animate({'opacity': '1'});
         });
 
@@ -116,7 +116,15 @@
                     }, 3000);
 
                     if(responseObj.return_type == 'success'){
-                        //TODO: enlever la ligne, la rayer ou la marquer comme bannie.
+                        if(responseObj.message.includes('débanni')){
+                            $('.ban[user-id='+ userId +']').closest('.users-table-row').removeClass('banned');
+                            $('.ban[user-id='+ userId +']').addClass('fa-gavel').removeClass('fa-hands-praying');
+                        } else if(responseObj.message.includes('banni')){
+                            $('.ban[user-id='+ userId +']').closest('.users-table-row').addClass('banned');
+                            $('.ban[user-id='+ userId +']').removeClass('fa-gavel').addClass('fa-hands-praying');
+                        } else if(responseObj.message.includes('supprimé')){
+                            $('.ban[user-id='+ userId +']').closest('.users-table-row').removeClass('banned');
+                        }
                     }
                 })
                 .fail(function(){

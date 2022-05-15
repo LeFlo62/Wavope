@@ -69,6 +69,10 @@
     padding: 10px 0 10px 0;
 }
 
+.banned{
+    color: red;
+}
+
 .title{
     font-weight: bold;
 }

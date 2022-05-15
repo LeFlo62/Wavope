@@ -35,7 +35,7 @@
     
                 $bdh = new DBHandler();
 
-                $reqinfo = $bdh->getInstance()->prepare("SELECT user_rank,firstname,lastname FROM user_data WHERE user_id = :user_id");
+                $reqinfo = $bdh->getInstance()->prepare("SELECT user_rank,firstname,lastname,banned FROM user_data WHERE user_id = :user_id");
                 $reqinfo->bindparam('user_id', $user_id, PDO::PARAM_INT);
                 $reqinfo->execute();
                 $userexists = $reqinfo->rowCount();
@@ -79,9 +79,16 @@
 
                         echo json_encode(array('return_type' => 'success', 'message' => 'Utilisateur supprimé.'));
                     } else if($action === 'ban'){
-                        sendMail($email, $name, 'banni');
+                        $banned = !$userinfo['banned'];
 
-                        echo json_encode(array('return_type' => 'success', 'message' => 'Utilisateur banni.'));
+                        $reqban = $bdh->getInstance()->prepare("UPDATE user_data SET banned = :banned WHERE user_id = :user_id");
+                        $reqban->bindparam('user_id', $user_id, PDO::PARAM_INT);
+                        $reqban->bindparam('banned', $banned, PDO::PARAM_BOOL);
+                        $reqban->execute();
+
+                        sendMail($email, $name, (!$banned ? 'dé' : '') . 'banni');
+
+                        echo json_encode(array('return_type' => 'success', 'message' => 'Utilisateur '. (!$banned ? 'dé' : '') .'banni.'));
                     }
         
                 } else {
