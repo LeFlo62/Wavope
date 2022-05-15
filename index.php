@@ -1,7 +1,7 @@
 <?php
-    if(!isset($_SESSION)) { 
-        session_start(); 
-    }
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
+
+    check_user();
 ?>
 <!DOCTYPE html>
 <html lang="fr">

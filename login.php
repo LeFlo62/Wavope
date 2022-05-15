@@ -1,12 +1,7 @@
 <?php
-    if(!isset($_SESSION)) { 
-        session_start(); 
-    }
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
 
-    if(isset($_SESSION['id'])) { 
-        header("Location: /");
-        exit;
-    }
+    check_user(0, false, true);
 ?>
 <!DOCTYPE html>
 <html lang="fr">

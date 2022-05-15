@@ -1,3 +1,8 @@
+<?php
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
+
+    check_user();
+?>
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior:smooth;">
 <head>

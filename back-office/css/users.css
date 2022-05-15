@@ -120,6 +120,14 @@
     font-weight: bold;
 }
 
+.modify-pen{
+    color: black;
+}
+
+.ban{
+    color: black;
+}
+
 .modify-pen:hover{
     cursor: pointer;
     color: #2186D6;

@@ -1,11 +1,7 @@
 <?php
-    if(!isset($_SESSION)) { 
-        session_start(); 
-    }
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
 
-    if(!isset($_GET['r'])){
-        header("Location: ?r=f");
-    }
+    check_user(0, false);
 
     if($_GET['r'] === 'r'){
         if(!isset($_SESSION['id']) && !isset($_GET['token'])) { 

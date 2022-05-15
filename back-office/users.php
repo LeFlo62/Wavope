@@ -1,19 +1,7 @@
 <?php
-    include_once $_SERVER["DOCUMENT_ROOT"]. '/php/variables.php';
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
 
-    if(!isset($_SESSION)) { 
-        session_start(); 
-    }
-
-    if(!isset($_SESSION['id'])) { 
-		header("Location: /login.php");
-        exit;
-	}
-
-    if(RANK_POWER[$_SESSION['user_rank']] < 1){
-        header("Location: /");
-        exit;
-    }
+    check_user(1, true);
 ?>
 <link rel="stylesheet" href="./back-office/css/users.css">
 <script src="https://kit.fontawesome.com/0f6a392601.js" crossorigin="anonymous"></script>
@@ -109,6 +97,7 @@
 
             $.post("./back-office/php/sanctionuser.php", {user_id: userId, action: action})
                 .done(function(response){
+                    alert(response);
                     var responseObj = JSON.parse(response);
                     $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
                     setTimeout(function(){
