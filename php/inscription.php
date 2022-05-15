@@ -58,7 +58,7 @@
                         $reqcreate->execute();
 
                         $createdId = $bdh->getInstance()->lastInsertId();
-                        $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data VALUES (:user_id, :firstname, :lastname, :birthdate, :user_rank)');
+                        $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data(user_id,firstname,lastname,birthdate,user_rank) VALUES (:user_id, :firstname, :lastname, :birthdate, :user_rank)');
                         $reqinfocreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
                         $reqinfocreate->bindparam('firstname', $firstname, PDO::PARAM_STR);
                         $reqinfocreate->bindparam('lastname', $lastname, PDO::PARAM_STR);
