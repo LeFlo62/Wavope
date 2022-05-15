@@ -1,8 +1,8 @@
 body{
-        
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
     padding: 0px;
     margin: 0px;
-
 }
 
 a{
@@ -20,7 +20,7 @@ h1{
 }
 
 .svgWave{
-    position: absolute;
+    position: fixed;
     bottom: 0px;
 }
 
@@ -40,27 +40,17 @@ h1{
 
 }
 
-.blockButtonTop{
+.jumbotron{
     position: absolute;
-    margin: 2%;
-}
-
-
-.blockTextPhoneTop{
-
-    position: absolute;
-    height: 30%;
-    width: 40%;
-    font-family: sans-serif;
-    left: 9%;
     top: 20%;
-
 }
 
-.titreBlockTextPhoneTop{
+.home{
+    width: 40%;
+    margin-left: 9%;
+}
 
-    display: flex;
-    /* align-items: center; */
+.title{
     text-decoration:none;
     font-weight: bold;
     margin: 2%;
@@ -68,16 +58,15 @@ h1{
 
 }
 
-.TextPhoneTop{
-
+.description{
+    
     margin: 2%;
     color: rgb(59, 59, 59);
 
 }
 
-.blockButtonTop{
-    position: absolute;
-    margin: 2%;
+.buttons{
+    margin: 40px;
 }
 
 .register_button{
@@ -124,3 +113,53 @@ h1{
     transition:0.3s;
 }
 
+.cards{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 200px;
+}
+
+.card{
+    width: 25%;
+    height: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    margin: 50px;
+    box-shadow: 0 0 12px 0 black;
+    transition: transform 0.1s;
+}
+
+.card:hover{
+    transform: scale(105%);
+}
+
+.card p{
+    margin: 0;
+}
+
+.card .card-title{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card .card-date{
+    font-style: italic;
+    font-size: 0.7rem;
+}
+
+.card .card-preview{
+    font-size: 1rem;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1700px) {
+    .card{
+        width: 480px;
+    }
+}
