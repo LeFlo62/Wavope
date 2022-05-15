@@ -55,6 +55,25 @@
     cursor: pointer;
 }
 
+.button{
+    display: inline-block;
+    color: white;
+    background-color: #27ae60;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button.disabled{
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+#add-account{
+    align-self: flex-start;
+    padding: 10px;
+    margin: 20px 10% 20px;
+}
+
 .users-table{
     display: flex;
     flex-direction: column;
@@ -75,6 +94,12 @@
 
 .title{
     font-weight: bold;
+}
+
+.users-table-col input[type="text"]{
+    position: relative;
+    border-color: black;
+    border-radius: 2px;
 }
 
 .users-table-col{

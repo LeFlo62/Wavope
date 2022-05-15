@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="./back-office/css/users.css">
 <script src="https://kit.fontawesome.com/0f6a392601.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://releases.jquery.com/git/jquery-3.x-git.min.js"></script>
+<div class="button" id="add-account">Ajouter un compte</div>
 <div class="users-table">
     <div class="users-table-row title">
         <div class="users-table-col">
@@ -69,6 +70,42 @@
     ?>
     <div id="snackbar"></div>
     <script>
+        $('#add-account').click(function(){
+            $(this).addClass('disabled');
+
+            var newLine = `<div class="users-table-row">
+                            <div class="users-table-col">
+                                #
+                            </div>
+                            <div class="users-table-col">
+                                <input class="account-creation" type="text" id="ac-firstname"/>
+                            </div>
+                            <div class="users-table-col">
+                                <input class="account-creation" type="text" id="ac-lastname"/>
+                            </div>
+                            <div class="users-table-col">
+                                <input class="account-creation" type="text" id="ac-email"/>
+                            </div>
+                            <div class="users-table-col">
+                                <input class="account-creation" type="text" id="ac-birthdate"/>
+                            </div>
+                            <div class="users-table-col">
+                            <select id="modifying"><?php
+                                foreach(RANK_POWER as $rank => $power){
+                                    if($power < RANK_POWER[$_SESSION['user_rank']]){
+                                        echo '<option value="'. $rank .'"'. ($rank === 'user' ? 'selected' : '') .'>'. $rank .'</option>';
+                                    }
+                                }
+                            ?></select>
+                            </div>
+                            <div class="users-table-col">
+                                <div id="ac-confirm" class="button disabled">Enregistrer</div>
+                            </div>
+                        </div>`;
+            
+            $(newLine).insertAfter('.users-table .users-table-row.title');
+        });
+
         $('.delete').click(function(){
             $('#modal-background').fadeIn();
 
