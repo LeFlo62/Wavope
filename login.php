@@ -45,6 +45,9 @@
                             case 'confirmation':
                                 echo 'Votre compte n\'a pas été confirmé !';
                                 break;
+                            case 'banned':
+                                echo 'Votre compte est banni.';
+                                break;
                         }
                         echo '</p>';
                     }

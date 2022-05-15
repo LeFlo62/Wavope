@@ -30,12 +30,17 @@
 			if($userexist == 1){
 				$hashedPassword = $usercredits['password'];
 
-				if(password_verify($_POST['password'], $hashedPassword)){
-					$requserdata = $bdh->getInstance()->prepare('SELECT * FROM user_data WHERE user_id = :user_id');
-					$requserdata->bindparam('user_id', $usercredits['id'], PDO::PARAM_INT);
-					$requserdata->execute();
-					$userdata = $requserdata->fetch();
+				$requserdata = $bdh->getInstance()->prepare('SELECT * FROM user_data WHERE user_id = :user_id');
+				$requserdata->bindparam('user_id', $usercredits['id'], PDO::PARAM_INT);
+				$requserdata->execute();
+				$userdata = $requserdata->fetch();
 
+				if($userdata['banned']){
+					header("Location: /login.php?error=banned");
+					exit;
+				}
+
+				if(password_verify($_POST['password'], $hashedPassword)){
 					$_SESSION['id'] = $usercredits['id'];
                     $_SESSION['firstname'] = $userdata['firstname'];
 					$_SESSION['user_rank'] = $userdata['user_rank'];
