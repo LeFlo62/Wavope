@@ -19,9 +19,9 @@ if (event.key === 'ArrowRight') {
 })
 
 function displayPoint(){
-        document.getElementById("point").innerHTML= (Date.now() - startTime);
+        document.getElementById("point").innerHTML= (Date.now() - startTime)/10;
         if (isRunning==true){
-            setInterval( function() { displayPoint(); }, 10 );
+            setInterval( function() { displayPoint(); }, 100 );
         }   
         else{
             document.getElementById("point").innerHTML= 0;
