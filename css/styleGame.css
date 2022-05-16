@@ -98,7 +98,8 @@ h1{
     border: 5px;
     height: 30%;
     width: 30%;
-    flex-direction: column;
+    flex-direction: raw;
+    padding-top: 40px;
     
 }
 .mark1{
