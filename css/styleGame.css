@@ -61,7 +61,7 @@ body{
 }
 h1{
     font-family: 'Roboto', sans-serif;
-    color: red;
+    
 }
 
 .blockPoint{
@@ -76,4 +76,39 @@ h1{
     /* height: 160px; */
     /* background-color: rgb(130, 233, 99); */
     bottom: 0px;
+}
+
+.blockmarks{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration:none;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background-color: antiquewhite;
+}
+.mark{
+    font-family: 'Roboto', sans-serif;
+    color: red;
+}
+.podium{
+    position: absolute;
+    border-radius: 3;
+}
+.mark1{
+    align-self: center;
+    background-color: gold;
+    width: 30%;
+
+}
+.mark2{
+    align-self: left;
+    background-color: silver;
+    width: 30%;
+}
+.mark3{
+    align-self: right;
+    background-color: brown;
+    width: 30%;
 }
