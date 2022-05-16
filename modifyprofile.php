@@ -51,11 +51,6 @@
                     <h1>GERER SON PROFIL</h1>
                     <form class="profileForm" action="/php/modifyprofile.php" method="post">
                         <div class="blockText">
-                            <div class="sublinks">
-                                <a href="resetpassword.php?r=r">Changer de mot de passe</a><br/>
-                            </div>
-                        </div>
-                        <div class="blockText">
                             <label for="firstnameField">Prénom</label>
                             <input class="fieldInput" type="text" id="firstname" name="firstname" required placeholder="Jean" value="<?php
                                     echo $userdata['firstname'];
@@ -75,6 +70,12 @@
                             <input class="fieldInput" type="date" id="birthdate" name="birthdate" value="<?php
                                     echo $userdata['birthdate'];
                                 ?>" required>
+                        </div>
+
+                        <div class="blockText">
+                            <div class="sublinks">
+                                <a href="resetpassword.php?r=r">Changer de mot de passe</a><br/>
+                            </div>
                         </div>
 
                         <div class="button">
