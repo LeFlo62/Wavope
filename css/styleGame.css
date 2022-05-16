@@ -96,6 +96,9 @@ h1{
     position: absolute;
     border-radius: 5;
     border: 5px;
+    height: 30%;
+    width: 30%;
+    flex-direction: column;
     
 }
 .mark1{
