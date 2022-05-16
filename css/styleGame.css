@@ -90,25 +90,39 @@ h1{
 }
 .mark{
     font-family: 'Roboto', sans-serif;
-    color: red;
+    
 }
 .podium{
     position: absolute;
-    border-radius: 3;
+    border-radius: 5;
+    border: 5px;
+    
 }
 .mark1{
     align-self: center;
-    background-color: gold;
+    background: gold;
     width: 30%;
+    transition-property:all ;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
 
 }
 .mark2{
     align-self: left;
-    background-color: silver;
+    background: silver;
     width: 30%;
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
 }
 .mark3{
     align-self: right;
-    background-color: brown;
+    background: brown;
     width: 30%;
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
 }
