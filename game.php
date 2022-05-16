@@ -28,8 +28,12 @@
         </div>
         <div class="blockmarks">
             <div id="mark">Votre score : <span id="realmark">0</span> point(s)</div>
-            <div id="podium"> 
-                
+            <div id="podium">
+                <div>mark1</div>
+                <div>mark2</div>
+                <div>mark3</div>
+            </div>
+
         </div>
     </section>
 
