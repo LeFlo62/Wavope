@@ -40,35 +40,31 @@
                         <a href="login.php" class="login_button">SE CONNECTER</a>
                             </div>';
                     }
-                ?>    
+                ?>
+
+
             </div>
 
             <div class="cards">
-                <div class="card">
-                    <p class="card-title">Titre de la carte</p>
-                    <p class="card-date">Le 18/05/2022</p>
-                    <p class="card-preview">Le saviez-vous ? Pendant longtemp la femme la plus vielle du monde était française, mais ce titre est de plus en plus attribué aux femmes chinoises. Cette différence de longévité n'est pas encore connu de manière certaine. Cependant, nous pouvons attribuer cela au fait que en comparant la population, on remarque que la population chinoise est 20 fois suppérieure à celle de la France. Une personne sur cinq est chinoise.</p>
-                </div>
-                <div class="card">
-                    <p class="card-title">Titre de la carte</p>
-                    <p class="card-date">Le 18/05/2022</p>
-                    <p class="card-preview">Le saviez-vous ? Pendant longtemp la femme la plus vielle du monde était française, mais ce titre est de plus en plus attribué aux femmes chinoises. Cette différence de longévité n'est pas encore connu de manière certaine. Cependant, nous pouvons attribuer cela au fait que en comparant la population, on remarque que la population chinoise est 20 fois suppérieure à celle de la France. Une personne sur cinq est chinoise.</p>
-                </div>
-                <div class="card">
-                    <p class="card-title">Titre de la carte</p>
-                    <p class="card-date">Le 18/05/2022</p>
-                    <p class="card-preview">Le saviez-vous ? Pendant longtemp la femme la plus vielle du monde était française, mais ce titre est de plus en plus attribué aux femmes chinoises. Cette différence de longévité n'est pas encore connu de manière certaine. Cependant, nous pouvons attribuer cela au fait que en comparant la population, on remarque que la population chinoise est 20 fois suppérieure à celle de la France. Une personne sur cinq est chinoise.</p>
-                </div>
-                <div class="card">
-                    <p class="card-title">Titre de la carte</p>
-                    <p class="card-date">Le 18/05/2022</p>
-                    <p class="card-preview">Le saviez-vous ? Pendant longtemp la femme la plus vielle du monde était française, mais ce titre est de plus en plus attribué aux femmes chinoises. Cette différence de longévité n'est pas encore connu de manière certaine. Cependant, nous pouvons attribuer cela au fait que en comparant la population, on remarque que la population chinoise est 20 fois suppérieure à celle de la France. Une personne sur cinq est chinoise.</p>
-                </div>
-                <div class="card">
-                    <p class="card-title">Titre de la carte</p>
-                    <p class="card-date">Le 18/05/2022</p>
-                    <p class="card-preview">Le saviez-vous ? Pendant longtemp la femme la plus vielle du monde était française, mais ce titre est de plus en plus attribué aux femmes chinoises. Cette différence de longévité n'est pas encore connu de manière certaine. Cependant, nous pouvons attribuer cela au fait que en comparant la population, on remarque que la population chinoise est 20 fois suppérieure à celle de la France. Une personne sur cinq est chinoise.</p>
-                </div>
+
+                <?php
+                    include_once './php/mysql.php';
+
+                    $bdh = new DBHandler();
+
+                    $reqdata = $bdh->getInstance()->prepare("SELECT title, date, content FROM cards ORDER BY date desc"); 
+                    $reqdata->execute();
+                    $data = $reqdata->fetchAll();
+
+                    foreach($data as $row){
+                        echo '<div class="card">
+                        <p class="card-title"> '. $row['title'] .'</p>
+                        <p class="card-date"> ' . $row['date'] . '</p>
+                        <p class="card-preview">' . $row['content'] . '</p>
+                    </div>';
+                    }
+                ?>
+
             </div>
         </div>
 
