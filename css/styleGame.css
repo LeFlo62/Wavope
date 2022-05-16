@@ -79,7 +79,9 @@ h1{
 }
 
 .blockmarks{
+    position: absolute;
     width: 100%;
+    height: 300px;
     display: flex;
     align-items: center;
     text-decoration:none;
@@ -87,6 +89,7 @@ h1{
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     background-color: antiquewhite;
+    
 }
 .mark{
     font-family: 'Roboto', sans-serif;
@@ -103,6 +106,7 @@ h1{
     
 }
 .mark1{
+    width: 100%;
     align-self: center;
     background: gold;
     width: 30%;
