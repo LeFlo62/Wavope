@@ -98,6 +98,8 @@
 
 .users-table-col input[type="text"]{
     position: relative;
+    width: 95%;
+    padding: 0;
     border-color: black;
     border-radius: 2px;
 }
