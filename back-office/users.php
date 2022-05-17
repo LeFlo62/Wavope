@@ -170,26 +170,29 @@
             var type = pen.attr("data-type");
             var id = pen.attr("user-id");
             
-            var field = pen.closest(".users-table-col").find("p:not(.hint)");
+            var column = pen.closest(".users-table-col");
+            var field = column.find("p:not(.hint)");
 
             $('.modify-pen').hide();
             var oldData = field.html();
-            
+
             if(type == 'user_rank'){
-                field.html('<select id="modifying"><?php
+                $('<select id="modifying"><?php
                     foreach(RANK_POWER as $rank => $power){
                         if($power < RANK_POWER[$_SESSION['user_rank']]){
                             echo '<option value="'. $rank .'">'. $rank .'</option>';
                         }
                     }
-                 ?></select>');
+                 ?></select>').insertBefore(pen);
                  $('#modifying option:contains("' + oldData + '")').prop('selected', true);
             } else if(type == 'birthdate'){
-                field.html('<input id="modifying" type="date" value="'+ field.html() +'">');
+                $('<input id="modifying" type="date" value="'+ field.html() +'">').insertBefore(pen);
             } else {
-                field.html('<input id="modifying" type="text" value="'+ field.html() +'">');
+                $('<input id="modifying" type="text" value="'+ field.html() +'">').insertBefore(pen);
             }
 
+            field.remove();
+            
             $('#modifying').focus();
 
             var done = false;
@@ -209,7 +212,8 @@
                 $('.modify-pen').show();
 
                 if(data == oldData){
-                    field.html(data);
+                    $('#modifying').remove();
+                    $('<p>' + data + '</p>').insertBefore(pen);
                     return;
                 }
 
@@ -221,10 +225,11 @@
                         $('#snackbar').removeClass(['show', responseObj.return_type]);
                     }, 3000);
 
+                    $('#modifying').remove();
                     if(responseObj.return_type == 'success'){
-                        field.html(data);
+                        $('<p>' + data + '</p>').insertBefore(pen);
                     } else {
-                        field.html(oldData);
+                        $('<p>' + oldData + '</p>').insertBefore(pen);
                     }
                 })
                 .fail(function(){
