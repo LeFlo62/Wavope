@@ -123,6 +123,9 @@ h1{
     border-radius: 5px;
 
 }
+.mark1 :hover{
+    
+}
 .mark2{
     color: white;
     align-self: left;
@@ -136,6 +139,9 @@ h1{
     
    
 }
+.mark2 :hover{
+    background: red;
+}
 .mark3{
     color: white;
     align-self: right;
@@ -146,6 +152,9 @@ h1{
     border-radius: 5px;
     animation-name: mark3;
     animation-duration: 1s
+}
+.mark3 :hover{
+    
 }
 @keyframes mark1{
     0%         {height: 0%;}
