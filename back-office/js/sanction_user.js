@@ -1,4 +1,4 @@
-$('.delete').click(function(){
+$(document).on('click', '.delete', function(){
     $('#modal-background').fadeIn();
 
     $('#modal').css({'display': 'flex'})
@@ -6,7 +6,7 @@ $('.delete').click(function(){
     .animate({'opacity': '1'});
 });
 
-$('.ban').click(function(){
+$(document).on('click', '.ban', function(){
     $('#modal-background').fadeIn();
 
     $('#modal').css({'display': 'flex'})
