@@ -44,7 +44,7 @@
             $reqexists = $bdh->getInstance()->prepare("SELECT * FROM users WHERE email = :email");
             $reqexists->bindparam('email', $email, PDO::PARAM_STR);
             $reqexists->execute();
-            $userexists = $reqinfo->rowCount();
+            $userexists = $reqexists->rowCount();
 
             if($userexists == 0){
                 $rand_token = openssl_random_pseudo_bytes(64);
@@ -63,6 +63,8 @@
                 $reqinfocreate->bindparam('birthdate', $birthdate, PDO::PARAM_STR);
                 $reqinfocreate->bindparam('user_rank', $rank, PDO::PARAM_STR);
                 $reqinfocreate->execute();
+
+                echo json_encode(array('return_type' => 'success', 'message' => 'Utilisateur créé. Mot de passe aléatoire attribué.', 'data' => array($createdId)));
 
                 sendCreationMail($email, $firstname . ' ' . $lastname);
             } else {
@@ -126,7 +128,6 @@
                 <a href="http://localhost/resetpassword.php?r=f" id="changePassword">DEMANDER LE CHANGEMENT DE MOT DE PASSE</a><br/>
                 <br/>
                 <br/>
-                <p style="font-size: 0.75rem;">Cette demande ne vient pas de vous ? <a href="http://localhost/resetpassword.php?r=c&token='. $token .'">Cliquez ici</a><br/></p><br/>
                 <br/>
                 <br/>
                 <img src="https://i.imgur.com/C5sVWQi.png" />
@@ -151,8 +152,7 @@
                     background-color: rgb(118, 177, 100);
                 }
             </style>';
-            $mail->AltBody = 'Vous avez demandé à changer de mot de passe. Allez à l\'adresse http://localhost/resetpassword.php?r=r&token='. $token .' pour poursuivre.
-            \n Si ce n\'est pas vous, allez à l\'adresse http://localhost/resetpassword.php?r=c&token='. $token .'';
+            $mail->AltBody = 'Vous avez demandé à changer de mot de passe. Allez à l\'adresse http://localhost/resetpassword.php?r=f pour poursuivre.';
 
             $mail->send();
         } catch (Exception $e) {

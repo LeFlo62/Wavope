@@ -26,7 +26,6 @@ $(document).on('click', '.accept', function(){
 
     $.post("./back-office/php/sanctionuser.php", {user_id: userId, action: action})
         .done(function(response){
-            alert(response);
             var responseObj = JSON.parse(response);
             $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
             setTimeout(function(){
