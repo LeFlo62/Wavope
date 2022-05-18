@@ -68,218 +68,95 @@
         </div>';
         }
     ?>
-    <div id="snackbar"></div>
-    <script>
-        $.expr[':'].emptyVal = function(obj){
-            return obj.value === '';
-        };
-
-        $(document).on('change input paste keyup', '.account-creation', function(){
-            if($('.account-creation:emptyVal').length === 0){
-                $('#ac-confirm').removeClass('disabled');
-            } else {
-                $('#ac-confirm').addClass('disabled');
-            }
-        });
-
-        $(document).on('click', '#ac-confirm', function(){
-            var firstname = $('#ac-firstname').val();
-            var lastname = $('#ac-lastname').val();
-            var email = $('#ac-email').val();
-            var birthdate = $('#ac-birthdate').val();
-            var rank = $('#ac-firstname:selected').text();
-            $.post("./back-office/php/createuser.php", {firstname: firstname, lastname: lastname, email: email, birthdate: birthdate, rank: rank})
-            .done(function(response){
-                alert(response);
-                var responseObj = JSON.parse(response);
-                $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
-                setTimeout(function(){
-                    $('#snackbar').removeClass(['show', responseObj.return_type]);
-                }, 3000);
-            })
-            .fail(function(){
-                alert("error");
-            });
-        });
-
-        $('#add-account').click(function(){
-            $(this).addClass('disabled');
-
-            var newLine = `<div class="users-table-row">
-                            <div class="users-table-col">
-                                #
-                            </div>
-                            <div class="users-table-col">
-                                <input class="account-creation" type="text" id="ac-firstname"/>
-                            </div>
-                            <div class="users-table-col">
-                                <input class="account-creation" type="text" id="ac-lastname"/>
-                            </div>
-                            <div class="users-table-col">
-                                <input class="account-creation" type="email" id="ac-email"/>
-                            </div>
-                            <div class="users-table-col">
-                                <input class="account-creation" type="date" id="ac-birthdate"/>
-                            </div>
-                            <div class="users-table-col">
-                            <select id="ac-rank"><?php
-                                foreach(RANK_POWER as $rank => $power){
-                                    if($power < RANK_POWER[$_SESSION['user_rank']]){
-                                        echo '<option value="'. $rank .'"'. ($rank === 'user' ? 'selected' : '') .'>'. $rank .'</option>';
-                                    }
-                                }
-                            ?></select>
-                            </div>
-                            <div class="users-table-col">
-                                <div id="ac-confirm" class="button disabled">Enregistrer</div>
-                            </div>
-                        </div>`;
-            
-            $(newLine).insertAfter('.users-table .users-table-row.title');
-        });
-
-        $('.delete').click(function(){
-            $('#modal-background').fadeIn();
-
-            $('#modal').css({'display': 'flex'})
-            .html('<p class="modal-title" style="color: red;">Suppression ?</p><p>Voulez-vous vraiment supprimer ce compte ?</p><div class="buttons"><div class="accept" action="delete" user-id=' + $(this).attr("user-id") + '>Confirmer</div><div class="cancel">Annuler</div></div>')
-            .animate({'opacity': '1'});
-        });
-
-        $('.ban').click(function(){
-            $('#modal-background').fadeIn();
-
-            $('#modal').css({'display': 'flex'})
-            .html('<p class="modal-title" style="color: red;">' + ($(this).hasClass('fa-gavel') ? "B" : "Déb") +'annissement ?</p><p>Voulez-vous vraiment bannir ce compte ?</p><div class="buttons"><div class="accept" action="ban" user-id=' + $(this).attr("user-id") + '>Confirmer</div><div class="cancel">Annuler</div></div>')
-            .animate({'opacity': '1'});
-        });
-
-        $(document).on('click', '.accept', function(){
-            var btn = $(this);
-            $('#modal-background').fadeOut();
-            $('#modal').animate({'opacity': '0'}, function(){
-                $("#modal").css({'display': 'none'});
-            });
-
-            var userId = btn.attr('user-id');
-            var action = btn.attr('action');
-
-            $.post("./back-office/php/sanctionuser.php", {user_id: userId, action: action})
-                .done(function(response){
-                    alert(response);
-                    var responseObj = JSON.parse(response);
-                    $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
-                    setTimeout(function(){
-                        $('#snackbar').removeClass(['show', responseObj.return_type]);
-                    }, 3000);
-
-                    if(responseObj.return_type == 'success'){
-                        if(responseObj.message.includes('débanni')){
-                            $('.ban[user-id='+ userId +']').closest('.users-table-row').removeClass('banned');
-                            $('.ban[user-id='+ userId +']').addClass('fa-gavel').removeClass('fa-hands-praying');
-                        } else if(responseObj.message.includes('banni')){
-                            $('.ban[user-id='+ userId +']').closest('.users-table-row').addClass('banned');
-                            $('.ban[user-id='+ userId +']').removeClass('fa-gavel').addClass('fa-hands-praying');
-                        } else if(responseObj.message.includes('supprimé')){
-                            $('.ban[user-id='+ userId +']').closest('.users-table-row').remove();
-                        }
-                    }
-                })
-                .fail(function(){
-                    alert("error");
-                });
-        });
-
-        $(document).on('click', '.cancel', function(){
-            $('#modal-background').fadeOut();
-            $('#modal').animate({'opacity': '0'}, function(){
-                $("#modal").css({'display': 'none'});
-            });
-        });
-
-        $('.modify-pen').click(function() {
-            var pen = $(this);
-            var type = pen.attr("data-type");
-            var id = pen.attr("user-id");
-            
-            var column = pen.closest(".users-table-col");
-            var field = column.find("p:not(.hint)");
-
-            $('.modify-pen').hide();
-            var oldData = field.html();
-
-            if(type == 'user_rank'){
-                $('<select id="modifying"><?php
-                    foreach(RANK_POWER as $rank => $power){
-                        if($power < RANK_POWER[$_SESSION['user_rank']]){
-                            echo '<option value="'. $rank .'">'. $rank .'</option>';
-                        }
-                    }
-                 ?></select>').insertBefore(pen);
-                 $('#modifying option:contains("' + oldData + '")').prop('selected', true);
-            } else if(type == 'birthdate'){
-                $('<input id="modifying" type="date" value="'+ field.html() +'">').insertBefore(pen);
-            } else {
-                $('<input id="modifying" type="text" value="'+ field.html() +'">').insertBefore(pen);
-            }
-
-            field.remove();
-            
-            $('#modifying').focus();
-
-            var done = false;
-            $('#modifying').bind("validate_modify",function(e) {
-                if(done){
-                    return;
-                }
-                done = true;
-                var data;
-                if(type == 'user_rank'){
-                    data = $(this).find(':selected').text();
-                } else {
-                    data = $(this).val();
-                }
-
-                $(this).remove();
-                $('.modify-pen').show();
-
-                if(data == oldData){
-                    $('#modifying').remove();
-                    $('<p>' + data + '</p>').insertBefore(pen);
-                    return;
-                }
-
-                $.post("./back-office/php/modifyuser.php", {user_id: id, data_type: type, data: data})
-                .done(function(response){
-                    var responseObj = JSON.parse(response);
-                    $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
-                    setTimeout(function(){
-                        $('#snackbar').removeClass(['show', responseObj.return_type]);
-                    }, 3000);
-
-                    $('#modifying').remove();
-                    if(responseObj.return_type == 'success'){
-                        $('<p>' + data + '</p>').insertBefore(pen);
-                    } else {
-                        $('<p>' + oldData + '</p>').insertBefore(pen);
-                    }
-                })
-                .fail(function(){
-                    alert("error");
-                });
-
-            });
-
-            $('#modifying').keyup(function(e){
-                if(e.keyCode == 13){
-                    $(this).trigger("validate_modify");
-                }
-            });
-            $('#modifying').focusout(function(){
-                $(this).trigger("validate_modify");
-            });
-        });
-    </script>
 </div>
+
+<div id="snackbar"></div>
+    <script src="/back-office/js/add_user.js"></script>
+    <script src="/back-office/js/saction_user.js"></script>
+    <script>
+        $('.modify-pen').click(function() {
+    var pen = $(this);
+    var type = pen.attr("data-type");
+    var id = pen.attr("user-id");
+    
+    var column = pen.closest(".users-table-col");
+    var field = column.find("p:not(.hint)");
+
+    $('.modify-pen').hide();
+    var oldData = field.html();
+
+    if(type == 'user_rank'){
+        $('<select id="modifying"><?php
+            foreach(RANK_POWER as $rank => $power){
+                if($power < RANK_POWER[$_SESSION['user_rank']]){
+                    echo '<option value="'. $rank .'">'. $rank .'</option>';
+                }
+            }
+         ?></select>').insertBefore(pen);
+         $('#modifying option:contains("' + oldData + '")').prop('selected', true);
+    } else if(type == 'birthdate'){
+        $('<input id="modifying" type="date" value="'+ field.html() +'">').insertBefore(pen);
+    } else {
+        $('<input id="modifying" type="text" value="'+ field.html() +'">').insertBefore(pen);
+    }
+
+    field.remove();
+    
+    $('#modifying').focus();
+
+    var done = false;
+    $('#modifying').bind("validate_modify",function(e) {
+        if(done){
+            return;
+        }
+        done = true;
+        var data;
+        if(type == 'user_rank'){
+            data = $(this).find(':selected').text();
+        } else {
+            data = $(this).val();
+        }
+
+        $(this).remove();
+        $('.modify-pen').show();
+
+        if(data == oldData){
+            $('#modifying').remove();
+            $('<p>' + data + '</p>').insertBefore(pen);
+            return;
+        }
+
+        $.post("./back-office/php/modifyuser.php", {user_id: id, data_type: type, data: data})
+        .done(function(response){
+            var responseObj = JSON.parse(response);
+            $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
+            setTimeout(function(){
+                $('#snackbar').removeClass(['show', responseObj.return_type]);
+            }, 3000);
+
+            $('#modifying').remove();
+            if(responseObj.return_type == 'success'){
+                $('<p>' + data + '</p>').insertBefore(pen);
+            } else {
+                $('<p>' + oldData + '</p>').insertBefore(pen);
+            }
+        })
+        .fail(function(){
+            alert("error");
+        });
+
+    });
+
+    $('#modifying').keyup(function(e){
+        if(e.keyCode == 13){
+            $(this).trigger("validate_modify");
+        }
+    });
+    $('#modifying').focusout(function(){
+        $(this).trigger("validate_modify");
+    });
+});
+    </script>
+
 <div id="modal-background"></div>
 <div id="modal"></div>
