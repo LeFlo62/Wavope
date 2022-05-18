@@ -26,25 +26,27 @@ $(document).on('click', '#ac-confirm', function(){
         }, 3000);
 
         if(responseObj.return_type === 'success'){
+            $('#adding-user').remove();
+
             var id = responseObj.data[0];
             $('.users-table').append(`<div class="users-table-row">
             <div class="users-table-col">
                 <p class="hint">Id: </p><p>`+ id +`</p>
             </div>
             <div class="users-table-col">
-                <p class="hint">Prénom: </p><p>`+ firstname +`</p><i data-type="firstname" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">Prénom: </p><p>`+ firstname +`</p> <i data-type="firstname" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
             </div>
             <div class="users-table-col">
-                <p class="hint">Nom: </p><p>`+ lastname +`</p><i data-type="lastname" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">Nom: </p><p>`+ lastname +`</p> <i data-type="lastname" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
             </div>
             <div class="users-table-col">
-                <p class="hint">E-Mail: </p><p>`+ email +`</p><i data-type="email" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">E-Mail: </p><p>`+ email +`</p> <i data-type="email" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
             </div>
             <div class="users-table-col">
-                <p class="hint">Date de naissance: </p><p>`+ birthdate +`</p><i data-type="birthdate" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">Date de naissance: </p><p>`+ birthdate +`</p> <i data-type="birthdate" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
             </div>
             <div class="users-table-col">
-                <p class="hint">Type: </p><p>`+ rank +`</p><i data-type="user_rank" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
+                <p class="hint">Type: </p><p>`+ rank +`</p> <i data-type="user_rank" user-id="`+ id +`" class="modify-pen fa-solid fa-pen"></i>
             </div>
             <div class="users-table-col">
                 <p class="hint">Contrôles: </p><i user-id="`+ id +`" class="delete fa-solid fa-xmark"></i><i user-id="`+ id +`" class="ban fa-solid fa-gavel"></i>
@@ -66,7 +68,7 @@ $('#add-account').click(function(){
         options += '<option value="' + rank + '"' + (rank === 'user' ? 'selected' : '') + '>' + rank  + '</option>';
     });
 
-    var newLine = `<div class="users-table-row">
+    var newLine = `<div id="adding-user" class="users-table-row">
                     <div class="users-table-col">
                         #
                     </div>

@@ -51,16 +51,16 @@
                 <p class="hint">Prénom: </p><p>'. $row['firstname'] .'</p>' . ($modifiable ? ' <i data-type="firstname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Nom: </p><p>'. $row['lastname'] .'</p>' . ($modifiable ? '<i data-type="lastname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
+                <p class="hint">Nom: </p><p>'. $row['lastname'] .'</p>' . ($modifiable ? ' <i data-type="lastname" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">E-Mail: </p><p>'. $row['email'] .'</p>' . ($modifiable ? '<i data-type="email" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
+                <p class="hint">E-Mail: </p><p>'. $row['email'] .'</p>' . ($modifiable ? ' <i data-type="email" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Date de naissance: </p><p>'. $row['birthdate'] .'</p>' . ($modifiable ? '<i data-type="birthdate" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
+                <p class="hint">Date de naissance: </p><p>'. $row['birthdate'] .'</p>' . ($modifiable ? ' <i data-type="birthdate" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
-                <p class="hint">Type: </p><p>'. $row['user_rank'] . '</p>' . ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i data-type="user_rank" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
+                <p class="hint">Type: </p><p>'. $row['user_rank'] . '</p>' . ($row['id'] !== $_SESSION['id'] && $modifiable ? ' <i data-type="user_rank" user-id="'. $row['id'] .'" class="modify-pen fa-solid fa-pen"></i>' : ''). '
             </div>
             <div class="users-table-col">
                 <p class="hint">Contrôles: </p>'. ($row['id'] !== $_SESSION['id'] && $modifiable ? '<i user-id="'. $row['id'] .'" class="delete fa-solid fa-xmark"></i><i user-id="'. $row['id'] .'" class="ban fa-solid '. ($banned ? 'fa-hands-praying' : 'fa-gavel') .'"></i>' : '')
