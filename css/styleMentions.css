@@ -1,0 +1,50 @@
+html, body{
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{    
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    margin-top: 150px;
+}
+
+.svgWave{
+    position: fixed;
+    bottom: 0px;
+}
+
+.svgWaveCaracteristique{
+    fill:rgb(118, 177, 100);
+    fill-opacity:1;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+.article {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.sub_article {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#trait {
+    border-top: 1px solid #000;
+    width: 100%;
+}
