@@ -73,9 +73,16 @@
 			$requser->execute();
 			$userexist = $requser->rowCount();
 
-			if($userexist == 1){
+            
+			if($userexist == 1){ 
                 $userinfo = $requser->fetch();
-				$rand_token = openssl_random_pseudo_bytes(64);
+                
+                $reqdata = $bdh->getInstance()->prepare('SELECT * FROM user_data WHERE user_id = :user_id');
+                $reqdata->bindparam('user_id', $userinfo['id'], PDO::PARAM_INT);
+                $reqdata->execute();
+                $data = $reqdata->fetch();
+				
+                $rand_token = openssl_random_pseudo_bytes(64);
                 $token = bin2hex($rand_token);
 
                 $reqremoveprevious = $bdh->getInstance()->prepare("DELETE FROM reset_password WHERE user_id = :user_id");
@@ -87,7 +94,7 @@
                 $reqreset->bindparam('token', $token, PDO::PARAM_STR);
 			    $reqreset->execute();
 
-               sendPasswordResetMail($email, $userinfo['firstname'] . ' ' . $userinfo['lastname'], $token);
+               sendPasswordResetMail($email, $data['firstname'] . ' ' . $data['lastname'], $token);
 			}
 
             echo json_encode(array('return_type' => 'success', 'message' => 'Si le compte existe, un e-mail a été envoyé.'));
