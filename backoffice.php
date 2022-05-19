@@ -25,16 +25,16 @@
     </head>
     <body>
         <div id="masthead">
+            <div id="topbar-corner">
+                <p id="master-page-title">Back-Office</p>
+                <a id="back-to-site" href="/">Retours à Wavope</a>
+            </div>
             <div id="middle-bar">
                 <?php
                     if($_GET['p'] !== 'cards' && $_GET['p'] !== 'faq'){
                         echo '<input type="text" class="search" placeholder="Recherche"></input>';
                     }
                 ?>
-            </div>
-            <div id="topbar-corner">
-                <p id="master-page-title">Back-Office</p>
-                <a id="back-to-site" href="/">Retours à Wavope</a>
             </div>
         </div> 
         <div class="navbar">

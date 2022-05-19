@@ -128,4 +128,8 @@ html, body{
         width: 100%;
         height: auto;
     }
+
+    #middle-bar{
+        position: relative;
+    }
 }
