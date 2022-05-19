@@ -27,6 +27,7 @@ html, body{
     flex-direction: column;
     justify-content: center;
     float: left;
+    z-index: 10;
 }
 
 .search{
