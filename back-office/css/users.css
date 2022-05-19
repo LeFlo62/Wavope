@@ -225,4 +225,10 @@
     .hint{
         display: inline;
     }
+
+    .users-table-col:nth-of-type(7) i {
+        width: auto;
+        margin: 10px;
+        padding: 5px;
+    }
 }
