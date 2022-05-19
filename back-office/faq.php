@@ -7,32 +7,52 @@
 <script src="https://kit.fontawesome.com/0f6a392601.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://releases.jquery.com/git/jquery-3.x-git.min.js"></script>
 
-<div class="question-answer">
-    <p class="question">Pourquoi faire cette section ?<i class="fa-solid fa-caret-down"></i></p>
-    <p class="answer">Nous nous devons de faire une section qui soit capable de répondre à toutes vos question ! Faire ce genre de section nécessite du temps, si bien pour la coder ou encore la fournir de toute sorte de questions ! Bien sûr cette question ne sera pas dans la version finale de la FAQ, j'en ai juste besoin pour remplir l'espace et avoir quelque chose de crédible dans un paragraphe :)</p>
-</div>
 
-<div class="question-answer">
-    <p class="question">Pourquoi faire cette section ?<i class="fa-solid fa-caret-down"></i></p>
-    <p class="answer">Nous nous devons de faire une section qui soit capable de répondre à toutes vos question ! Faire ce genre de section nécessite du temps, si bien pour la coder ou encore la fournir de toute sorte de questions ! Bien sûr cette question ne sera pas dans la version finale de la FAQ, j'en ai juste besoin pour remplir l'espace et avoir quelque chose de crédible dans un paragraphe :)</p>
-</div>
+<?php
 
-<div class="question-answer">
-    <p class="question">Pourquoi faire cette section ?<i class="fa-solid fa-caret-down"></i></p>
-    <p class="answer">Nous nous devons de faire une section qui soit capable de répondre à toutes vos question ! Faire ce genre de section nécessite du temps, si bien pour la coder ou encore la fournir de toute sorte de questions ! Bien sûr cette question ne sera pas dans la version finale de la FAQ, j'en ai juste besoin pour remplir l'espace et avoir quelque chose de crédible dans un paragraphe :)</p>
-</div>
+    include_once './php/mysql.php';
+
+    $bdh = new DBHandler();
+
+    $reqfaq = $bdh->getInstance()->prepare("SELECT * FROM faq ORDER BY ordering");
+    $reqfaq->execute();
+    $faq = $reqfaq->fetchAll();
+    $count = $reqfaq->rowCount();
+    foreach($faq as $qa){
+        $ordering = $qa['ordering'];
+        echo '<div qa-id="'. $qa['id'] .'" class="question-answer">
+                <p class="question">'. $qa['question'] . ($ordering === $count-1 ? '' : '<i class="control fa-solid fa-caret-down"></i>') . ($ordering === 0 ? '' : '<i class="control fa-solid fa-caret-up"></i>') .'</p>
+                <p class="answer">'. $qa['answer'] .'</p>
+            </div>';
+    }
+
+?>
 
 <script>
-    $('.question').click(function(){
-        var questionAnswer = $(this).closest('.question-answer');
-        var answer = questionAnswer.find('.answer');
-        var caret = questionAnswer.find('i');
-        if(answer.css('display') === 'none'){
-            answer.slideDown();
-            caret.removeClass('fa-caret-down').addClass('fa-caret-up');
-        } else {
-            answer.slideUp();
-            caret.addClass('fa-caret-down').removeClass('fa-caret-up');
-        }
+    $(document).on('click', '.control', function(){
+        var up = $(this).hasClass('fa-caret-up');
+        var elem = $(this).parent().parent();
+        var id = elem.attr('qa-id');
+
+        var switchElement = up ? elem.prev() : elem.next();
+        var switchId = switchElement.attr('qa-id');
+
+        var height = switchElement.outerHeight(true);
+
+        elem.css({'box-shadow': '0 0 12px 0 grey'});
+
+        //TODO update order, and carets
+
+        switchElement.animate({'top': height.toString() + 'px'}, function(){
+            switchElement.css({'top': ''});
+            elem.after(switchElement);
+            elem.css({'box-shadow': ''});
+        });
+
+        elem.animate({'top': (-height).toString() + 'px'}, function(){
+            elem.css({'top': ''});
+            switchElement.before(elem);
+            elem.css({'box-shadow': ''});
+        });
     });
 </script>
