@@ -113,7 +113,7 @@ h1{
 
 .mark1{
     height: 100%;
-    color: white;
+    color: rgb(1, 1, 1);
     background: gold;
     width: 30%;
     animation-name: mark1;
@@ -127,7 +127,7 @@ h1{
     
 }
 .mark2{
-    color: white;
+    color: rgb(1, 1, 1);
     align-self: left;
     background: silver;
     width: 30%;
@@ -145,7 +145,7 @@ h1{
     width: 200px;
 }
 .mark3{
-    color: white;
+    color: rgb(1, 1, 1);
     align-self: right;
     background: brown;
     width: 30%;
