@@ -1,20 +1,10 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"]. '/php/variables.php';
+    require $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
+    require $_SERVER["DOCUMENT_ROOT"]. '/php/model.php';
 
     if(is_ajax()){
-        if(!isset($_SESSION)) { 
-            session_start(); 
-        }
-    
-        if(!isset($_SESSION['id'])) { 
-            header("Location: /login.php");
-            exit;
-        }
-    
-        if(RANK_POWER[$_SESSION['user_rank']] < 1){
-            header("Location: /");
-            exit;
-        }
+        check_user(1, true);
     
         define('DATA_TYPES', array("firstname", "lastname", "email", "birthdate", "user_rank"));
     
@@ -28,19 +18,8 @@
                     echo json_encode(array('return_type' => 'error', 'message' => 'Vous n\'avez pas la permission de changer cela.'));
                     exit;
                 }
-
-                include_once '../../php/mysql.php';
-    
-                $bdh = new DBHandler();
-    
-                if($_POST['data_type'] === 'email'){
-                    $reqmodify = $bdh->getInstance()->prepare("UPDATE users SET email = :user_data WHERE id = :id");
-                } else {
-                    $reqmodify = $bdh->getInstance()->prepare("UPDATE user_data SET ". $data_type ." = :user_data WHERE user_id = :id");
-                }
-                $reqmodify->bindparam('user_data', $data, PDO::PARAM_STR);
-                $reqmodify->bindparam('id', $user_id, PDO::PARAM_INT);
-                $reqmodify->execute();
+                
+                updateUserData($user_id, $data_type, $data);
     
                 echo json_encode(array('return_type' => 'success', 'message' => 'Donnée modifiée'));
             } else {

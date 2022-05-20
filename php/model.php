@@ -1,5 +1,13 @@
 <?php
-    include_once './php/mysql.php';
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/Exception.php';
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/PHPMailer.php';
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/SMTP.php';
+
+    include_once $_SERVER["DOCUMENT_ROOT"]. '/php/mysql.php';
     $bdh = new DBHandler();
 
     function getCards(){
@@ -41,6 +49,120 @@
         $reqfaq->execute();
         $faq = $reqfaq->fetchAll();
         return $faq;
+    }
+
+    function userExistsByMail($email){
+        global $bdh;
+        $requser = $bdh->getInstance()->prepare('SELECT * FROM users WHERE email = :email');
+        $requser->bindparam('email', $email, PDO::PARAM_STR);
+        $requser->execute();
+        return $requser->rowCount() !== 0;
+    }
+
+    function productExists($productNumber){
+        global $bdh;
+        $reqproduct = $bdh->getInstance()->prepare('SELECT * FROM products WHERE product_number = :product_number');
+        $reqproduct->bindparam('product_number', $productNumber, PDO::PARAM_INT);
+        $reqproduct->execute();
+        return $reqproduct->rowCount() !== 0;
+    }
+
+    function createUser($email, $password, $firstname, $lastname, $birthdate, $rank){
+        global $bdh;
+
+        $reqcreate = $bdh->getInstance()->prepare("INSERT INTO users(email, password) VALUES (:email, :password)");
+        $reqcreate->bindparam('email', $email, PDO::PARAM_STR);
+        $reqcreate->bindparam('password', $password, PDO::PARAM_STR);
+        $reqcreate->execute();
+
+        $createdId = $bdh->getInstance()->lastInsertId();
+        $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data(user_id,firstname,lastname,birthdate,user_rank) VALUES (:user_id, :firstname, :lastname, :birthdate, :user_rank)');
+        $reqinfocreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
+        $reqinfocreate->bindparam('firstname', $firstname, PDO::PARAM_STR);
+        $reqinfocreate->bindparam('lastname', $lastname, PDO::PARAM_STR);
+        $reqinfocreate->bindparam('birthdate', $birthdate, PDO::PARAM_STR);
+        $reqinfocreate->bindparam('user_rank', $rank, PDO::PARAM_STR);
+        $reqinfocreate->execute();
+
+        return $createdId;
+    }
+
+    function createProduct($ownerId, $productNumber){
+        global $bdh;
+        $reqproductcreate = $bdh->getInstance()->prepare('INSERT INTO products(product_number, user_id) VALUES (:product_number, :user_id)');
+        $reqproductcreate->bindparam('product_number', $productNumber, PDO::PARAM_INT);
+        $reqproductcreate->bindparam('user_id', $ownerId, PDO::PARAM_INT);
+        $reqproductcreate->execute();
+
+        return $bdh->getInstance()->lastInsertId();
+    }
+
+    function updateProductName($productNumber, $productName){
+        global $bdh;
+        $reqmodify = $bdh->getInstance()->prepare("UPDATE products SET name = :user_data WHERE product_number = :product_number");
+
+        $reqmodify->bindparam('user_data', $productName, PDO::PARAM_STR);
+        $reqmodify->bindparam('product_number', $productNumber, PDO::PARAM_INT);
+        $reqmodify->execute();
+    }
+
+    function updateUserData($userId, $dataType, $data){
+        global $bdh;
+        if($dataType === 'email'){
+            $reqmodify = $bdh->getInstance()->prepare("UPDATE users SET email = :user_data WHERE id = :id");
+        } else {
+            $reqmodify = $bdh->getInstance()->prepare("UPDATE user_data SET ". $dataType ." = :user_data WHERE user_id = :id");
+        }
+        $reqmodify->bindparam('user_data', $data, PDO::PARAM_STR);
+        $reqmodify->bindparam('id', $userId, PDO::PARAM_INT);
+        $reqmodify->execute();
+    }
+
+    function createRegisterConfirmation($userId){
+        global $bdh;
+        $rand_token = openssl_random_pseudo_bytes(64);
+        $token = bin2hex($rand_token);
+
+        $reqconfirmation = $bdh->getInstance()->prepare('INSERT INTO register_confirmation(token, user_id) VALUES (:token, :user_id)');
+        $reqconfirmation->bindparam('token', $token, PDO::PARAM_STR);
+        $reqconfirmation->bindparam('user_id', $createdId, PDO::PARAM_INT);
+        $reqconfirmation->execute();
+
+        return $token;
+    }
+
+    function sendMail($email, $name, $subject, $body, $altBody){
+        $mail = new PHPMailer(true);
+
+        try {
+            // Server settings
+            //$mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            $mail->Username = 'noreply.wavope@gmail.com'; // YOUR gmail email
+            $mail->Password = 'IJHqJl^BW8u5D6G9'; // YOUR gmail password
+
+            // Sender and recipient settings
+            $mail->setFrom('noreply.wavope@gmail.com', 'Wavope');
+            $mail->addAddress($email, $name);
+            $mail->addReplyTo('noreply.wavope@gmail.com', 'No Reply'); // to set the reply to
+
+            // Setting the email content  
+            $mail->CharSet = 'UTF-8';
+            $mail->Encoding = 'base64';
+            $mail->IsHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+            $mail->AltBody = $altBody;
+
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
+        }
     }
 
 ?>

@@ -7,11 +7,13 @@
     require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/PHPMailer.php';
     require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/SMTP.php';
 
+    require 'model.php';
+
     if(!isset($_SESSION)) { 
 		session_start(); 
 	}
 
-    if(isset($_SESSION['id'])) { 
+    if(isset($_SESSION['id'])) {
 		header("Location: /");
         exit;
 	}
@@ -40,44 +42,13 @@
 
                 $bdh = new DBHandler();
 
-                $requser = $bdh->getInstance()->prepare('SELECT * FROM users WHERE email = :email');
-                $requser->bindparam('email', $email, PDO::PARAM_STR);
-                $requser->execute();
-                $userexist = $requser->rowCount();
+                if(!userExistsByMail($email)){
+                    if(productExists($productNumber) == 0){
+                        $createdId = createUser($email, $password, $firstname, $lastname, $birthdate, $rank);
 
-                if($userexist == 0){
-                    $reqproduct = $bdh->getInstance()->prepare('SELECT * FROM products WHERE product_number = :product_number');
-                    $reqproduct->bindparam('product_number', $productNumber, PDO::PARAM_INT);
-                    $reqproduct->execute();
-                    $productregistered = $reqproduct->rowCount();
+                        createProduct($createdId, $productNumber);
 
-                    if($productregistered == 0){
-                        $reqcreate = $bdh->getInstance()->prepare("INSERT INTO users(email, password) VALUES (:email, :password)");
-                        $reqcreate->bindparam('email', $email, PDO::PARAM_STR);
-                        $reqcreate->bindparam('password', $password, PDO::PARAM_STR);
-                        $reqcreate->execute();
-
-                        $createdId = $bdh->getInstance()->lastInsertId();
-                        $reqinfocreate = $bdh->getInstance()->prepare('INSERT INTO user_data(user_id,firstname,lastname,birthdate,user_rank) VALUES (:user_id, :firstname, :lastname, :birthdate, :user_rank)');
-                        $reqinfocreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
-                        $reqinfocreate->bindparam('firstname', $firstname, PDO::PARAM_STR);
-                        $reqinfocreate->bindparam('lastname', $lastname, PDO::PARAM_STR);
-                        $reqinfocreate->bindparam('birthdate', $birthdate, PDO::PARAM_STR);
-                        $reqinfocreate->bindparam('user_rank', $rank, PDO::PARAM_STR);
-                        $reqinfocreate->execute();
-
-                        $reqproductcreate = $bdh->getInstance()->prepare('INSERT INTO products(product_number, user_id) VALUES (:product_number, :user_id)');
-                        $reqproductcreate->bindparam('product_number', $productNumber, PDO::PARAM_INT);
-                        $reqproductcreate->bindparam('user_id', $createdId, PDO::PARAM_INT);
-                        $reqproductcreate->execute();
-
-                        $rand_token = openssl_random_pseudo_bytes(64);
-                        $token = bin2hex($rand_token);
-
-                        $reqconfirmation = $bdh->getInstance()->prepare('INSERT INTO register_confirmation(token, user_id) VALUES (:token, :user_id)');
-                        $reqconfirmation->bindparam('token', $token, PDO::PARAM_STR);
-                        $reqconfirmation->bindparam('user_id', $createdId, PDO::PARAM_INT);
-                        $reqconfirmation->execute();
+                        $token = createRegisterConfirmation($createdId);
 
                         sendRegisterConfirmationMail($email, $firstname . ' ' . $lastname, $token);
 
@@ -98,7 +69,7 @@
         header("Location: /inscription.php?error=validation");
     }
 
-    function sanitize($donne){   
+    function sanitize($donne){
         $donne = trim($donne);
         $donne = stripslashes($donne);
         $donne = strip_tags($donne);

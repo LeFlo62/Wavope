@@ -1,20 +1,10 @@
 <?php
-    include_once $_SERVER["DOCUMENT_ROOT"]. '/php/variables.php';
+
+    require $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
+    require $_SERVER["DOCUMENT_ROOT"]. '/php/model.php';
 
     if(is_ajax()){
-        if(!isset($_SESSION)) { 
-            session_start(); 
-        }
-    
-        if(!isset($_SESSION['id'])) { 
-            header("Location: /login.php");
-            exit;
-        }
-    
-        if(RANK_POWER[$_SESSION['user_rank']] < 1){
-            header("Location: /");
-            exit;
-        }
+        check_user(1, true);
     
         define('DATA_TYPES', array("name"));
     
@@ -29,16 +19,10 @@
                     exit;
                 }
 
-                include_once '../../php/mysql.php';
-    
-                $bdh = new DBHandler();
-
-                $reqmodify = $bdh->getInstance()->prepare("UPDATE products SET ". $data_type ." = :user_data WHERE product_number = :product_number");
-
-                $reqmodify->bindparam('user_data', $data, PDO::PARAM_STR);
-                $reqmodify->bindparam('product_number', $product_number, PDO::PARAM_INT);
-                $reqmodify->execute();
-    
+                if($data_type === 'name'){
+                    updateProductName($product_number, $data);
+                }
+                
                 echo json_encode(array('return_type' => 'success', 'message' => 'Donnée modifiée'));
             } else {
                 echo json_encode(array('return_type' => 'error', 'message' => 'Cette donnée ne peut pas être modifiée.'));

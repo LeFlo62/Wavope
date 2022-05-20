@@ -52,6 +52,8 @@ $(document).on('click', '#ac-confirm', function(){
                 <p class="hint">Contrôles: </p><i user-id="`+ id +`" class="delete fa-solid fa-xmark"></i><i user-id="`+ id +`" class="ban fa-solid fa-gavel"></i>
             </div>
         </div>`);
+
+            $('#add-account').removeClass('disabled');
         }
     })
     .fail(function(){
