@@ -58,7 +58,7 @@
             }
         }
 
-        function displayGraphs($sensors){
+        function displayGraphs($sensors) {
             for ($i =0; $i < count($sensors); $i++) {
                 $sensorType=$sensors[$i]->getType();
                 echo "<section class='blockGraph'>
