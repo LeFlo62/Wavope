@@ -121,35 +121,15 @@
     }
 
     function sendMail($email, $name, $namedAction){
-        // passing true in constructor enables exceptions in PHPMailer
-        $mail = new PHPMailer(true);
-
-        try {
-            // Server settings
-            //$mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
-
-            $mail->Username = 'noreply.wavope@gmail.com'; // YOUR gmail email
-            $mail->Password = 'IJHqJl^BW8u5D6G9'; // YOUR gmail password
-
-            // Sender and recipient settings
-            $mail->setFrom('noreply.wavope@gmail.com', 'Wavope');
-            $mail->addAddress($email, $name);
-            $mail->addReplyTo('noreply.wavope@gmail.com', 'No Reply'); // to set the reply to
-
-            // Setting the email content
-            $mail->CharSet = 'UTF-8';
-            $mail->Encoding = 'base64';
-            $mail->IsHTML(true);
-            $mail->Subject = "Votre compte Wavope a été " . $namedAction;
-            $mail->Body = '<link rel="preconnect" href="https://fonts.googleapis.com">
+        sendMail($email, $name, "Votre compte Wavope a été ", '<link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-            <center>
+            <center style="
+                    font-family: "Roboto", sans-serif;
+                    font-size: 1rem;
+                    padding: 0px;
+                    margin: 0px;
+                    background-color: white;">
                 <img style="width: 150px; height: auto;" src="https://i.imgur.com/6CFLqM7.png" />
                 <br/>
                 <br/>
@@ -160,21 +140,7 @@
                 <br/>
                 <br/>
                 <img src="https://i.imgur.com/C5sVWQi.png" />
-            </center>
-            <style type="text/css">
-                center{
-                    font-family: "Roboto", sans-serif;
-                    font-size: 1rem;
-                    padding: 0px;
-                    margin: 0px;
-                    background-color: white;
-                }
-            </style>';
-            $mail->AltBody = 'Votre Wavope compte a été ' . $namedAction;
-
-            $mail->send();
-        } catch (Exception $e) {
-            echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
-        }
+            </center>',
+            'Votre Wavope compte a été ' . $namedAction);
    }
 ?>

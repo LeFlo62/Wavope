@@ -62,14 +62,15 @@
                  '<link rel="preconnect" href="https://fonts.googleapis.com">
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-                <center style = "font-family: "Roboto", sans-serif;
+                <center style="font-family: "Roboto", sans-serif;
                         font-size: 1rem;
                         padding: 0px;
                         margin: 0px;
                         background-color: white;">
                     <img style="width: 150px; height: auto;" src="https://i.imgur.com/6CFLqM7.png" />
                     <p>Un compte sur Wavope vous a été créé. Vous devez changer votre mot de passe afin d\'y accéder</p><br/>
-                    <a href="http://localhost/resetpassword.php?r=f" style="padding: 12px 20px;
+                    <a href="http://localhost/resetpassword.php?r=f" style="
+                            padding: 12px 20px;
                             margin: 15px 15px;
                             border-radius: 25px;
                             text-decoration: none;
@@ -82,9 +83,7 @@
                     <br/>
                     <br/>
                     <img src="https://i.imgur.com/C5sVWQi.png" />
-                </center>
-                <style type="text/css">
-                </style>',
+                </center>',
                      'Vous avez demandé à changer de mot de passe. Allez à l\'adresse http://localhost/resetpassword.php?r=f pour poursuivre.');
    }
 ?>
