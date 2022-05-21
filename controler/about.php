@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/styleAbout.css">
-    <link rel="stylesheet" href="./css/styleButton.css">
+    <link rel="stylesheet" href="/css/styleAbout.css">
+    <link rel="stylesheet" href="/css/styleButton.css">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href=""><img src="./Images/mariam_camara.png" alt="image 2" class="imageProfil"></a>
+            <a href=""><img src="/Images/mariam_camara.png" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Mariam Camara est une enseignante-chercheuse de l'ISEP.</p>
@@ -50,7 +50,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-amiel-911a5a20/"><img src="./Images/frederic_amiel.png" alt="image 3" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/fr%C3%A9d%C3%A9ric-amiel-911a5a20/"><img src="/Images/frederic_amiel.png" alt="image 3" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Frédéric Amiel est un enseignant-chercheur et responsable du domaine électronique de l'ISEP.</p>
@@ -60,7 +60,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/florence-rossant-37469962/"><img src="./Images/florence_rossant.png" alt="image 4" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/florence-rossant-37469962/"><img src="/Images/florence_rossant.png" alt="image 4" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Florence Rossant est une enseignante-chercheuse de l'ISEP. Elle est responsable du groupe DASSIP et possède une Habilitation à Diriger les Recherches (HDR).</p>
@@ -70,7 +70,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/samiaoukemeni/"><img src="./Images/samia_oukemeni.png" alt="image 5" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/samiaoukemeni/"><img src="/Images/samia_oukemeni.png" alt="image 5" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Samia Oukemeni est une enseignante-chercheuse de l'ISEP.</p>
@@ -80,7 +80,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.linkedin.com/in/ahmed-messaoudi-29147a112/"><img src="./Images/ahmed_messaoudi.png" alt="image 6" class="imageProfil"></a>
+            <a href="https://www.linkedin.com/in/ahmed-messaoudi-29147a112/"><img src="/Images/ahmed_messaoudi.png" alt="image 6" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Ahmed Messaoudi est un enseignant de l'ISEP.</p>

@@ -45,7 +45,7 @@
                     $_SESSION['firstname'] = $userdata['firstname'];
 					$_SESSION['user_rank'] = $userdata['user_rank'];
 
-					header("Location: /?loginSuccess=1");
+					header("Location: /");
 				} else {
 					header("Location: /login.php?error=password");
 				}

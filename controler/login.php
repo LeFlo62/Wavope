@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
 
-        <link rel="stylesheet" href="./css/styleLogin.css">
+        <link rel="stylesheet" href="/css/styleLogin.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
                     }
                 ?>
                 <h1>CONNECTEZ-VOUS</h1>
-                <form class="formulaire" action="php/login.php" method="post">
+                <form class="formulaire" action="/php/login.php" method="post">
                     
                     <div class="blockTextInput">
                         <label for="emailField">Email*</label>
@@ -70,8 +70,8 @@
                         <input type="submit" name="login" class="square_btn2" value="SE CONNECTER"/>
                         
                         <div class="sublinks">
-                            <a href="resetpassword.php?r=f">Mot de passe oublié ?</a><br/>
-                            <a href="inscription.php">Pas encore inscrit?</a>
+                            <a href="/resetpassword?r=f">Mot de passe oublié ?</a><br/>
+                            <a href="/inscription">Pas encore inscrit?</a>
                         </div>
                     </div>
                 </form>

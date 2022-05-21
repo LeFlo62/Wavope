@@ -24,7 +24,7 @@ $(document).on('click', '.accept', function(){
     var userId = btn.attr('user-id');
     var action = btn.attr('action');
 
-    $.post("./back-office/php/sanctionuser.php", {user_id: userId, action: action})
+    $.post("/back-office/php/sanctionuser.php", {user_id: userId, action: action})
         .done(function(response){
             var responseObj = JSON.parse(response);
             $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);

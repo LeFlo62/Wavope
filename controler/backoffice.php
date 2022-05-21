@@ -2,11 +2,6 @@
     require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
 
     check_user(1, true);
-
-    if(!isset($_GET['p'])){
-        header("Location: ?p=users");
-        exit;
-    }
 ?>
 <!DOCTYPE html>
 <html lang="fr" style="scroll-behavior:smooth;">
@@ -16,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Back-Office</title>
 
-        <link rel="stylesheet" href="./css/styleBackOffice.css">
+        <link rel="stylesheet" href="/css/styleBackOffice.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -31,7 +26,7 @@
             </div>
             <div id="middle-bar">
                 <?php
-                    if($_GET['p'] !== 'cards' && $_GET['p'] !== 'faq'){
+                    if($params['page'] !== 'cards' && $params['page'] !== 'faq'){
                         echo '<input type="text" class="search" placeholder="Recherche"></input>';
                     }
                 ?>
@@ -39,15 +34,15 @@
         </div> 
         <div class="navbar">
             <div class="masthead-spacer"></div>
-            <a <?php if($_GET['p'] === 'cards') { echo 'class="selected"';} ?> href="?p=cards">Cartes</a>
-            <a <?php if($_GET['p'] === 'faq') { echo 'class="selected"';} ?> href="?p=faq">FAQ</a>
-            <a <?php if($_GET['p'] === 'users') { echo 'class="selected"';} ?> href="?p=users">Utilisateurs</a>
-            <a <?php if($_GET['p'] === 'devices') { echo 'class="selected"';} ?> href="?p=devices">Appareils</a>
+            <a <?php if($params['page'] === 'cards') { echo 'class="selected"';} ?> href="/backoffice/cards">Cartes</a>
+            <a <?php if($params['page'] === 'faq') { echo 'class="selected"';} ?> href="/backoffice/faq">FAQ</a>
+            <a <?php if($params['page'] === 'users') { echo 'class="selected"';} ?> href="/backoffice/users">Utilisateurs</a>
+            <a <?php if($params['page'] === 'devices') { echo 'class="selected"';} ?> href="/backoffice/devices">Appareils</a>
 
         </div>
         <div class="content">
             <?php
-                switch($_GET['p']){
+                switch($params['page']){
                     case 'cards':
                         include './back-office/cards.php';
                         break;
@@ -70,7 +65,7 @@
                     return (el.textContent || el.innerText).toLowerCase().indexOf(p[3].toLowerCase()) === 0;
                 }
             });
-            <?php $p = $_GET['p']; ?>
+            <?php $p = $params['page']; ?>
             $('input.search').on('change input paste keyup', function(){
                 var value = $(this).val();
                 if(value != ''){

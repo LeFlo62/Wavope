@@ -19,13 +19,13 @@
         </div>
         <div class="menuBar">
             <a class="itemMenuBar" href="/">Wavope</a>
-            <a class="itemMenuBar" href="formulaire.php">Contact</a>
+            <a class="itemMenuBar" href="/formulaire/">Contact</a>
             <?php
                 if(isset($_SESSION['id'])){
-                    echo '<a class="itemMenuBar" href="/game.php">Jeu</a>';
+                    echo '<a class="itemMenuBar" href="/game/">Jeu</a>';
                 }
             ?>
-            <a class="itemMenuBar" href="faq.php">FAQ</a>
+            <a class="itemMenuBar" href="/faq/">FAQ</a>
             
 
             <?php
@@ -35,14 +35,14 @@
                                 .  $_SESSION["firstname"] 
                             .'</a>
                             <div class="dropdown-content dropdown-content-right">'
-                                .(RANK_POWER[$_SESSION['user_rank']] > RANK_POWER['user'] ? '<a href="/backoffice.php?p=users">Back-Office</a>' : '')
-                             . '<a href="/product.php">Mes appareils</a>
-                                <a href="/modifyprofile.php">Paramètres</a>
-                                <a class="disconnection" href="/disconnect.php">Se déconnecter</a>
+                                .(RANK_POWER[$_SESSION['user_rank']] > RANK_POWER['user'] ? '<a href="/backoffice/users/">Back-Office</a>' : '')
+                             . '<a href="/product/">Mes appareils</a>
+                                <a href="/modifyprofile/">Paramètres</a>
+                                <a class="disconnection" href="/disconnect/">Se déconnecter</a>
                             </div>
                         </div>';
                 } else {
-                    echo '<a class="itemMenuBar" href = "login.php">Se connecter</a>';
+                    echo '<a class="itemMenuBar" href = "/login/">Se connecter</a>';
                 }
             ?>
         </div>

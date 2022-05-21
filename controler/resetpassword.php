@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Changement de mot de passe</title>
         
-        <link rel="stylesheet" href="./css/styleResetpassword.css">
+        <link rel="stylesheet" href="/css/styleResetpassword.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
                                     var method = "f";
                                     var email = $("#emailField").val();
 
-                                    $.post("./php/resetpassword.php", {method: method, email: email})
+                                    $.post("/php/resetpassword.php", {method: method, email: email})
                                     .done(function(response){
                                         var responseObj = JSON.parse(response);
                                         $("#snackbar").html(responseObj.message).addClass(["show", responseObj.return_type]);
@@ -114,7 +114,7 @@
                         }
                         
 
-                        echo            '$.post("./php/resetpassword.php", params)
+                        echo            '$.post("/php/resetpassword.php", params)
                                         .done(function(response){
                                             alert(response);
                                             var responseObj = JSON.parse(response);
@@ -139,7 +139,7 @@
                         <script>
                             var method = "c";
                             var token = "'. $_GET['token'] .'";
-                            $.post("./php/resetpassword.php", {method: method, token: token})
+                            $.post("/php/resetpassword.php", {method: method, token: token})
                             .done(function(response){
                                 alert(response);
                                 var responseObj = JSON.parse(response);

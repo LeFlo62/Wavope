@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Inscription</title>
 
-        <link rel="stylesheet" href="./css/styleRegister.css">
+        <link rel="stylesheet" href="/css/styleRegister.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
                 ?>
                 <h1>Inscrivez-vous !</h1>
                 
-                <form id="inscription" method="post" action="php/inscription.php">
+                <form id="inscription" method="post" action="/php/inscription.php">
                         <div class="blockTextInput">
                             <label for="email" required>E-mail</label>
                             <input class="fieldInput" type="email" name="email" id="email" placeholder="mail@example.com"/>
