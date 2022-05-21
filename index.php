@@ -1,6 +1,6 @@
 <?php
 
-define( 'INCLUDE_DIR', dirname( __FILE__ ) . '/controler/' );
+define( 'INCLUDE_DIR', dirname( __FILE__ ) . '/controller/' );
 
 $rules = array(
     'backoffice' => "/backoffice/(?'page'users|faq|cards|devices)",
