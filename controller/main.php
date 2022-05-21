@@ -6,6 +6,6 @@
 
     $cards = getCards();
 
-    require $_SERVER["DOCUMENT_ROOT"]. '/vues/index.php';
+    require $_SERVER["DOCUMENT_ROOT"]. '/vues/main.php';
 
 ?>

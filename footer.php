@@ -1,5 +1,5 @@
 <!-- PAGE BOTTOM  -->
-<link href="./css/footer/styleBottomPage.css" rel="stylesheet" >
+<link href="/css/footer/styleBottomPage.css" rel="stylesheet" >
 <body>
 <div class="blockBottomAll">
 
