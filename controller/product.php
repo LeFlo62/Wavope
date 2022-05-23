@@ -1,25 +1,8 @@
 <?php
     require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
-    if(!isset($_SESSION)) {
-        session_start();
-    }
-?>
-
-
-
-
-<?php
-include_once 'mysql.php';
-$bdh = new DBHandler();
-    $bdh->connect();
-$requser = $bdh->getInstance()->prepare('SELECT date,data FROM sensor_data WHERE product_number=(SELECT product_number FROM `products` WHERE id = :idUser) ORDER BY sensor_type');
-$requser->bindparam('idUser',$_SESSION["id"], PDO::PARAM_STR);
-$requser->execute();
-
 
     check_user(true, 0);
 ?>
-
 
 
 
@@ -33,13 +16,9 @@ $requser->execute();
     <title>Document</title>
     <link rel="stylesheet" href="/css/styleProduct.css">
     <link rel="stylesheet" href="/css/styleProductMobileVersion.css">
-    <link rel="stylesheet" href="./css/styleProduct.css">
-    <link rel="stylesheet" href="./css/styleProductMobileVersion.css">
 
     <script src="/js/npmchartjs.js"></script>
     <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
-    <script src="./js/npmchartjs.js"></script>
-    <script type="text/javascript" src="./js/functionDrawGraph.js"></script>
 
 </head>
 <body>
@@ -63,7 +42,7 @@ $requser->execute();
                 $this->sensorType = $sensorType;
                 $this->x = $x;
                 $this->y = $y;
-                $this->graphDisplay = $graphDisplay;
+                $this->graphDisplay = $graphDisplay; 
             }
             public function getX(){
                 return implode(",", $this->x) ;
@@ -80,7 +59,6 @@ $requser->execute();
         }
 
         function displayGraphs($sensors) {
-        function displayGraphs($sensors){
             for ($i =0; $i < count($sensors); $i++) {
                 $sensorType=$sensors[$i]->getType();
                 echo "<section class='blockGraph'>
@@ -99,18 +77,11 @@ $requser->execute();
         $sensors=[$temperatureSensor,$sonoreSensor,$heartbeatSensor];
         displayGraphs($sensors);
     ?>
-   
-   
-       
-   
-   
-   ?>
-   
+    
 </body>
 </html>
 
 
 <style>
 
-</style>
 </style>
