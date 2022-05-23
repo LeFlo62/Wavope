@@ -37,6 +37,4 @@ $(document).on('click', '.control', function(){
             switchElement.find('.fa-caret-down').show();
         }
     });
-
-    $.post('')
 });

@@ -13,4 +13,4 @@
 
 ?>
 
-<script src="/backoffice/js/faq.js"></script>
+<script src="/back-office/js/faq.js"></script>
