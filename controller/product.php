@@ -27,11 +27,11 @@
 
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <img class="imageProfil" src="./images/Maxime.png">
+            <img class="imageProfil" src="/Images/maxime.png">
         </div>
         <div class="blockProfilGestion">
             <span class="profilName">Maxime NIGRIS</span>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Modifier le mot de passe</a>
+            <a href="controller/resetPassword.php">Modifier le mot de passe</a>
         </div>
     </div>
     <?php
