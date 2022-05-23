@@ -80,7 +80,7 @@ h1{
 
 .blockmarks{
     text-align: center;
-    position:static;
+    position:sticky;
     width: 30%;
     height: 25%;
     display: flex;
