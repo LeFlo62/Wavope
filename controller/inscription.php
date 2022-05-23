@@ -72,12 +72,12 @@
                         <div class="blockTextInput">
                             <label for="password" required>Mot de passe</label>
                             <input class="fieldInput" name="password" id="password" type="password" />
-                            <span id= "span1"style="color: red;"> </span>
+                            <span id= "span1"style="color: red;">&nbsp; </span>
                         </div>
                         <div class="blockTextInput">
                             <label for="passwordCheck" required>Confirmation du Mot de passe</label>
                             <input class="fieldInput" name="password_check" id="passwordCheck" type="password" />
-                            <span id= "span2"style="color: red;"> </span>
+                            <span id= "span2"style="color: red;">&nbsp;&nbsp; </span>
                         </div>
                         <div class="blockTextInput">
                             <label for="productnumber" required>Numéro Produit</label>
@@ -99,14 +99,14 @@
                 var pwdErrspan2 =   document.getElementById('span2');
                 document.getElementById("password").onblur =  function(){
                     if(isPasswordTooMuchEasy('password')){
-                        pwdErrspan1.innerHTML = "Votre mot de passe est trop facile !";
+                        pwdErrspan1.innerHTML = "&nbsp;&nbsp;&nbsp;Votre mot de passe est trop facile !";
                     }
                     else{
                         document.getElementById("passwordCheck").onblur =  function(){
                             var pwd = document.getElementById("password").value;
                             var confpwd = document.getElementById("passwordCheck").value;
                             if(pwd!=confpwd){
-                                pwdErrspan2.innerHTML = "Les mots de passes ne sont pas identiques !";
+                                pwdErrspan2.innerHTML = "&nbsp;&nbsp;&nbsp;Les mots de passes ne sont pas identiques !";
                             }
                         }
                     }

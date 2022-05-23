@@ -80,14 +80,14 @@ h1{
 
 .blockmarks{
     text-align: center;
-    position:sticky;
+    position:absolute;
     width: 30%;
     height: 25%;
     display: flex;
     text-decoration:none;
-    flex-direction: column;
+    flex-direction: column-reverse;
     font-family: 'Roboto', sans-serif;
-    
+    justify-content: flex-start;
     margin-top: 50%;
     
 }
@@ -98,13 +98,13 @@ h1{
 }
 .podium{
     display: flex;
-    
+    align-content: flex-end;
     position: relative;
     
     border: 5px;
     height: 70%;
     width: 100%;
-    flex-direction: raw;
+    flex-direction: row;
     
     padding-top: 40px;
       
@@ -121,13 +121,14 @@ h1{
     order: 2;
     margin-left: 20px;
     border-radius: 5px;
-    animation-direction: reverse;
-    animation
+    animation-fill-mode: forwards;
+    position: relative;
 }
 .mark1 :hover{
     
 }
 .mark2{
+    height: 100%;
     color: rgb(1, 1, 1);
     align-self: left;
     background: silver;
@@ -136,8 +137,8 @@ h1{
     margin-left: 20px;
     border-radius: 5px;
     animation-name: mark2;
-    animation-duration: 1s
-    animation-direction: reverse;
+    animation-duration: 1s;
+    position: relative;
     
    
 }
@@ -154,21 +155,28 @@ h1{
     margin-left: 20px;
     border-radius: 5px;
     animation-name: mark3;
-    animation-duration: 1s
-    animation-direction: reverse;
+    animation-duration: 1s;
+    position:relative;
 }
 .mark3 :hover{
     
 }
 @keyframes mark1{
-    0%         {height: 0%;}
-    100%       {height: 100%;}
+    0%         {height: 0%;
+    top:100%;background-color: white;
+    }    
+    100%      {height: 100%;
+    top:0%;background-color: gold;}
 }
 @keyframes mark2{
-    0%         {height: 0%;}
-    100%       {height: 100%;}
+    0%         {height: 0%;
+    top:100%;background-color: white}    
+    100%       {height: 100%;
+    top:0%;background-color: silver}
 }
 @keyframes mark3{
-    0%         {height: 0%;}
-    100%       {height: 100%;}
+    0%         {height: 0%;
+    top:100%;background-color: white}    
+    100%       {height: 100%;
+    top:0%;background-color: brown}
 }
