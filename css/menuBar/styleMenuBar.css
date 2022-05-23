@@ -68,7 +68,7 @@
   height: 1px;
   top: 100%;
   left: 0;
-  background: #1a1a1a;
+  background: rgb(118, 177, 100);
   transition: transform 0.7s;
   transform: scaleX(0);
   transform-origin: right;
