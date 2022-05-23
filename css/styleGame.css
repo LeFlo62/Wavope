@@ -80,7 +80,7 @@ h1{
 
 .blockmarks{
     text-align: center;
-    position: relative;
+    position: absolute;
     width: 30%;
     height: 25%;
     display: flex;
@@ -99,7 +99,7 @@ h1{
 .podium{
     display: flex;
     
-    position: absolute;
+    position: relative;
     
     border: 5px;
     height: 70%;
