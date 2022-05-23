@@ -56,13 +56,13 @@
                 <form class="formulaire" action="/php/login.php" method="post">
                     
                     <div class="blockTextInput">
-                        <label for="emailField">Email*</label>
+                        <label for="emailField">Email</label>
                         <input class="search-input" type="email" id="emailField" name="email" required>
                     </div>
 
 
                     <div class="blockTextInput">
-                        <label for="passwordField">Mot de passe*</label>
+                        <label for="passwordField">Mot de passe</label>
                         <input class="search-input" type="password" id="passwordField" name="password" required>
                     </div>
 
@@ -71,7 +71,7 @@
                         
                         <div class="sublinks">
                             <a href="/resetpassword?r=f">Mot de passe oublié ?</a><br/>
-                            <a href="/inscription">Pas encore inscrit?</a>
+                            <a href="/inscription">&nbsp;&nbsp;Pas encore inscrit?</a>
                         </div>
                     </div>
                 </form>

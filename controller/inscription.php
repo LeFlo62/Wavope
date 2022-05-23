@@ -16,6 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script type="text/javascript" src="https://releases.jquery.com/git/jquery-3.x-git.min.js"></script>
+        <script src="/js/functionVerifPaswordInscription.js"></script>
     </head>
     <body>
         <?php include 'navbar.php' ?>
@@ -70,10 +71,12 @@
                         <div class="blockTextInput">
                             <label for="password" required>Mot de passe</label>
                             <input class="fieldInput" name="password" id="password" type="password" />
+                            <span id= "span1"style="color: red;"> </span>
                         </div>
                         <div class="blockTextInput">
                             <label for="passwordCheck" required>Confirmation du Mot de passe</label>
                             <input class="fieldInput" name="password_check" id="passwordCheck" type="password" />
+                            <span id= "span2"style="color: red;"> </span>
                         </div>
                         <div class="blockTextInput">
                             <label for="productnumber" required>Numéro Produit</label>
@@ -90,6 +93,32 @@
                 </form>
                 <p class="alreadySubscrire">Deja inscrit? <a href="login.php">Se connecter</a></p>
             </div>
+            <script>
+                var pwdErrspan1 =   document.getElementById('span1');
+                var pwdErrspan2 =   document.getElementById('span2');
+                document.getElementById("password").onblur =  function(){
+                    if(isPasswordTooMuchEasy('password')){
+                        pwdErrspan1.innerHTML = "Votre mot de passe est trop facile !";
+                    }
+                    else{
+                        document.getElementById("passwordCheck").onblur =  function(){
+                            var pwd = document.getElementById("password").value;
+                            var confpwd = document.getElementById("passwordCheck").value;
+                            if(pwd!=confpwd){
+                                pwdErrspan2.innerHTML = "Les mots de passes ne sont pas identiques !";
+                            }
+                        }
+                    }
+
+                }
+
+document.getElementById("password").onfocus =  function(){
+pwdErrspan1.innerHTML ="";
+}
+document.getElementById("passwordCheck").onfocus =  function(){
+pwdErrspan2.innerHTML ="";
+}
+            </script>
                 <script>
                     $('input:not("[type="submit"]")').focusout(function(){
                         if($(this).val().length == 0){
