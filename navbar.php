@@ -15,7 +15,7 @@
 </head>
 <nav  class="blockmenuBar">
         <div class="logoMenuBar">
-            <img src="/Images/infinitemeasures.png"></img>
+            <a href="/"><img src="/Images/infinitemeasures.png"></img></a>
         </div>
         <div class="menuBar">
             <a class="itemMenuBar" href="/">Wavope</a>
