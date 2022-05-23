@@ -6,7 +6,7 @@
   width: 100%;
   height:8%;
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: bold;
   z-index: 1;
 }
@@ -68,7 +68,7 @@
   height: 1px;
   top: 100%;
   left: 0;
-  background: #1a1a1a;
+  background: rgb(118, 178, 100);
   transition: transform 0.7s;
   transform: scaleX(0);
   transform-origin: right;
@@ -126,7 +126,7 @@
   background-color: #C2C2C2;
 }
 .dropdown-content a.disconnection:hover {
-  background-color: #FF2242;
+  background-color: #FF2241;
 }
 
 .dropdown:hover .dropdown-content {
