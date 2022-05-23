@@ -33,8 +33,6 @@ $requser->execute();
     <title>Document</title>
     <link rel="stylesheet" href="/css/styleProduct.css">
     <link rel="stylesheet" href="/css/styleProductMobileVersion.css">
-    <link rel="stylesheet" href="./css/styleProduct.css">
-    <link rel="stylesheet" href="./css/styleProductMobileVersion.css">
 
     <script src="/js/npmchartjs.js"></script>
     <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
