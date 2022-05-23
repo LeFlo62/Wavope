@@ -60,7 +60,7 @@
 
                         <div class="blockText">
                             <div class="sublinks">
-                                <a href="resetpassword.php?r=r">Changer de mot de passe</a><br/>
+                                <a href="/resetpassword?r=r">Changer de mot de passe</a><br/>
                             </div>
                         </div>
 
