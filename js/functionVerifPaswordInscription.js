@@ -8,16 +8,18 @@
         return false;
     }
 
-    function isPasswordToMuchEasy(passwordIdName){
+    function isPasswordTooMuchEasy(passwordIdName){
         let password=document.getElementById(passwordIdName).value;
         let minPassLength=10;
-        if (password.length < minPassLength){           
+        if (password.length!=0 &&password.length < minPassLength ){           
             return true;
         }
-        for (let letter in password) {
+        else{
+            for (let letter in password) {
             if (isInAlphabet(password[letter])==false){
                 return false;
             }
+        }
         }
         return true;
     }

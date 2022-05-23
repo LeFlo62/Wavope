@@ -1,25 +1,8 @@
 <?php
     require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
-    if(!isset($_SESSION)) {
-        session_start();
-    }
-?>
-
-
-
-
-<?php
-include_once 'mysql.php';
-$bdh = new DBHandler();
-    $bdh->connect();
-$requser = $bdh->getInstance()->prepare('SELECT date,data FROM sensor_data WHERE product_number=(SELECT product_number FROM `products` WHERE id = :idUser) ORDER BY sensor_type');
-$requser->bindparam('idUser',$_SESSION["id"], PDO::PARAM_STR);
-$requser->execute();
-
 
     check_user(true, 0);
 ?>
-
 
 
 
@@ -31,26 +14,24 @@ $requser->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/Images/infinitemeasures.ico">
+
     <link rel="stylesheet" href="/css/styleProduct.css">
     <link rel="stylesheet" href="/css/styleProductMobileVersion.css">
-    <link rel="stylesheet" href="./css/styleProduct.css">
-    <link rel="stylesheet" href="./css/styleProductMobileVersion.css">
 
     <script src="/js/npmchartjs.js"></script>
     <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
-    <script src="./js/npmchartjs.js"></script>
-    <script type="text/javascript" src="./js/functionDrawGraph.js"></script>
 
 </head>
 <body>
-
+<?php include 'navbar.php' ?>
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <img class="imageProfil" src="./images/Maxime.png">
+            <img class="imageProfil" src="/Images/maxime.png">
         </div>
         <div class="blockProfilGestion">
             <span class="profilName">Maxime NIGRIS</span>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Modifier le mot de passe</a>
+            <a href="/modifyprofil/resetpassword.php">Modifier le mot de passe</a>
         </div>
     </div>
     <?php
@@ -63,7 +44,7 @@ $requser->execute();
                 $this->sensorType = $sensorType;
                 $this->x = $x;
                 $this->y = $y;
-                $this->graphDisplay = $graphDisplay;
+                $this->graphDisplay = $graphDisplay; 
             }
             public function getX(){
                 return implode(",", $this->x) ;
@@ -80,7 +61,6 @@ $requser->execute();
         }
 
         function displayGraphs($sensors) {
-        function displayGraphs($sensors){
             for ($i =0; $i < count($sensors); $i++) {
                 $sensorType=$sensors[$i]->getType();
                 echo "<section class='blockGraph'>
@@ -99,18 +79,11 @@ $requser->execute();
         $sensors=[$temperatureSensor,$sonoreSensor,$heartbeatSensor];
         displayGraphs($sensors);
     ?>
-   
-   
-       
-   
-   
-   ?>
-   
+    
 </body>
 </html>
 
 
 <style>
 
-</style>
 </style>
