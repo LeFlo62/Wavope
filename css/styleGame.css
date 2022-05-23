@@ -87,7 +87,7 @@ h1{
     text-decoration:none;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    background-color: antiquewhite;
+    
     margin-top: 50%;
     
 }
@@ -99,7 +99,7 @@ h1{
 .podium{
     display: flex;
     
-    position: absolute;
+    position: relative;
     
     border: 5px;
     height: 70%;
