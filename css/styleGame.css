@@ -114,7 +114,7 @@ h1{
 .mark1{
     height: 100%;
     color: rgb(1, 1, 1);
-    background: gold;
+    /*background: gold;*/
     width: 30%;
     animation-name: mark1;
     animation-duration: 1s;
