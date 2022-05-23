@@ -30,7 +30,7 @@
     <div id="middlePage" class="middlePage">
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <a href="https://www.isep.fr/test-lisite-2/"><img src="./Images/zakia_kazi_aoul.png" alt="image 1" class="imageProfil"></a>
+            <a href="https://www.isep.fr/test-lisite-2/" target="_blank"><img src="./Images/zakia_kazi_aoul.png" alt="image 1" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Zakia Kazi-Aoul est une enseignante-chercheuse et responsable du domaine informatique de l'ISEP.</p>
@@ -40,7 +40,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.isep.fr/test-lisite-2/"><img src="/Images/mariam_camara.png" alt="image 2" class="imageProfil"></a>
+            <a href="https://www.isep.fr/test-lisite-2/" target="_blank"><img src="/Images/mariam_camara.png" alt="image 2" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Mariam Camara est une enseignante-chercheuse de l'ISEP.</p>
@@ -50,7 +50,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.isep.fr/test-lisite-2/"><img src="/Images/frederique_amiel.png" alt="image 3" class="imageProfil"></a>
+            <a href="https://www.isep.fr/test-lisite-2/" target="_blank"><img src="/Images/frederique_amiel.png" alt="image 3" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Frédéric Amiel est un enseignant-chercheur et responsable du domaine électronique de l'ISEP.</p>
@@ -60,7 +60,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.isep.fr/test-lisite-2/"><img src="/Images/florence_rossant.png" alt="image 4" class="imageProfil"></a>
+            <a href="https://www.isep.fr/test-lisite-2/" target="_blank"><img src="/Images/florence_rossant.png" alt="image 4" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Florence Rossant est une enseignante-chercheuse de l'ISEP. Elle est responsable du groupe DASSIP et possède une Habilitation à Diriger les Recherches (HDR).</p>
@@ -70,7 +70,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.isep.fr/test-lisite-2/"><img src="/Images/samia_oukemeni.png" alt="image 5" class="imageProfil"></a>
+            <a href="https://www.isep.fr/test-lisite-2/" target="_blank"><img src="/Images/samia_oukemeni.png" alt="image 5" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Samia Oukemeni est une enseignante-chercheuse de l'ISEP.</p>
@@ -80,7 +80,7 @@
 
     <div class="blockProfil reveal duration1">
         <div class="blockProfilImage">
-            <a href="https://www.isep.fr/test-lisite-2/"><img src="/Images/ahmed_messaoudi.png" alt="image 6" class="imageProfil"></a>
+            <a href="https://www.isep.fr/test-lisite-2/" target="_blank"><img src="/Images/ahmed_messaoudi.png" alt="image 6" class="imageProfil"></a>
         </div>
         <div class="blockProfilDescription">
             <p>Ahmed Messaoudi est un enseignant de l'ISEP.</p>
