@@ -1,7 +1,7 @@
 <?php
-    if(!isset($_SESSION)) { 
-        session_start(); 
-    }
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
+
+    check_user(true, 0);
 ?>
 
 
@@ -14,11 +14,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/styleProduct.css">
-    <link rel="stylesheet" href="./css/styleProductMobileVersion.css">
+    <link rel="stylesheet" href="/css/styleProduct.css">
+    <link rel="stylesheet" href="/css/styleProductMobileVersion.css">
 
-    <script src="./js/npmchartjs.js"></script>
-    <script type="text/javascript" src="./js/functionDrawGraph.js"></script>
+    <script src="/js/npmchartjs.js"></script>
+    <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
 
 </head>
 <body>
@@ -58,7 +58,7 @@
             }
         }
 
-        function displayGraphs($sensors){
+        function displayGraphs($sensors) {
             for ($i =0; $i < count($sensors); $i++) {
                 $sensorType=$sensors[$i]->getType();
                 echo "<section class='blockGraph'>
@@ -77,23 +77,6 @@
         $sensors=[$temperatureSensor,$sonoreSensor,$heartbeatSensor];
         displayGraphs($sensors);
     ?>
-<!--    
-   
-        include_once 'mysql.php';
-
-        DBHandler().connect()
-    
-        $bdh = new DBHandler();
-        SELECT * FROM personne WHERE id_supermarche=(SELECT id_supermarche FROM supermarche WHERE nom = 'Carrefour');
-        $requser = $bdh->getInstance()->prepare('SELECT date,data FROM sensor_data' WHERE product_number=(SELECT product_number FROM `products` WHERE id =' + $id));
-        $requser->bindparam('', $email, PDO::PARAM_STR);
-        $requser->execute();
-        $userexist = $requser->rowCount();
-   
-   
-   
-   
-   ?> -->
     
 </body>
 </html>
@@ -101,5 +84,4 @@
 
 <style>
 
-</style>
 </style>
