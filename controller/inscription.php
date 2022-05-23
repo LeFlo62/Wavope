@@ -121,7 +121,7 @@ pwdErrspan2.innerHTML ="";
 }
             </script>
                 <script>
-                    $('input:not("[type="submit"]")').focusout(function(){
+                    $('input:not("[type=submit]")').focusout(function(){
                         if($(this).val().length == 0){
                             $(this).addClass('empty-field');
                         } else if($(this).hasClass('empty-field')) {
