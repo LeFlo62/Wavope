@@ -39,7 +39,7 @@ nextStepQuizz();
     
 function results(){
     userAnswers.forEach(i => {
-        if (i in answersreal==true){
+        if (i in answersreal){
             realmark++;
         }
     });

@@ -76,6 +76,7 @@ h1{
     /* height: 160px; */
     /* background-color: rgb(130, 233, 99); */
     bottom: 0px;
+    left: 0px;
 }
 
 .blockmarks{
@@ -97,26 +98,30 @@ h1{
 .mark{
     font-family: 'Roboto', sans-serif;
     justify-content: center;
+    margin-top: 10px;
     
 }
 .podium{
     display: flex;
     align-content: flex-end;
     position: relative;
-    
     border: 5px;
     height: 70%;
     width: 100%;
     flex-direction: row;
-    
     padding-top: 40px;
-      
-    
-}
 
+}
+/*.podium:hover{
+    box-shadow: 10px,10px;
+    transform: scale(1.1);
+    transition: 0.5s ease;
+    
+}*/
 .mark1{
     min-width: 100px;
     height: 100%;
+    top: 0%;
     color: rgb(1, 1, 1);
     background: gold;
     width: 30%;
@@ -127,9 +132,11 @@ h1{
     border-radius: 5px;
     animation-fill-mode: forwards;
     position: relative;
+    box-shadow: 10px,10px;
 }
-.mark1 :hover{
-    
+.mark1:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease;
 }
 .mark2{
     min-width: 100px;
@@ -145,12 +152,13 @@ h1{
     animation-name: mark2;
     animation-duration: 1s;
     position: relative;
-    
+    box-shadow: 10px,10px;
    
 }
-.mark2 :hover{
-    background: red;
-    width: 200px;
+.mark2:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease;
+    
 }
 .mark3{
     min-width: 100px;
@@ -160,7 +168,7 @@ h1{
     align-self: right;
     background: brown;
     width: 30%;
-    
+    box-shadow: 10px,10px;
     order: 3;
     margin-left: 20px;
     border-radius: 5px;
@@ -168,7 +176,9 @@ h1{
     animation-duration: 1s;
     position:relative;
 }
-.mark3 :hover{
+.mark3:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease;
     
 }
 @keyframes mark1{
@@ -189,4 +199,14 @@ h1{
     top:100%;background-color: white}    
     100%       {height: 45%;
     top:55%;background-color: brown}
+}
+@media only screen and (max-width: 1000px) {
+     .blockmarks{
+        margin-top:  600px;
+     }
+}
+@media only screen and (max-width: 420px) {
+     .blockmarks{
+        margin-top:  700px;
+     }
 }

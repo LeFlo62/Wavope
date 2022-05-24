@@ -16,8 +16,10 @@
     <link rel="stylesheet" href="/css/styleGame.css">
 </head>
 <body>
+    
     <?php include 'navbar.php' ?>
     <section class="blockAllQuizz">
+        
         <div class="blockQuizz">
             <div class="progress-container">
                 <progress id="progressBar" max="100" value="0"></progress>
