@@ -17,6 +17,16 @@
                 } else {
                     echo json_encode(array('return_type' => 'error', 'message' => 'Données manquantes'));
                 }
+            } else if($_POST['action'] === 'delete'){
+                if(isset($_POST['elem_id']) && !empty($_POST['elem_id'])){
+                    removeFAQElement($_POST['elem_id']);
+
+                    echo json_encode(array('return_type' => 'success', 'message' => 'Question supprimée'));
+                } else {
+                    echo json_encode(array('return_type' => 'error', 'message' => 'Données manquantes'));
+                }
+            } else if($_POST['action'] === 'modify'){
+
             } else {
                 echo json_encode(array('return_type' => 'error', 'message' => 'Mauvaise action'));
             }

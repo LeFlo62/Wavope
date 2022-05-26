@@ -145,6 +145,18 @@
         $requpdate->execute();
     }
 
+    function removeFAQElement($elemId){
+        global $bdh;
+
+        $reqchangeorder = $bdh->getInstance()->prepare("UPDATE faq SET ordering = ordering-1 WHERE ordering > (SELECT ordering FROM (SELECT * FROM faq) AS faqq WHERE id = :id)");
+        $reqchangeorder->bindparam('id', $elemId, PDO::PARAM_INT);
+        $reqchangeorder->execute();
+
+        $reqremove = $bdh->getInstance()->prepare("DELETE FROM faq WHERE id = :id");
+        $reqremove->bindparam('id', $elemId, PDO::PARAM_INT);
+        $reqremove->execute();
+    }
+
     function sendMail($email, $name, $subject, $body, $altBody){
         $mail = new PHPMailer(true);
 
