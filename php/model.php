@@ -131,6 +131,20 @@
         return $token;
     }
 
+    function switchFAQElements($elemId, $switchId){
+        global $bdh;
+
+        $requpdate = $bdh->getInstance()->prepare("UPDATE faq
+                                                    SET ordering = ( SELECT SUM(ordering) 
+                                                                FROM (SELECT * FROM faq) AS faqq
+                                                                WHERE id IN (:id_elem, :id_switch)
+                                                            ) - ordering
+                                                    WHERE id IN (:id_elem, :id_switch)");
+        $requpdate->bindparam('id_elem', $elemId, PDO::PARAM_INT);
+        $requpdate->bindparam('id_switch', $switchId, PDO::PARAM_INT);
+        $requpdate->execute();
+    }
+
     function sendMail($email, $name, $subject, $body, $altBody){
         $mail = new PHPMailer(true);
 
