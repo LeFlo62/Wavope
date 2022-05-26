@@ -1,3 +1,5 @@
+
+
 <?php
     require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
 
@@ -6,9 +8,8 @@
 
 
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +25,7 @@
 
 </head>
 <body>
-<?php include 'navbar.php' ?>
+    <?php include 'navbar.php' ?>
     <div class="blockProfil">
         <div class="blockProfilImage">
             <img class="imageProfil" src="/Images/maxime.png">
@@ -59,6 +60,29 @@
                 return $this->graphDisplay;
             }
         }
+        ?>
+
+        
+<?php
+
+// $bdd=new PDO("mysql:host=localhost;dbname=test;port=3308","root","");
+include_once '/php/mysql.php';
+$bdd=new DBHandler();
+$bdd=$bdd->getInstance();
+$sensors=[];
+$sensorTypes=["température","Sonore","Cardiaque"];
+for ($i =0; $i < count($sensorTypes); $i++){
+            $requete= $bdd->prepare(
+            "SELECT date,data FROM sensor_data WHERE product_number=(SELECT product_number FROM products WHERE user_id = 25) AND sensor_type=" .$i );  //ORDER BY sensor_type");
+            $requete->execute();          
+            $resultat = $requete->fetchall();
+            $dataArray = array_column($resultat, 'data');
+            $dateArray=array_column($resultat, 'date');
+            for ($j =0; $j < count($dateArray); $j++){
+                $dateArray[$j]=str_replace(":",".",substr($dateArray[$j],11,5));
+            }   
+            array_push($sensors,new Sensor($sensorTypes[$i],$dateArray,$dataArray) );
+        }
 
         function displayGraphs($sensors) {
             for ($i =0; $i < count($sensors); $i++) {
@@ -73,17 +97,14 @@
                         </script>";
             }
         };
-        $temperatureSensor = new Sensor("température",array("2022-04-29","2022-04-27","2022-05-02","2022-05-04","2022-04-29","2022-04-27"),array(20.5,21,16,18,19,19.5));
-        $sonoreSensor = new Sensor("Sonore",array("2022-05-05","2022-05-04","2022-05-03","2022-05-02","2022-05-04","2022-04-29","2022-04-27"),array(20.5,21,14,16,18,19,19.5),"bar");
-        $heartbeatSensor = new Sensor("Cardiaque",array("2022-05-05","2022-05-04","2022-05-03","2022-05-02","2022-05-04","2022-04-29","2022-04-27"),array(51,56,81,75,72,60,58));
-        $sensors=[$temperatureSensor,$sonoreSensor,$heartbeatSensor];
+        // $temperatureSensor = new Sensor("température",array("2022-04-29","2022-04-27","2022-05-02","2022-05-04","2022-04-29","2022-04-27"),array(20.5,21,16,18,19,19.5));
+        // $sonoreSensor = new Sensor("Sonore",array("2022-05-05","2022-05-04","2022-05-03","2022-05-02","2022-05-04","2022-04-29","2022-04-27"),array(20.5,21,14,16,18,19,19.5),"bar");
+        // $heartbeatSensor = new Sensor("Cardiaque",array("2022-05-05","2022-05-04","2022-05-03","2022-05-02","2022-05-04","2022-04-29","2022-04-27"),array(51,56,81,75,72,60,58));
+        // $sensors=[$temperatureSensor,$sonoreSensor,$heartbeatSensor];
+        // print_r($temperatureSensor);
+        // print_r($sonoreSensor);
         displayGraphs($sensors);
     ?>
     
 </body>
 </html>
-
-
-<style>
-
-</style>
