@@ -28,7 +28,7 @@ $('.modify-pen').click(function() {
             return;
         }
 
-        $.post("./back-office/php/modifydevice.php", {product_number: productNumber, data_type: type, data: data})
+        $.post("/back-office/php/modifydevice.php", {product_number: productNumber, data_type: type, data: data})
         .done(function(response){
             var responseObj = JSON.parse(response);
             $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);

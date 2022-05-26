@@ -10,6 +10,9 @@ $(document).on('click', '.control', function(){
 
     elem.css({'box-shadow': '0 0 12px 0 grey'});
 
+    var action = 'order';
+    $.post('/back-office/php/faq.php', {action: action, elem_id: id, switch_id: switchId});
+
     switchElement.animate({'top': height.toString() + 'px'}, function(){
         switchElement.css({'top': ''});
     });
