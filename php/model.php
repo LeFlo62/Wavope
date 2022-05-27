@@ -167,6 +167,15 @@
         return $bdh->getInstance()->lastInsertId();
     }
 
+    function modifyFAQElement($id, $question, $answer){
+        global $bdh;
+        $reqfaqmodify = $bdh->getInstance()->prepare('UPDATE faq SET question = :question,  answer = :answer WHERE id = :id');
+        $reqfaqmodify->bindparam('question', $question, PDO::PARAM_STR);
+        $reqfaqmodify->bindparam('answer', $answer, PDO::PARAM_STR);
+        $reqfaqmodify->bindparam('id', $id, PDO::PARAM_INT);
+        $reqfaqmodify->execute();
+    }
+
     function sendMail($email, $name, $subject, $body, $altBody){
         $mail = new PHPMailer(true);
 

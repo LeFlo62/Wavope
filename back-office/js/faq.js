@@ -43,7 +43,7 @@ $(document).on('click', '.control', function(){
     });
 });
 
-$(document).on('click', '.delete-button:not(#cancel-new-question)', function(){
+$(document).on('click', '.delete-button:not(#cancel-new-question, #cancel-modify-question)', function(){
     $('#modal-background').fadeIn();
 
     $('#modal').css({'display': 'flex'})
@@ -148,6 +148,108 @@ $(document).on('click', '#add-new-question', function(){
                 questionAnswer.prev().find('.fa-caret-down').show();
 
                 $('#add-question').removeClass('disabled');
+            }
+        })
+        .fail(function(){
+            alert("error");
+        });
+    } else {
+        if(question.length == 0){
+            questionField.addClass('empty-field');
+        }
+        if(answer.length == 0){
+            answerField.addClass('empty-field');
+        }
+    }
+});
+
+$(document).on('click', '.modify-button:not(#add-new-question, #modify-question, .disabled)', function(){
+    var questionAnswer = $(this).parent();
+    var id = questionAnswer.attr('qa-id');
+
+    var greenButton = $(this);
+    var redButton = questionAnswer.find('.delete-button');
+
+    greenButton.attr('id', 'modify-question').html('Enregistrer');
+    redButton.attr('id', 'cancel-modify-question').html('Annuler');
+
+    var questionParagraph = questionAnswer.find('.question');
+    var answerParagraph = questionAnswer.find('.answer');
+
+    questionParagraph.html('<input type="text" id="question-text" placeholder="Question" old-value="' + questionParagraph.text() + '" value="' + questionParagraph.text() + '"></input><i class="control fa-solid fa-caret-down" style="display:none;"></i><i class="control fa-solid fa-caret-up" style="display: none;"></i>');
+    answerParagraph.html('<textarea id="answer-text" placeholder="Réponse" old-value="' + answerParagraph.html() + '">' + answerParagraph.html() + '</textarea>');
+
+    $('.modify-button:not(#modify-question)').addClass('disabled');
+});
+
+$(document).on('click', '#cancel-modify-question', function(){
+    var questionAnswer = $(this).parent();
+    var id = questionAnswer.attr('qa-id');
+
+    var greenButton = questionAnswer.find('.modify-button');
+    var redButton = $(this);
+
+    var questionParagraph = questionAnswer.find('.question');
+    var answerParagraph = questionAnswer.find('.answer');
+
+    var controls = '<i class="control fa-solid fa-caret-down" '+ (id == $('.question-answer:last').attr('qa-id') ? 'style="display:none;"' : '') +'></i><i class="control fa-solid fa-caret-up" '+ (id == $('.question-answer:first').attr('qa-id') ? 'style="display:none;"' : '') + '></i>';
+
+    var oldQuestion = $('#question-text').attr('old-value');
+    var oldAnswer = $('#answer-text').attr('old-value');
+    questionParagraph.html(oldQuestion + controls);
+    answerParagraph.html(oldAnswer);
+
+    greenButton.removeAttr('id').html('Modifier');
+    redButton.removeAttr('id').html('Supprimer');
+
+    $('.modify-button').removeClass('disabled');
+});
+
+$(document).on('click', '#modify-question', function(){
+    var questionAnswer = $(this).parent();
+    var id = questionAnswer.attr('qa-id');
+
+    var greenButton = $(this);
+    var redButton = questionAnswer.find('.delete-button');
+
+    var questionParagraph = questionAnswer.find('.question');
+    var answerParagraph = questionAnswer.find('.answer');
+
+    var questionField = $('#question-text');
+    var answerField = $('#answer-text');
+
+    var question = questionField.val();
+    var answer = answerField.val();
+
+    if(question.length != 0 && answer.length != 0){
+        var action = 'modify';
+        $.post('/back-office/php/faq.php', {action: action, id: id, question: question, answer: answer})
+        .done(function(response){
+            alert(response);
+            var responseObj = JSON.parse(response);
+            $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
+            setTimeout(function(){
+                $('#snackbar').removeClass(['show', responseObj.return_type]);
+            }, 3000);
+
+            if(responseObj.return_type == 'success'){
+                greenButton.html('Modifier').removeAttr('id');
+                redButton.html('Supprimer').removeAttr('id');
+
+                questionField.remove();
+                answerField.remove();
+
+                questionParagraph.prepend(question);
+                answerParagraph.prepend(answer);
+
+                if(id != $('.question-answer:last').attr('qa-id')){
+                    questionAnswer.find('.fa-caret-down').show();
+                }
+                if(id != $('.question-answer:first').attr('qa-id')){
+                    questionAnswer.find('.fa-caret-up').show();
+                }
+
+                $('.modify-button').removeClass('disabled');
             }
         })
         .fail(function(){

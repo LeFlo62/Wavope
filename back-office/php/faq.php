@@ -11,7 +11,7 @@
         if(isset($_POST) && isset($_POST['action']) && in_array($_POST['action'], ACTIONS)){
             if($_POST['action'] === 'order'){
                 if(isset($_POST['elem_id']) && isset($_POST['switch_id']) && !empty($_POST['elem_id']) && !empty($_POST['switch_id'])){
-                    switchFAQElements($_POST['elem_id'], $_POST['switch_id']);
+                    switchFAQElements(sanitize($_POST['elem_id']), sanitize($_POST['switch_id']));
 
                     echo json_encode(array('return_type' => 'success', 'message' => 'Ordre changé'));
                 } else {
@@ -19,17 +19,23 @@
                 }
             } else if($_POST['action'] === 'delete'){
                 if(isset($_POST['elem_id']) && !empty($_POST['elem_id'])){
-                    removeFAQElement($_POST['elem_id']);
+                    removeFAQElement(sanitize($_POST['elem_id']));
 
                     echo json_encode(array('return_type' => 'success', 'message' => 'Question supprimée'));
                 } else {
                     echo json_encode(array('return_type' => 'error', 'message' => 'Données manquantes'));
                 }
             } else if($_POST['action'] === 'modify'){
+                if(isset($_POST['id']) && isset($_POST['question']) && isset($_POST['answer']) && !empty($_POST['id']) && !empty($_POST['question']) && !empty($_POST['answer'])){
+                    modifyFAQElement(sanitize($_POST['id']), sanitize($_POST['question']), sanitize($_POST['answer']));
 
+                    echo json_encode(array('return_type' => 'success', 'message' => 'Question ajoutée'));
+                } else {
+                    echo json_encode(array('return_type' => 'error', 'message' => 'Données manquantes'));
+                }
             } else if($_POST['action'] === 'add'){
                 if(isset($_POST['question']) && isset($_POST['answer']) && !empty($_POST['question']) && !empty($_POST['answer'])){
-                    $id = addFAQElement($_POST['question'], $_POST['answer']);
+                    $id = addFAQElement(sanitize($_POST['question']), sanitize($_POST['answer']));
 
                     echo json_encode(array('return_type' => 'success', 'message' => 'Question ajoutée', 'data' => array($id)));
                 } else {
