@@ -6,7 +6,7 @@
     if(is_ajax()){
         check_user(1, true);
     
-        define('ACTIONS', array("order", "delete", "modify"));
+        define('ACTIONS', array("order", "delete", "modify", "add"));
     
         if(isset($_POST) && isset($_POST['action']) && in_array($_POST['action'], ACTIONS)){
             if($_POST['action'] === 'order'){
@@ -27,6 +27,14 @@
                 }
             } else if($_POST['action'] === 'modify'){
 
+            } else if($_POST['action'] === 'add'){
+                if(isset($_POST['question']) && isset($_POST['answer']) && !empty($_POST['question']) && !empty($_POST['answer'])){
+                    $id = addFAQElement($_POST['question'], $_POST['answer']);
+
+                    echo json_encode(array('return_type' => 'success', 'message' => 'Question ajoutée', 'data' => array($id)));
+                } else {
+                    echo json_encode(array('return_type' => 'error', 'message' => 'Données manquantes'));
+                }
             } else {
                 echo json_encode(array('return_type' => 'error', 'message' => 'Mauvaise action'));
             }

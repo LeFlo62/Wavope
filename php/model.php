@@ -157,6 +157,16 @@
         $reqremove->execute();
     }
 
+    function addFAQElement($question, $answer){
+        global $bdh;
+        $reqfaqcreate = $bdh->getInstance()->prepare('INSERT INTO faq(question, answer, ordering) VALUES (:question, :answer, (SELECT MAX(ordering) FROM (SELECT * FROM faq) AS faqq)+1)');
+        $reqfaqcreate->bindparam('question', $question, PDO::PARAM_STR);
+        $reqfaqcreate->bindparam('answer', $answer, PDO::PARAM_STR);
+        $reqfaqcreate->execute();
+
+        return $bdh->getInstance()->lastInsertId();
+    }
+
     function sendMail($email, $name, $subject, $body, $altBody){
         $mail = new PHPMailer(true);
 

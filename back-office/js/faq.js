@@ -43,7 +43,7 @@ $(document).on('click', '.control', function(){
     });
 });
 
-$(document).on('click', '.delete-button', function(){
+$(document).on('click', '.delete-button:not(#cancel-new-question)', function(){
     $('#modal-background').fadeIn();
 
     $('#modal').css({'display': 'flex'})
@@ -63,7 +63,6 @@ $(document).on('click', '.accept', function(){
     var action = 'delete';
     $.post('/back-office/php/faq.php', {action: action, elem_id: qaId})
     .done(function(response){
-        alert(response);
         var responseObj = JSON.parse(response);
         $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
         setTimeout(function(){
@@ -90,4 +89,76 @@ $(document).on('click', '.cancel', function(){
     $('#modal').animate({'opacity': '0'}, function(){
         $("#modal").css({'display': 'none'});
     });
+});
+
+$(document).on('click', '#add-question', function(){
+    $(this).addClass('disabled');
+
+    var newLine = $(`<div class="question-answer">
+                        <p class="question"><input type="text" id="question-text" placeholder="Question"></input><i class="control fa-solid fa-caret-down" style="display:none;"></i><i class="control fa-solid fa-caret-up" style="display: none;"></i></p>
+                        <p class="answer"><textarea id="answer-text" placeholder="Réponse"></textarea></p>
+                        <div class="button modify-button" id="add-new-question">Enregristrer</div><div class="button delete-button" id="cancel-new-question">Annuler</div>
+                    </div>`);
+
+    newLine.insertAfter('.question-answer:last');
+    newLine[0].scrollIntoView();
+});
+
+$(document).on('click', '#cancel-new-question', function(){
+    $(this).parent().remove();
+    $('#add-question').removeClass('disabled');
+});
+
+$(document).on('click', '#add-new-question', function(){
+    var questionField = $('#question-text');
+    var answerField = $('#answer-text');
+
+    var questionParagraph = questionField.parent();
+    var answerParagraph = answerField.parent();
+
+    var question = questionField.val();
+    var answer = answerField.val();
+
+    if(question.length != 0 && answer.length != 0){
+        var action = 'add';
+        $.post('/back-office/php/faq.php', {action: action, question: question, answer: answer})
+        .done(function(response){
+            var responseObj = JSON.parse(response);
+            $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
+            setTimeout(function(){
+                $('#snackbar').removeClass(['show', responseObj.return_type]);
+            }, 3000);
+
+            if(responseObj.return_type == 'success'){
+                var id = responseObj.data[0];
+                var questionAnswer = questionParagraph.parent();
+
+                questionAnswer.attr('qa-id', id);
+
+                $('#add-new-question').html('Modifier').removeAttr('id');
+                $('#cancel-new-question').html('Supprimer').removeAttr('id');
+
+                questionField.remove();
+                answerField.remove();
+
+                questionParagraph.prepend(question);
+                answerParagraph.prepend(answer);
+
+                questionAnswer.find('.fa-caret-up').show();
+                questionAnswer.prev().find('.fa-caret-down').show();
+
+                $('#add-question').removeClass('disabled');
+            }
+        })
+        .fail(function(){
+            alert("error");
+        });
+    } else {
+        if(question.length == 0){
+            questionField.addClass('empty-field');
+        }
+        if(answer.length == 0){
+            answerField.addClass('empty-field');
+        }
+    }
 });

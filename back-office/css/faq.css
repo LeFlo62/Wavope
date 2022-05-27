@@ -65,6 +65,16 @@
     float: right;
 }
 
+.answer textarea{
+    width: 100%;
+    min-height: 75px;
+}
+
+.empty-field{
+    border: 2px solid red;
+    box-shadow: 0 0 10px red;
+}
+
 #modal-background{
     display: none;
     position: fixed;
