@@ -29,7 +29,7 @@
                 if(isset($_POST['id']) && isset($_POST['question']) && isset($_POST['answer']) && !empty($_POST['id']) && !empty($_POST['question']) && !empty($_POST['answer'])){
                     modifyFAQElement(sanitize($_POST['id']), sanitize($_POST['question']), sanitize($_POST['answer']));
 
-                    echo json_encode(array('return_type' => 'success', 'message' => 'Question ajoutée'));
+                    echo json_encode(array('return_type' => 'success', 'message' => 'Question modifiée'));
                 } else {
                     echo json_encode(array('return_type' => 'error', 'message' => 'Données manquantes'));
                 }

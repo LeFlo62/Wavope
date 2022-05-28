@@ -12,7 +12,7 @@
 
     function getCards(){
         global $bdh;
-        $reqdata = $bdh->getInstance()->prepare("SELECT title, date, content FROM cards ORDER BY date desc"); 
+        $reqdata = $bdh->getInstance()->prepare("SELECT id, title, date, content FROM cards ORDER BY date desc"); 
         $reqdata->execute();
         $data = $reqdata->fetchAll();
         return $data;
@@ -174,6 +174,37 @@
         $reqfaqmodify->bindparam('answer', $answer, PDO::PARAM_STR);
         $reqfaqmodify->bindparam('id', $id, PDO::PARAM_INT);
         $reqfaqmodify->execute();
+    }
+
+    function removeCardElement($id){
+        global $bdh;
+
+        $reqremove = $bdh->getInstance()->prepare("DELETE FROM cards WHERE id = :id");
+        $reqremove->bindparam('id', $id, PDO::PARAM_INT);
+        $reqremove->execute();
+    }
+
+    function addCardElement($title, $preview){
+        global $bdh;
+
+        $date = date("Y-m-d");
+
+        $reqcardcreate = $bdh->getInstance()->prepare('INSERT INTO cards(title, date, content) VALUES (:title, :date, :content)');
+        $reqcardcreate->bindparam('title', $title, PDO::PARAM_STR);
+        $reqcardcreate->bindparam('date', $date, PDO::PARAM_STR);
+        $reqcardcreate->bindparam('content', $preview, PDO::PARAM_STR);
+        $reqcardcreate->execute();
+
+        return $bdh->getInstance()->lastInsertId();
+    }
+
+    function modifyCardElement($id, $title, $preview){
+        global $bdh;
+        $reqcardmodify = $bdh->getInstance()->prepare('UPDATE cards SET title = :title,  content = :content WHERE id = :id');
+        $reqcardmodify->bindparam('title', $title, PDO::PARAM_STR);
+        $reqcardmodify->bindparam('content', $preview, PDO::PARAM_STR);
+        $reqcardmodify->bindparam('id', $id, PDO::PARAM_INT);
+        $reqcardmodify->execute();
     }
 
     function sendMail($email, $name, $subject, $body, $altBody){

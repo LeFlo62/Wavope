@@ -225,7 +225,6 @@ $(document).on('click', '#modify-question', function(){
         var action = 'modify';
         $.post('/back-office/php/faq.php', {action: action, id: id, question: question, answer: answer})
         .done(function(response){
-            alert(response);
             var responseObj = JSON.parse(response);
             $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
             setTimeout(function(){
