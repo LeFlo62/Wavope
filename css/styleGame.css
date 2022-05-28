@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=The+Nautigal:wght@700&display=swap');
-@keyframes obstacleAnimation {
-    0%   {transform: translateX(40px);}
-    100% {transform: translateX(-840px);}
-}
+@keyframes backgroundAnimation {
+    0%   {transform: translateX(0px);}
+    100% {transform: translateX(-800px);}
+} 
+
+@keyframes runAnimation {
+    from { background-position:    0px; }
+      to { background-position: -500px; }
+ }
+ 
+
+
+
 
 
 body{
@@ -44,8 +53,17 @@ body{
     /* width: 60px; */
     max-height:40px;
     right: 0px;
-    bottom: 0px;
+    bottom: 20%; 
     /* background-color: green; */
+}
+
+#playerSprite {
+    position: absolute;
+    width: 50px;
+    height: 72px;
+    bottom: 20%;
+    background-image: url("https://s.cdpn.io/79/sprite-steps.png");
+    
 }
 
 .gameWindow{
@@ -58,7 +76,11 @@ body{
     box-shadow: 0px 0px 8px 1px rgb(217, 217, 217);
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    /* overflow: hidden; */
 }
+
+
 h1{
     font-family: 'Roboto', sans-serif;
     
@@ -69,15 +91,37 @@ h1{
     padding: 40px;
     font-family: 'Roboto', sans-serif;
 }
-#playerSprite{
+
+
+
+#sol{
 
     position: absolute;
-    max-width: 80px;
-    /* height: 160px; */
-    /* background-color: rgb(130, 233, 99); */
+    background-repeat: repeat-x;
     bottom: 0px;
+    width:200%;
+    height: 20%;
     left: 0px;
+
+
 }
+#background{
+
+    position: absolute;
+    top: 0px;
+    width:200%;
+    height:80%;
+    left: 0px;
+
+
+}
+
+
+
+
+
+
+
 
 .blockmarks{
     text-align: center;

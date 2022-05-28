@@ -40,14 +40,20 @@
         </div>
     </section>
 
+    <!-- <div id="playerSprite" src="./Images/gameSprite/playerSprite.png" alt="playerSprite"></div> -->
     <section class="blockGameWindow">
         <h1 font-family= "Roboto", sans-serif> Bienvenue sur le jeu ! (touche "espace" pour commencer)</h1>
         <div class="gameWindow">
+            
+           
+            <img id="background" src="/Images/gameSprite/background.png" alt="background">
+            <img id="sol" src="/Images/gameSprite/sol.png" alt="sol">
+            <!-- <div  src="./Images/gameSprite/playerSprite.png" alt="playerSprite"></div> -->
+            <div id="playerSprite" ></div>
+            <img id="obstacle" src="/Images/gameSprite/plastic.png">
             <div class="blockPoint">
                 vous avez : <span id="point">0</span> point(s)
-            </div>
-            <img id="playerSprite" src="/Images/gameSprite/playerSprite.png" alt="playerSprite">
-            <img id="obstacle" src="/Images/gameSprite/plastic.png">
+            </div> 
         </div>
     </section>
 

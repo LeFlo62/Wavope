@@ -49,14 +49,17 @@ function displayPoint(){
     }
 
 function isCollapsed(firstIdName,secondIdName){
-    
+     
     let firstElement = document.getElementById(firstIdName).getBoundingClientRect();
     let secondElement = document.getElementById(secondIdName).getBoundingClientRect();
     if (firstElement.left + firstElement.width > secondElement.left &&
     firstElement.left < secondElement.left + secondElement.width &&
     firstElement.top < secondElement.top + secondElement.height &&
     firstElement.height + firstElement.top > secondElement.top) {
+        document.getElementById("background").style.animation="none";
         document.getElementById("obstacle").style.animation="none";
+        document.getElementById("sol").style.animation="none";
+        document.getElementById("playerSprite").style.animation="none";
         stopGame();
         alert("Game over: arretez d'utiliser des bouteilles en plastiques !!");
     }
@@ -68,7 +71,10 @@ function isCollapsed(firstIdName,secondIdName){
 function startGame(){
     startTime= Date.now();
     isRunning=true;
-    document.getElementById("obstacle").style.animation="obstacleAnimation 2s linear infinite";
+    document.getElementById("obstacle").style.animation="backgroundAnimation 3s linear infinite";
+    document.getElementById("sol").style.animation="backgroundAnimation 3s linear infinite";
+    document.getElementById("background").style.animation="backgroundAnimation 20s linear infinite";
+    document.getElementById("playerSprite").style.animation="runAnimation .8s steps(10) infinite";
     displayPoint();
     isCollapsed("playerSprite","obstacle");
 }
