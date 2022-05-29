@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="/css/styleProduct.css">
     <link rel="stylesheet" href="/css/styleProductMobileVersion.css">
+    <link rel="stylesheet" href="/css/styleDialogBox.css">
 
     <script src="/js/npmchartjs.js"></script>
     <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
@@ -22,7 +23,7 @@
         </div>
         <div class="blockProfilGestion">
             <span class="profilName">Maxime NIGRIS</span>
-            <a href="/modifyprofil/resetpassword.php">Modifier le mot de passe</a>
+            <p onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
         </div>
     </div>
     <?php
@@ -95,6 +96,31 @@ for ($i =0; $i < count($sensorTypes); $i++){
         // print_r($sonoreSensor);
         displayGraphs($sensors);
     ?>
+
+
+    <!-- DIALOG BOX : DEBUT -->
+    <form action="/php/updateProductName" method="post">
+    <input type="hidden" name="actualProductName" value="<?php echo '39544932';?>">
+<div class="dialogBoxContainer" id="dialogContainer">
+
+<div class="dialogBox">
+<div class="blockTitre">
+    Nouveau nom du produit
+</div>
+<div class="blockField">
+    <input type="field" name="productName" class="field">
+</div>
+
+    
+    <div class="blockButtons">
+        <a class="rounded_btn"  onclick="closeDialogBox('dialogContainer')">Annuler</a>
+        <input type="submit" name="formProductName" class="rounded_btn">
+    </div>
+</div>
+</div>
+</form>
+<!-- DIALOG BOX : FIN -->
+<script type="text/javascript" src="/js/functionDialogBox.js"></script>
     
 </body>
 </html>

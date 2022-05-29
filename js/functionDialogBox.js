@@ -1,0 +1,2 @@
+function openDialogBox(dialogNameId="dialogBoxContainer"){document.getElementById(dialogNameId).classList.add("open");}
+function closeDialogBox(dialogNameId="dialogBoxContainer"){document.getElementById(dialogNameId).classList.remove("open");}
