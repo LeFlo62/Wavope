@@ -19,16 +19,6 @@ body{
     margin-top: 150px;
 }
 
-.svgWave{
-    position: fixed;
-    bottom: 0px;
-}
-
-.svgWaveCaracteristique{
-    fill:rgb(118, 177, 100);
-    fill-opacity:1;
-}
-
 .title {
     font-weight: bolder;
     font-size: 22px;

@@ -1,28 +1,21 @@
-/* Style bottomPage  */
-
-body{
-    /* MODE CLAIR  */
-    background-color: white;
-
+.svgWave{
+    position: sticky;
+    bottom: 0;
+    transform: translateY(10px);
+    z-index: -1000;
 }
 
+.svgWaveCaracteristique{
+    fill: rgb(118, 177, 100);
+    fill-opacity: 1;
+}
 .blockBottomAll{
-
-    position: absolute;
-    height: 40%;
-    width: 100%;
-    bottom: 0px;
-    right: 0px;
-    font-family: montserrat;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: sans-serif;
-
-    /* MODE CLAIR */
+    padding: 20px;
     background-color: rgb(26, 26, 26);
-
-    
 }
 
 .grid-container {

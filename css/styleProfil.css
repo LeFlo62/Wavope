@@ -29,18 +29,6 @@ h1{
     flex-direction: column;
 }
 
-.svgWave{
-
-    position: fixed;
-    bottom: 0px;
-
-}
-
-.svgWaveCaracteristique{
-    fill:rgb(118, 177, 100);
-    fill-opacity:1;
-}
-
 .information{
     display:flex;
     border-radius: 12px;

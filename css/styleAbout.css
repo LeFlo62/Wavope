@@ -13,19 +13,6 @@ body {
     height: 80%;
 }
 
-
-.svgWave{
-
-    position: fixed;
-    bottom: 0px;
-
-}
-.svgWaveCaracteristique{
-
-    fill:rgb(118, 178, 100);
-    fill-opacity:1;
-}
-
 .blockAll{
     position: absolute;
     height: 300%;

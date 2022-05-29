@@ -19,16 +19,6 @@ h1{
     height: 100%;
 }
 
-.svgWave{
-    position: fixed;
-    bottom: 0px;
-}
-
-.svgWaveCaracteristique{
-    fill: rgb(118, 177, 100);
-    fill-opacity: 1;
-}
-
 .blockTextPhoneTop{
 
     position: relative;
@@ -41,8 +31,8 @@ h1{
 }
 
 .jumbotron{
-    position: absolute;
-    top: 20%;
+    position: relative;
+    margin-top: 20%;
 }
 
 .home{
