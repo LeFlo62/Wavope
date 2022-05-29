@@ -140,7 +140,7 @@
                             });
                         </script>';
                     } else {
-                        header("Location: /logi.php");
+                        header("Location: /login.php");
                         exit;
                     }
                 ?>
