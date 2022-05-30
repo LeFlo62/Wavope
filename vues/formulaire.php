@@ -1,3 +1,8 @@
+<?php
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
+
+    check_user();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +32,7 @@
                 </div>
             </div>
         <div class="blockFormulaire">
-            <form action="#" method="post">
+            <form action="/php/formulaire.php" method="post">
                 <div class="blockTextInput">
                     <label for="nameField">Nom </label>
                     <input class="search-input" type="text" id="nameField" name="nameTextField" required
@@ -54,7 +59,7 @@
                     </div>
                 <!-- </div> -->
                 <div class="blockButtonSendMessage">
-                    <a href="#" class="square_btn1">Envoyer</a>
+                    <input type="submit" name="formFormulaire" href="#" class="square_btn1">Envoyer</a>
                 </div>
             </form>
         </div>
