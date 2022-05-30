@@ -1,3 +1,10 @@
+<?php
+    include_once '/php/mysql.php';
+	if(!isset($_SESSION)) { 
+		session_start(); 
+	}
+    ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,7 +29,7 @@
             <img class="imageProfil" src="/Images/maxime.png">
         </div>
         <div class="blockProfilGestion">
-            <span class="profilName">Maxime NIGRIS</span>
+            <span class="profilName"><?php echo  $_SESSION['firstname'];?></span>
             <p onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
         </div>
     </div>
@@ -57,14 +64,14 @@
 <?php
 
 // $bdd=new PDO("mysql:host=localhost;dbname=test;port=3308","root","");
-include_once '/php/mysql.php';
+
 $bdd=new DBHandler();
 $bdd=$bdd->getInstance();
 $sensors=[];
 $sensorTypes=["température","Sonore","Cardiaque"];
 for ($i =0; $i < count($sensorTypes); $i++){
             $requete= $bdd->prepare(
-            "SELECT date,data FROM sensor_data WHERE product_number=(SELECT product_number FROM products WHERE user_id = 25) AND sensor_type=" .$i );  //ORDER BY sensor_type");
+            "SELECT date,data FROM sensor_data WHERE product_number=(SELECT product_number FROM products WHERE user_id =" .$_SESSION['id'] .") AND sensor_type=" .$i );  //ORDER BY sensor_type");
             $requete->execute();          
             $resultat = $requete->fetchall();
             $dataArray = array_column($resultat, 'data');
