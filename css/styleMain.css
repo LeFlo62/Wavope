@@ -36,6 +36,8 @@ h1{
 }
 
 .home{
+    position: relative;
+    top: -40px;
     width: 40%;
     margin-left: 9%;
 }
@@ -151,6 +153,11 @@ h1{
 }
 
 @media screen and (max-width: 1700px) {
+    .home {
+        position: relative;
+        top: 100px;
+        width: 80%;
+    }
     .card{
         width: 480px;
     }
