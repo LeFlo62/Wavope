@@ -1,10 +1,9 @@
 <?php
-    include_once '/php/mysql.php';
-	if(!isset($_SESSION)) { 
-		session_start(); 
-	}
-    ?>
+    require $_SERVER["DOCUMENT_ROOT"]. '/php/model.php';
+    require $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
 
+    check_user();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
