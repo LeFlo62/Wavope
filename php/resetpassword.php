@@ -7,6 +7,9 @@
     require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/PHPMailer.php';
     require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/SMTP.php';
 
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/model.php';
+
+
 	if(!isset($_SESSION)) { 
 		session_start(); 
 	}
