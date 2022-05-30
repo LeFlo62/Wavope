@@ -9,6 +9,8 @@
 
     include_once $_SERVER["DOCUMENT_ROOT"]. '/php/variables.php';
 
+    include_once $_SERVER["DOCUMENT_ROOT"]. '/php/model.php';
+
     if(is_ajax()){
         if(!isset($_SESSION)) { 
             session_start(); 
@@ -121,7 +123,7 @@
     }
 
     function sendMail($email, $name, $namedAction){
-        sendMail($email, $name, "Votre compte Wavope a été ", '<link rel="preconnect" href="https://fonts.googleapis.com">
+        sendMail($email, $name, "Votre compte Wavope a été ". $namedAction, '<link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
             <center style="

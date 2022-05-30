@@ -69,7 +69,7 @@
                         background-color: white;">
                     <img style="width: 150px; height: auto;" src="https://i.imgur.com/6CFLqM7.png" />
                     <p>Un compte sur Wavope vous a été créé. Vous devez changer votre mot de passe afin d\'y accéder</p><br/>
-                    <a href="http://localhost/resetpassword.php?r=f" style="
+                    <a href="https://www.wavope.fr/resetpassword.php?r=f" style="
                             padding: 12px 20px;
                             margin: 15px 15px;
                             border-radius: 25px;
@@ -84,6 +84,6 @@
                     <br/>
                     <img src="https://i.imgur.com/C5sVWQi.png" />
                 </center>',
-                     'Vous avez demandé à changer de mot de passe. Allez à l\'adresse http://localhost/resetpassword.php?r=f pour poursuivre.');
+                     'Vous avez demandé à changer de mot de passe. Allez à l\'adresse https://www.wavope.fr/resetpassword.php?r=f pour poursuivre.');
    }
 ?>

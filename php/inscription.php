@@ -79,7 +79,7 @@
             <img style="width: 150px; height: auto;" src="https://i.imgur.com/6CFLqM7.png" />
             <p>Vous venez de cr&#233;er votre compte sur Wavope. Cliquez sur le bouton pour poursuivre.
             </p><br/>
-            <a href="http://localhost/registerconfirmation.php?r=r&token='. $token .'" style="
+            <a href="https://www.wavope.fr/registerconfirmation.php?r=r&token='. $token .'" style="
                     padding: 12px 20px;
                     margin: 15px 15px;
                     border-radius: 25px;
@@ -90,7 +90,7 @@
                     background-color: rgb(118, 177, 100);">CONFIRMER INSCRIPTION</a><br/>
             <br/>
             <br/>
-            <p style="font-size: 0.75rem;">Cette demande ne vient pas de vous ? <a href="http://localhost/registerconfirmation.php?r=c&token='. $token .'">Cliquez ici</a><br/></p><br/>
+            <p style="font-size: 0.75rem;">Cette demande ne vient pas de vous ? <a href="https://www.wavope.fr/registerconfirmation.php?r=c&token='. $token .'">Cliquez ici</a><br/></p><br/>
             <br/>
             <br/>
             <img src="https://i.imgur.com/C5sVWQi.png" />
@@ -102,8 +102,8 @@
             #confirm{
             }
         </style>',
-        'Vous venez de cr&#233;er votre compte sur Wavope. Allez &#224; l\'adresse http://localhost/registerconfirmation.php?r=r&token='. $token .' pour poursuivre.
-             \n Si ce n\'est pas vous, allez &#224; l\'adresse http://localhost/registerconfirmation.php?r=c&token='. $token);
+        'Vous venez de cr&#233;er votre compte sur Wavope. Allez &#224; l\'adresse https://www.wavope.fr/registerconfirmation.php?r=r&token='. $token .' pour poursuivre.
+             \n Si ce n\'est pas vous, allez &#224; l\'adresse https://www.wavope.fr/registerconfirmation.php?r=c&token='. $token);
     }
 
 ?>
