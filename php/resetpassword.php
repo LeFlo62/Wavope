@@ -137,7 +137,7 @@
                  <img style="width: 150px; height: auto;" src="https://i.imgur.com/6CFLqM7.png" />
                  <p>Vous avez demand&#233; &#224; changer votre mot de passe. Cliquez sur le bouton pour poursuivre. Vous avez 15 minutes avant que la requ&#234;te n\'expire.
                  </p><br/>
-                 <a href="http://localhost/resetpassword.php?r=r&token='. $token .'" style="
+                 <a href="https://www.wavope.fr/resetpassword.php?r=r&token='. $token .'" style="
                         padding: 12px 20px;
                         margin: 15px 15px;
                         border-radius: 25px;
@@ -148,12 +148,12 @@
                         background-color: rgb(118, 177, 100);">CHANGER DE MOT DE PASSE</a><br/>
                  <br/>
                  <br/>
-                 <p style="font-size: 0.75rem;">Cette demande ne vient pas de vous ? <a href="http://localhost/resetpassword.php?r=c&token='. $token .'">Cliquez ici</a><br/></p><br/>
+                 <p style="font-size: 0.75rem;">Cette demande ne vient pas de vous ? <a href="https://www.wavope.fr/resetpassword.php?r=c&token='. $token .'">Cliquez ici</a><br/></p><br/>
                  <br/>
                  <br/>
                  <img src="https://i.imgur.com/C5sVWQi.png" />
-                 </center>', 'Vous avez demandé à changer de mot de passe. Allez à l\'adresse http://localhost/resetpassword.php?r=r&token='. $token .' pour poursuivre.
-             \n Si ce n\'est pas vous, allez à l\'adresse http://localhost/resetpassword.php?r=c&token='. $token);
+                 </center>', 'Vous avez demandé à changer de mot de passe. Allez à l\'adresse https://www.wavope.fr/resetpassword.php?r=r&token='. $token .' pour poursuivre.
+             \n Si ce n\'est pas vous, allez à l\'adresse https://www.wavope.fr/resetpassword.php?r=c&token='. $token);
     }
 ?>
 
