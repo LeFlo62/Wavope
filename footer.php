@@ -5,18 +5,18 @@
         <div class="column">
             <div class="column-title">A propos de WAVOPE</div>
             <a class="column-link" href="https://infinitemeasures.fr/vues/fr/index.php">Qui sommes-nous ?</a>
-            <a class="column-link" href="http://localhost/about">Acteurs responsable de la societé.</a>
+            <a class="column-link" href="/about">Acteurs responsable de la societé.</a>
         </div>
         <div class="column">
             <div class="column-title">Contacter les administrateurs</div>
-            <a class="column-link" href="http://localhost/formulaire">Nous contacter.</a>
+            <a class="column-link" href="/formulaire">Nous contacter.</a>
             
         </div>
         <div class="column">
             <div class="column-title">Des questions ?</div>
-            <a class="column-link" href="http://localhost/faq">Accéder à la FAQ.</a>
-            <a class="column-link" href="http://localhost/cgu">CGU</a>
-            <a class="column-link" href="http://localhost/mentions">Mentions</a>
+            <a class="column-link" href="/faq">Accéder à la FAQ.</a>
+            <a class="column-link" href="/cgu">CGU</a>
+            <a class="column-link" href="/mentions">Mentions</a>
         </div>
     </div>
     <div class="SocialApplication">
