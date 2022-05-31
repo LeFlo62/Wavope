@@ -9,25 +9,18 @@
     fill: rgb(118, 177, 100);
     fill-opacity: 1;
 }
-.blockBottomAll{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.container{
     padding: 20px;
     background-color: rgb(26, 26, 26);
 }
 
-.grid-container {
-    height: 80%;
-    width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 0.3fr;
-    gap: 20px 40px;
-    grid-template-areas:
-        "block1 block2 block3"
-        "SocialApplication SocialApplication SocialApplication";
+.container .columns{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.columns .column{
+    margin: 0 40px 0 40px;
 }
 
 .SocialApplication {
@@ -76,38 +69,25 @@
     transition: 0.4s;
 }
 
-.TitreCard{
-
-    position:absolute;
+.column-title{
     padding-bottom: 4px;
-    border-style: solid;
-    border-width: 1px;
-    border-top:none;
-    border-right: none;
-    border-left: none;
-    border-bottom-color: rgb(241, 241, 241);
+    border-bottom: solid 1px rgb(241, 241, 241);
     font-size: 14px;
     color: rgb(241, 241, 241);
 
 }
 
-.labelCard{
-    
+.column-link{
+    display: block;
+    margin: 5px 0 5px 0;
     color: rgb(201, 201, 201);
     padding-bottom: 14px; 
     text-decoration: none;
 }
 
-.Card1 { grid-area: block1; }
-
-.Card2 { grid-area: block2; }
-
-.Card3 { grid-area: block3;
- }
-
-.grid-container * {
-    position: relative;
-    /* border: 1px solid red; */
-    
+@media screen and (max-width: 800px) {
+    .columns{
+        flex-direction: column;
     }
+}
 
