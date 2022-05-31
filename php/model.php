@@ -207,6 +207,37 @@
         $reqcardmodify->execute();
     }
 
+    function getSensors($id){
+        global $bdh;
+        $sensorTypes=["Température","Sonore","Cardiaque"];
+
+        $reqsensordata = $bdh->getInstance()->prepare('SELECT * FROM sensor_data JOIN products ON sensor_data.product_number = products.product_number WHERE user_id = :id ORDER BY sensor_type,date');
+        $reqsensordata->bindparam('id', $id, PDO::PARAM_INT);
+        $reqsensordata->execute();
+        $sensordata = $reqsensordata->fetchAll();
+
+        $sensors = [];
+        $currentType = -1;
+        $x = [];
+        $y = [];
+        foreach($sensordata as $row){
+            $sensorType = $row['sensor_type'];
+            if($currentType == -1 || $sensorType != $currentType){
+                if($currentType != -1){
+                    array_push($sensors, new Sensor($sensorTypes[$currentType],$x,$y));
+                }
+                $currentType = $sensorType;
+            }
+
+            array_push($x, str_replace(":",".",substr($row['date'],11,5)));
+            array_push($y, $row['data']);
+        }
+        if(!empty($x) && !empty($y)){
+            array_push($sensors, new Sensor($sensorTypes[$currentType],$x,$y));
+        }
+        return $sensors;
+    }
+
     function sendMail($email, $name, $subject, $body, $altBody){
         $mail = new PHPMailer(true);
 
@@ -238,6 +269,31 @@
             $mail->send();
         } catch (Exception $e) {
             echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+
+    class Sensor {
+        protected $sensorType; //type string
+        protected $x; //type array
+        protected  $y; //type array
+        protected  $graphDisplay;
+        function __construct($sensorType, $x, $y,$graphDisplay="line") {
+            $this->sensorType = $sensorType;
+            $this->x = $x;
+            $this->y = $y;
+            $this->graphDisplay = $graphDisplay; 
+        }
+        public function getX(){
+            return implode(",", $this->x) ;
+        }
+        public function getY(){
+            return implode(",", $this->y);
+        }
+        public function getType(){
+            return $this->sensorType;
+        }
+        public function getGraphDisplay(){
+            return $this->graphDisplay;
         }
     }
 

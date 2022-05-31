@@ -1,9 +1,3 @@
-<?php
-    require $_SERVER["DOCUMENT_ROOT"]. '/php/model.php';
-    require $_SERVER["DOCUMENT_ROOT"]. '/php/check_user.php';
-
-    check_user();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,54 +27,6 @@
         </div>
     </div>
     <?php
-        class Sensor {
-            protected $sensorType; //type string
-            protected $x; //type array
-            protected  $y; //type array
-            protected  $graphDisplay;
-            function __construct($sensorType, $x, $y,$graphDisplay="line") {
-                $this->sensorType = $sensorType;
-                $this->x = $x;
-                $this->y = $y;
-                $this->graphDisplay = $graphDisplay; 
-            }
-            public function getX(){
-                return implode(",", $this->x) ;
-            }
-            public function getY(){
-                return implode(",", $this->y);
-            }
-            public function getType(){
-                return $this->sensorType;
-            }
-            public function getGraphDisplay(){
-                return $this->graphDisplay;
-            }
-        }
-        ?>
-
-        
-<?php
-
-// $bdd=new PDO("mysql:host=localhost;dbname=test;port=3308","root","");
-
-$bdd=new DBHandler();
-$bdd=$bdd->getInstance();
-$sensors=[];
-$sensorTypes=["température","Sonore","Cardiaque"];
-for ($i =0; $i < count($sensorTypes); $i++){
-            $requete= $bdd->prepare(
-            "SELECT date,data FROM sensor_data WHERE product_number=(SELECT product_number FROM products WHERE user_id =" .$_SESSION['id'] .") AND sensor_type=" .$i );  //ORDER BY sensor_type");
-            $requete->execute();          
-            $resultat = $requete->fetchall();
-            $dataArray = array_column($resultat, 'data');
-            $dateArray=array_column($resultat, 'date');
-            for ($j =0; $j < count($dateArray); $j++){
-                $dateArray[$j]=str_replace(":",".",substr($dateArray[$j],11,5));
-            }   
-            array_push($sensors,new Sensor($sensorTypes[$i],$dateArray,$dataArray) );
-        }
-
         function displayGraphs($sensors) {
             for ($i =0; $i < count($sensors); $i++) {
                 $sensorType=$sensors[$i]->getType();
