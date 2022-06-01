@@ -44,7 +44,7 @@
             <img id="background" src="/Images/gameSprite/background.png" alt="background">
             <img id="sol" src="/Images/gameSprite/sol.png" alt="sol">
             <!-- <div  src="./Images/gameSprite/playerSprite.png" alt="playerSprite"></div> -->
-            <div id="playerSprite" ></div>
+            <img id="playerSprite"  src="/Images/gameSprite/playerSprite.png">
             <img id="obstacle" src="/Images/gameSprite/plastic.png">
             <div class="blockPoint">
                 vous avez : <span id="point">0</span> point(s)

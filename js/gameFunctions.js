@@ -74,7 +74,7 @@ function startGame(){
     document.getElementById("obstacle").style.animation="backgroundAnimation 3s linear infinite";
     document.getElementById("sol").style.animation="backgroundAnimation 3s linear infinite";
     document.getElementById("background").style.animation="backgroundAnimation 20s linear infinite";
-    document.getElementById("playerSprite").style.animation="runAnimation .8s steps(10) infinite";
+    document.getElementById("playerSprite").style.animation="runAnimation 1s  linear infinite";
     displayPoint();
     isCollapsed("playerSprite","obstacle");
 }
