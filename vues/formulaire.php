@@ -40,19 +40,19 @@
                 <div class="blockTextInput">
                     <label for="nameField">Nom </label>
                     <input class="search-input" type="text" id="nameField" name="nameTextField" required
-                        minlength="4" maxlength="8" size="10">
+                         size="10">
                 </div>
                 <div class="blockTextInput">
                     <label for="emailField">Email </label>
                     <input class="search-input" type="text" id="emailField" name="emailTextField" required
-                        minlength="4" maxlength="8" size="10">
+                          size="10">
                 </div>
 
 
                 <div class="blockTextInput">
                     <label for="objectTextField">Objet </label>
                     <input class="search-input" type="text" id="objectTextField" name="objectTextField" required
-                        minlength="4" maxlength="8" size="10">
+                        size="10">
                 </div>
                 <!-- <div class="textField"> -->
                     <div class="blockAllTextArea">
@@ -63,12 +63,11 @@
                     </div>
                 <!-- </div> -->
                 <div class="blockButtonSendMessage">
-                    <input type="submit" name="formFormulaire" href="#" class="square_btn1">Envoyer</a>
+                    <input type="submit" name="formFormulaire" class="square_btn1">Envoyer</a>
                 </div>
             </form>
         </div>
         </div>
     </section>
-    
 </body>
 </html>

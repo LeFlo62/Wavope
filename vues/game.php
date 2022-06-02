@@ -51,7 +51,7 @@
             </div> 
         </div>
     </section>
-
+    <?php include 'footer.php' ?>
 
     <script type="text/javascript" src="/js/functionQuizz.js"></script>
 

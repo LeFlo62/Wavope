@@ -51,6 +51,15 @@
         return $faq;
     }
 
+    function getProductsNumber($user_id){
+        global $bdh;
+        $reqproductsnumber = $bdh->getInstance()->prepare("SELECT `product_number` FROM `products` WHERE user_id= :id");
+        $reqproductsnumber->bindparam('id', $user_id, PDO::PARAM_INT);
+        $reqproductsnumber->execute();
+        $productsnumber = $reqproductsnumber->fetchAll();
+        return $productsnumber;
+    }
+
     function userExistsByMail($email){
         global $bdh;
         $requser = $bdh->getInstance()->prepare('SELECT * FROM users WHERE email = :email');

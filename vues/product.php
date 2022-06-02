@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +13,6 @@
     <link rel="stylesheet" href="/css/styleProduct.css">
     <link rel="stylesheet" href="/css/styleProductMobileVersion.css">
     <link rel="stylesheet" href="/css/styleDialogBox.css">
-
     <script src="/js/npmchartjs.js"></script>
     <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
 
@@ -51,8 +53,8 @@
 
 
     <!-- DIALOG BOX : DEBUT -->
-    <form action="/php/updateProductName" method="post">
-    <input type="hidden" name="actualProductName" value="<?php echo '39544932';?>">
+    <!-- <form action="/php/updateProductName" method="post"> -->
+        
 <div class="dialogBoxContainer" id="dialogContainer">
 
 <div class="dialogBox">
@@ -60,19 +62,22 @@
     Nouveau nom du produit
 </div>
 <div class="blockField">
-    <input type="field" name="productName" class="field">
+    <input type="field" id="productName" name="productName" class="field">
 </div>
 
     
     <div class="blockButtons">
-        <a  class="square_btn1"  onclick="closeDialogBox('dialogContainer')" >Annuler</a>
-        <input type="submit" name="formProductName" class="square_btn1" value="Valider">
+        <a class="square_btn1"  onclick="closeDialogBox('dialogContainer')"> Annuler</a>
+        <input type="" name="formProductName" pn="<?php echo $productName;?>" id="validInput"  class="square_btn1" value="Valider">
     </div>
 </div>
 </div>
-</form>
+<!-- </form> -->
 <!-- DIALOG BOX : FIN -->
+<div id="snackbar"></div>
+<?php include 'footer.php' ?>
 <script type="text/javascript" src="/js/functionDialogBox.js"></script>
-    
+<script type="text/javascript" src="/js/modify_devices.js"></script> 
+
 </body>
 </html>
