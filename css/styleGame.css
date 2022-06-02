@@ -123,7 +123,6 @@ h1{
 .blockmarks{
     text-align: center;
     justify-content: center;
-    position:absolute;
     width: 30%;
     min-width: 350px;
     height: 25%;
@@ -131,8 +130,6 @@ h1{
     text-decoration:none;
     flex-direction: column-reverse;
     font-family: 'Roboto', sans-serif;
-    /*justify-content: flex-start;*/
-    margin-top:  800px;
 
     
 }
