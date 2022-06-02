@@ -30,7 +30,17 @@
             <p onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
         </div>
     </div>
-    <?php
+
+    <form class="blockAddProduct" action="/php/addProduct.php" method="post">
+        <input type="hidden" value="<?php echo $product['user_id'];?>" name="ownerId">
+    <!-- <div class="addProduct"> -->
+        Ajouté un produit <input type="text" class="inputText" name="productNumber" placeholder="numéro du produit">
+        <input type="submit" name="forminscription" value="Ajouter">
+        
+    <!-- </div> -->
+</form>
+    <?php 
+        
         function displayGraphs($sensors) {
             for ($i =0; $i < count($sensors); $i++) {
                 $sensorType=$sensors[$i]->getType();
@@ -50,10 +60,11 @@
         // $sensors=[$temperatureSensor,$sonoreSensor,$heartbeatSensor];
         // print_r($temperatureSensor);
         // print_r($sonoreSensor);
+        
         displayGraphs($sensors);
     ?>
 
-
+    <div class="addProduct"></div>
     <!-- DIALOG BOX : DEBUT -->
     <!-- <form action="/php/updateProductName" method="post"> -->
         
