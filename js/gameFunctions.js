@@ -5,9 +5,11 @@ document.addEventListener('keydown', event => {
 if ( event.code === 'Space' && isRunning==false) {
     console.log('start');
     startGame(); 
+    event.preventDefault();
 }
 if (event.code === 'Space' && isRunning==true) {
     jump("playerSprite");
+    event.preventDefault();
 }
 if (event.key === 'ArrowLeft') {
     leftMove("playerSprite");
