@@ -70,12 +70,11 @@
 .field{
 
     position: absolute;
-    height:80%;
+    height:100%;
     width: 80%;
-    background-color: rgb(240, 240, 240);
     border-radius: 8px;
     border: none;
-    background-color: #dbdbdb;
+    background-color: rgb(232, 232, 232);
 
 }
 

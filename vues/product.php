@@ -22,9 +22,16 @@
 </head>
 <body>
     <?php include 'navbar.php' ?>
+    
+    <?php
+    if(isset($_GET["message"])){
+        echo '<div class="blockPopUp"> <div class="popUp"> '. $_GET["message"] . '</div></div>';
+
+    }
+     
+     ?>
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <div class="imageProfil"><?php $_SESSION['firstname'][0];?>
         </div>
         <div class="blockProfilGestion">
             
@@ -32,17 +39,20 @@
             <p class="modifyName" onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
         </div>
     </div>
-
-    <form class="blockAddProduct" action="/php/addProduct.php" method="post">
-        <input type="hidden" value="<?php echo $product['user_id'];?>" name="ownerId">
-    <!-- <div class="addProduct"> -->
-        Ajouter un produit <input type="text" class="inputText" name="productNumber" placeholder="numéro du produit">
-        <input class="square_btn1" type="submit" name="forminscription" value="Ajouter">
-        
-    <!-- </div> -->
-</form>
     <?php 
-        
+
+        if (!$hasProduct){
+            echo '<form class="blockAddProduct" action="/php/addProduct.php" method="post">
+                <input type="hidden" value="'. $product['user_id'].'" name="ownerId">
+                Ajouter un produit <input type="text" class="inputText" name="productNumber" placeholder="numéro du produit">
+                <input class="square_btn1" type="submit" name="forminscription" value="Ajouter">
+            </form>';
+        }
+    
+    ?>
+    
+    
+    <?php 
         function displayGraphs($sensors) {
             for ($i =0; $i < count($sensors); $i++) {
                 $sensorType=$sensors[$i]->getType();

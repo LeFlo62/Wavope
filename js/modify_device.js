@@ -7,8 +7,10 @@ $("#validInput").click(function(){
     .done(function(response){
         var responseObj = JSON.parse(response);
         $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
+        closeDialogBox('dialogContainer');
         setTimeout(function(){
             $('#snackbar').removeClass(['show', responseObj.return_type]);
+            
         }, 3000);
 
         if(responseObj.return_type == 'success'){
