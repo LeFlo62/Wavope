@@ -10,7 +10,7 @@ function nextStepQuizz(){
     document.documentElement.style.setProperty('--h', percentageValue+ '%') //Change the progressBar Value
     if (percentageValue==100){
         newQuestion("Vous avez terminé le quizz",[]);
-        console.log("Réponse de l'utilisateur:" + userAnswers);
+        /*console.log("Réponse de l'utilisateur:" + userAnswers);*/
     }
     else{
         newQuestion(questions[step],answers[step])
@@ -38,9 +38,16 @@ function newQuestion(question,answers){
 nextStepQuizz();
     
 function results(){
-    userAnswers.forEach(i => {
-        if (i in answersreal){
+    if (percentageValue==100){
+        userAnswers.forEach(verif)
+    }
+    console.log("Score de l'utilisateur:" + realmark);
+}
+results();
+function verif(Element){
+    for(Element in userAnswers){
+        if (Element===answersreal){
             realmark++;
         }
-    });
+    }
 }
