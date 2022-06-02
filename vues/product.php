@@ -64,7 +64,7 @@
         displayGraphs($sensors);
     ?>
 
-    <div class="addProduct"></div>
+
     <!-- DIALOG BOX : DEBUT -->
     <!-- <form action="/php/updateProductName" method="post"> -->
         
