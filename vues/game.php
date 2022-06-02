@@ -24,6 +24,9 @@
             <div id ="answerBlock" class="answerBlock"> 
             </div>
         </div>
+        <div class="blockmarks">
+            <div class="mark">Votre score : <span id="realmark">0</span> point(s) </div>
+        </div>
     </section>
 
     <!-- <div id="playerSprite" src="./Images/gameSprite/playerSprite.png" alt="playerSprite"></div> -->
