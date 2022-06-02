@@ -138,6 +138,13 @@
     display: block;
   }
 
+  .logoMenuBar{
+    position: absolute;
+    left: 40px;
+    width: 70px;
+    transition: 0.6s;
+  }
+
   .menuBar{
     position: relative;
     display: none;
