@@ -17,7 +17,7 @@ $(document).on('click', '#ac-confirm', function(){
     var birthdate = $('#ac-birthdate').val();
     var rank = $('#ac-rank').find(':selected').text();
 
-    $.post("./back-office/php/createuser.php", {firstname: firstname, lastname: lastname, email: email, birthdate: birthdate, rank: rank})
+    $.post("/back-office/php/createuser.php", {firstname: firstname, lastname: lastname, email: email, birthdate: birthdate, rank: rank})
     .done(function(response){
         var responseObj = JSON.parse(response);
         $('#snackbar').html(responseObj.message).addClass(['show', responseObj.return_type]);
