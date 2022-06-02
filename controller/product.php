@@ -5,6 +5,6 @@
     check_user(true, 0);
 
     $sensors = getSensors($_SESSION['id']);
-    $productName =getProductsNumber($_SESSION['id']);
+    $product = getProduct($_SESSION['id']);
     require $_SERVER["DOCUMENT_ROOT"]. '/vues/product.php';
 ?>

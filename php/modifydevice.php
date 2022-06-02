@@ -13,7 +13,6 @@
             $data = sanitize($_POST['data']);
             updateProductName($product_number, $data);
             echo json_encode(array('return_type' => 'success', 'message' => 'Donnée modifiée'));
-            
         } else {
             echo json_encode(array('return_type' => 'error', 'message' => 'Aucune donnée transmise'));
         }

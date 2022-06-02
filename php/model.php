@@ -51,12 +51,12 @@
         return $faq;
     }
 
-    function getProductsNumber($user_id){
+    function getProduct($user_id){
         global $bdh;
-        $reqproductsnumber = $bdh->getInstance()->prepare("SELECT `product_number` FROM `products` WHERE user_id= :id");
+        $reqproductsnumber = $bdh->getInstance()->prepare("SELECT * FROM `products` WHERE user_id= :id");
         $reqproductsnumber->bindparam('id', $user_id, PDO::PARAM_INT);
         $reqproductsnumber->execute();
-        $productsnumber = $reqproductsnumber->fetchAll();
+        $productsnumber = $reqproductsnumber->fetch();
         return $productsnumber;
     }
 

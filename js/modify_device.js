@@ -12,9 +12,7 @@ $("#validInput").click(function(){
         }, 3000);
 
         if(responseObj.return_type == 'success'){
-            field.html(data);
-        } else {
-            field.html(oldData);
+            $('.profilName').html(data);
         }
     })
     .fail(function(){

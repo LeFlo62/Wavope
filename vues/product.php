@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/css/styleDialogBox.css">
     <script src="/js/npmchartjs.js"></script>
     <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
+    
+    <script type="text/javascript" src="https://releases.jquery.com/git/jquery-3.x-git.min.js"></script>
 
 </head>
 <body>
@@ -24,7 +26,7 @@
             <img class="imageProfil" src="/Images/maxime.png">
         </div>
         <div class="blockProfilGestion">
-            <span class="profilName"><?php echo  $_SESSION['firstname'];?></span>
+            <span class="profilName"><?php echo  $product['name'];?></span>
             <p onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
         </div>
     </div>
@@ -62,13 +64,13 @@
     Nouveau nom du produit
 </div>
 <div class="blockField">
-    <input type="field" id="productName" name="productName" class="field">
+    <input type="field" id="productName" name="productName" class="field" value="<?php echo  $product['name'];?>">
 </div>
 
     
     <div class="blockButtons">
         <a class="square_btn1"  onclick="closeDialogBox('dialogContainer')"> Annuler</a>
-        <input type="" name="formProductName" pn="<?php echo $productName;?>" id="validInput"  class="square_btn1" value="Valider">
+        <input type="button" name="formProductName" pn="<?php echo $product['product_number'];?>" id="validInput"  class="square_btn1" value="Valider">
     </div>
 </div>
 </div>
@@ -77,7 +79,7 @@
 <div id="snackbar"></div>
 <?php include 'footer.php' ?>
 <script type="text/javascript" src="/js/functionDialogBox.js"></script>
-<script type="text/javascript" src="/js/modify_devices.js"></script> 
+<script type="text/javascript" src="/js/modify_device.js"></script> 
 
 </body>
 </html>
