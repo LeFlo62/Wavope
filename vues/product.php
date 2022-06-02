@@ -24,7 +24,7 @@
     <?php include 'navbar.php' ?>
     <div class="blockProfil">
         <div class="blockProfilImage">
-            <img class="imageProfil" src="/Images/maxime.png">
+            <div class="imageProfil"><?php $_SESSION['firstname'][0];?>
         </div>
         <div class="blockProfilGestion">
             
