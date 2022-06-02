@@ -103,7 +103,7 @@
 
                         echo            '$.post("/php/resetpassword.php", params)
                                         .done(function(response){
-                                            alert(response);
+                                            
                                             var responseObj = JSON.parse(response);
                                             $("#snackbar").html(responseObj.message).addClass(["show", responseObj.return_type]);
                                             setTimeout(function(){

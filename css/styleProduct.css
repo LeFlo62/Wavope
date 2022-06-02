@@ -57,7 +57,9 @@ body{
     font-weight: bold;
 }
 
-
+.modifyName{
+    text-decoration: underline;
+}
 
 
 .blockGraph{

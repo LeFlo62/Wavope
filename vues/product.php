@@ -27,8 +27,9 @@
             <img class="imageProfil" src="/Images/maxime.png">
         </div>
         <div class="blockProfilGestion">
+            
             <span class="profilName"><?php echo  $product['name'];?></span>
-            <p onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
+            <p class="modifyName" onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
         </div>
     </div>
 
