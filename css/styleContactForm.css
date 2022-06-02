@@ -5,7 +5,7 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(248, 248, 248);
+    background-color: rgb(255, 255, 255);
 }
 
 .contactSection{
@@ -17,7 +17,7 @@ body{
     align-items: center;
     text-decoration:none;
     justify-content: center;
-    background-color: rgb(248, 248, 248);
+    background-color: rgb(255, 255, 255);
     
 }
 
@@ -32,7 +32,8 @@ body{
     text-decoration:none;
     justify-content: center;
     border-radius: 8px;
-    box-shadow: 0px 0px 8px  1px rgb(223, 223, 223);
+    background-color: #fff;
+    /* box-shadow: 0px 0px 8px  1px rgb(255, 255, 255); */
     /* background-color: red; */
     transition: 0.6s ;
 
@@ -188,6 +189,8 @@ textarea{
         top: 10%;
         width: 90%;
         height: 150%;
+        flex-direction: column;
+        background-color: #fff;
         
     }
 

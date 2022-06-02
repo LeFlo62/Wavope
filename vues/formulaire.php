@@ -6,8 +6,6 @@
 
 
 
-    
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,11 +61,12 @@
                     </div>
                 <!-- </div> -->
                 <div class="blockButtonSendMessage">
-                    <input type="submit" name="formFormulaire" class="square_btn1">Envoyer</a>
+                    <input type="submit" name="formFormulaire" class="square_btn1" value="Envoyer">
                 </div>
             </form>
         </div>
         </div>
     </section>
+    
 </body>
 </html>
