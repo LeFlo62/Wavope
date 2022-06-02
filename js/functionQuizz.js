@@ -10,7 +10,8 @@ function nextStepQuizz(){
     document.documentElement.style.setProperty('--h', percentageValue+ '%') //Change the progressBar Value
     if (percentageValue==100){
         newQuestion("Vous avez terminé le quizz",[]);
-        /*console.log("Réponse de l'utilisateur:" + userAnswers);*/
+        console.log("Réponse de l'utilisateur:" + userAnswers);
+        results();
     }
     else{
         newQuestion(questions[step],answers[step])
@@ -35,19 +36,19 @@ function newQuestion(question,answers){
         }, false);
     }
 }
-nextStepQuizz();
-    
 function results(){
-    if (percentageValue==100){
-        userAnswers.forEach(verif)
-    }
+    userAnswers.forEach(verif);
     console.log("Score de l'utilisateur:" + realmark);
+    document.getElementById('realmark').innerHTML= realmark;
 }
-results();
+
 function verif(Element){
-    for(Element in userAnswers){
-        if (Element===answersreal){
-            realmark++;
+    for(let i=0; i<answersreal.length;i++){
+        if (Element==answersreal[i]){
+            realmark+=1;
+            /*document.documentElement.style.setProperty(color, green)*/
         }
     }
 }
+
+nextStepQuizz();
