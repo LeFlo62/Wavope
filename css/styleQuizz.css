@@ -11,8 +11,6 @@
   
   }
   .blockAllQuizz{
-  
-      position: absolute;
       height: 100%;
       width: 100%;
       display: flex;
@@ -20,11 +18,11 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-  }
+    margin-top: 200px;
+    margin-bottom: 200px;    
+}
   
   .blockQuizz{
-      
-      position: absolute;
       height: 60%;
       width: 60%;
       background-color: rgb(255, 255, 255);
