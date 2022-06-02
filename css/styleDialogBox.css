@@ -74,6 +74,8 @@
     width: 80%;
     background-color: rgb(240, 240, 240);
     border-radius: 8px;
+    border: none;
+    background-color: #dbdbdb;
 
 }
 
@@ -89,29 +91,8 @@
 
 }
 
-.rounded_btn{
-        
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    border: none;
-    border-radius: 2em;
-    font-size: 16x;
-    font-family: Roboto;
-    font-weight:bold;
-    color: white;
-    background: #f35f5f;
-    margin:14px;
-    transition: 0.4s;
-}
 
-.rounded_btn:hover{
-    
-    background: #ec2f2f;
-    color: white;
-    transition:0.4s;
 
-}
 
 @media (max-width: 1000px) {
 
@@ -147,7 +128,8 @@
 
     }
 
-    .field{border-radius: 16px;}
+    .field{border-radius: 16px;
+    }
 
     .blockButtons{
 
@@ -156,17 +138,6 @@
         bottom: 8%;
     }
  
-    .rounded_btn{
-            
-        width: 20%;
-        height: 4%;
-        padding: 1.2em 2em;
-        font-size: 32px;
-        margin:18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
+    
     
 }

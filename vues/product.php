@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Produit</title>
     <link rel="icon" type="image/x-icon" href="/Images/infinitemeasures.ico">
 
     <link rel="stylesheet" href="/css/styleProduct.css">
@@ -65,8 +65,8 @@
 
     
     <div class="blockButtons">
-        <a class="rounded_btn"  onclick="closeDialogBox('dialogContainer')">Annuler</a>
-        <input type="submit" name="formProductName" class="rounded_btn">
+        <a  class="square_btn1"  onclick="closeDialogBox('dialogContainer')" >Annuler</a>
+        <input type="submit" name="formProductName" class="square_btn1" value="Valider">
     </div>
 </div>
 </div>

@@ -5,19 +5,17 @@
 } 
 
 @keyframes runAnimation {
-    from { background-position:    0px; }
-      to { background-position: -500px; }
+    from { transform:rotate(0deg);} 
+      to { transform:rotate(360deg); }
  }
  
-
-
-
 
 
 body{
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    
 }
 
 .svgWave{
@@ -45,6 +43,7 @@ body{
     justify-content: center;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
+   
 }
 
 #obstacle{
@@ -60,9 +59,8 @@ body{
 #playerSprite {
     position: absolute;
     width: 50px;
-    height: 72px;
+    height: 50px;
     bottom: 20%;
-    background-image: url("https://s.cdpn.io/79/sprite-steps.png");
     
 }
 

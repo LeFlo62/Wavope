@@ -3,6 +3,11 @@
 
     check_user();
 ?>
+
+
+
+    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +21,7 @@
     <link rel="stylesheet" href="/css/styleContactForm.css">
 </head>
 <body>
-<?php include 'navbar.php' ?>
-
+    <?php include 'navbar.php' ?>
     <section class="contactSection">
         <div class="blockAll">
             <div class="blockInformation">

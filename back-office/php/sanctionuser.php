@@ -77,7 +77,7 @@
                         $reqdeluser->bindparam('id', $user_id, PDO::PARAM_INT);
                         $reqdeluser->execute();
 
-                        sendMail($email, $name, 'supprimé');
+                        sendSanctionMail($email, $name, 'supprimé');
 
                         echo json_encode(array('return_type' => 'success', 'message' => 'Utilisateur supprimé.'));
                     } else if($action === 'ban'){
@@ -88,7 +88,7 @@
                         $reqban->bindparam('banned', $banned, PDO::PARAM_BOOL);
                         $reqban->execute();
 
-                        sendMail($email, $name, (!$banned ? 'dé' : '') . 'banni');
+                        sendSanctionMail($email, $name, (!$banned ? 'dé' : '') . 'banni');
 
                         echo json_encode(array('return_type' => 'success', 'message' => 'Utilisateur '. (!$banned ? 'dé' : '') .'banni.'));
                     }
@@ -122,7 +122,7 @@
         return isset($_SERVER['HTTP_X_REQUESTED_WITH']);
     }
 
-    function sendMail($email, $name, $namedAction){
+    function sendSanctionMail($email, $name, $namedAction){
         sendMail($email, $name, "Votre compte Wavope a été ". $namedAction, '<link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
