@@ -34,16 +34,20 @@
         <div class="blockProfilImage">
         </div>
         <div class="blockProfilGestion">
-            
-            <span class="profilName"><?php echo  $product['name'];?></span>
-            <p class="modifyName" onclick="openDialogBox('dialogContainer')">Modifier le nom du produit</p>
-        </div>
+        <?php if ($hasProduct){
+
+        echo '<span class="profilName">'.$product['name'].'</span>
+            <p class="modifyName" onclick="openDialogBox(\'dialogContainer\')">Modifier le nom du produit</p>';
+        
+    };
+    ?>
+    </div>
     </div>
     <?php 
 
         if (!$hasProduct){
             echo '<form class="blockAddProduct" action="/php/addProduct.php" method="post">
-                <input type="hidden" value="'. $product['user_id'].'" name="ownerId">
+                <input type="hidden" value="'. $_SESSION['id'].'" name="ownerId">
                 Ajouter un produit <input type="text" class="inputText" name="productNumber" placeholder="numéro du produit">
                 <input class="square_btn1" type="submit" name="forminscription" value="Ajouter">
             </form>';
