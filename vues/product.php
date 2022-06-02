@@ -34,7 +34,7 @@
     <form class="blockAddProduct" action="/php/addProduct.php" method="post">
         <input type="hidden" value="<?php echo $product['user_id'];?>" name="ownerId">
     <!-- <div class="addProduct"> -->
-        Ajouté un produit <input type="text" class="inputText" name="productNumber" placeholder="numéro du produit">
+        Ajouter un produit <input type="text" class="inputText" name="productNumber" placeholder="numéro du produit">
         <input type="submit" name="forminscription" value="Ajouter">
         
     <!-- </div> -->
