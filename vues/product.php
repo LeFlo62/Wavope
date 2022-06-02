@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/styleProduct.css">
     <link rel="stylesheet" href="/css/styleProductMobileVersion.css">
     <link rel="stylesheet" href="/css/styleDialogBox.css">
+    <link rel="stylesheet" href="/css/styleButton.css">
     <script src="/js/npmchartjs.js"></script>
     <script type="text/javascript" src="/js/functionDrawGraph.js"></script>
     
@@ -35,7 +36,7 @@
         <input type="hidden" value="<?php echo $product['user_id'];?>" name="ownerId">
     <!-- <div class="addProduct"> -->
         Ajouter un produit <input type="text" class="inputText" name="productNumber" placeholder="numéro du produit">
-        <input type="submit" name="forminscription" value="Ajouter">
+        <input class="square_btn1" type="submit" name="forminscription" value="Ajouter">
         
     <!-- </div> -->
 </form>
