@@ -177,10 +177,10 @@ h1{
     position: relative;
     box-shadow: 10px,10px;
 }
-.mark1:hover{
+/*.mark1:hover{
     transform: scale(1.1);
     transition: 0.5s ease;
-}
+}*/
 .mark2{
     min-width: 100px;
     height: 70%;
@@ -198,11 +198,11 @@ h1{
     box-shadow: 10px,10px;
    
 }
-.mark2:hover{
+/*.mark2:hover{
     transform: scale(1.1);
     transition: 0.5s ease;
     
-}
+}*/
 .mark3{
     min-width: 100px;
     height: 45%;
@@ -219,11 +219,11 @@ h1{
     animation-duration: 1s;
     position:relative;
 }
-.mark3:hover{
+/*.mark3:hover{
     transform: scale(1.1);
     transition: 0.5s ease;
     
-}
+}*/
 @keyframes mark1{
     0%         {height: 0%;
     top:100%;background-color: white;
