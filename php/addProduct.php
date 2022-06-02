@@ -29,3 +29,4 @@
         $donne = htmlspecialchars($donne);
         return $donne;
     }
+?>
