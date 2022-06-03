@@ -33,7 +33,7 @@
                 $user_id = sanitize($_POST['user_id']);
                 $action = sanitize($_POST['action']);
 
-                include_once '/php/mysql.php';
+                include_once $_SERVER["DOCUMENT_ROOT"].'/php/mysql.php';
     
                 $bdh = new DBHandler();
 
