@@ -5,7 +5,7 @@
 
     if($_GET['r'] === 'r'){
         if(!isset($_SESSION['id']) && !isset($_GET['token'])) { 
-            header("Location: /login.php");
+            header("Location: /login");
             exit;
         }
     }

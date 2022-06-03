@@ -13,21 +13,21 @@
             if (verify_product_number($productNumber)){
 
                 createProduct($ownerId, $productNumber);
-                header("Location: /product.php?message='Ajout terminé'");
+                header("Location: /product?message='Ajout terminé'");
                
             }else{
-                header("Location: /product.php?message='Numéro non compatible'");
+                header("Location: /product?message='Numéro non compatible'");
                 exit;
             }
 
             
         }else{
-            header("Location: /product.php?message='Champ Incomplet'");
+            header("Location: /product?message='Champ Incomplet'");
             exit;
         }
 
     }else{
-        header("Location: /product.php?message='Mauvais protocol'");
+        header("Location: /product?message='Mauvais protocol'");
         exit;
     }
 

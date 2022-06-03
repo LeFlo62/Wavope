@@ -8,7 +8,7 @@
         if(isset($_POST['productName']) && (isset($_POST['actualProductName'])  && !empty($_POST['productName'])  && !empty($_POST['actualProductName']) )){
             
             updateProductName($_POST['actualProductName'], $_POST['productName']);
-            header("Location: /product.php");
+            header("Location: /product");
             }
         }
     

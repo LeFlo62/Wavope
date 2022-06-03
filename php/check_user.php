@@ -13,14 +13,14 @@
             $reqban->bindparam('user_id', $_SESSION['id'], PDO::PARAM_INT);
             $reqban->execute();
             if($reqban->rowCount() === 0 || $reqban->fetch()['banned']){
-                header("Location: /disconnect.php");
+                header("Location: /disconnect");
                 exit;
             }
         }
 
         if($shouldBeConnected){
             if(!isset($_SESSION['id'])) { 
-                header("Location: /login.php");
+                header("Location: /login");
                 exit;
             }
 

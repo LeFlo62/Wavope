@@ -8,7 +8,7 @@
     }
 
     if(!isset($_GET['token'])) { 
-        header("Location: /login.php");
+        header("Location: /login");
         exit;
     }
 

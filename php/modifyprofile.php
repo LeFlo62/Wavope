@@ -7,7 +7,7 @@
     }
 
     if(!isset($_SESSION['id'])){
-        header("Location: /login.php");
+        header("Location: /login");
         exit;
     }
 
@@ -26,13 +26,13 @@
                 $requpdatedata->bindparam('birthdate', $birthdate, PDO::PARAM_STR);
                 $requpdatedata->execute();
 
-                header("Location: /modifyprofile.php?success=1");
+                header("Location: /modifyprofile?success=1");
         } else {
-            header("Location: /modifyprofile.php?error=completion");
+            header("Location: /modifyprofile?error=completion");
             exit;
         }
     } else {
-        header("Location: /modifyprofile.php?error=validation");
+        header("Location: /modifyprofile?error=validation");
         exit;
     }
 

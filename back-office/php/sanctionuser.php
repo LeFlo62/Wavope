@@ -17,7 +17,7 @@
         }
     
         if(!isset($_SESSION['id'])) { 
-            header("Location: /login.php");
+            header("Location: /login");
             exit;
         }
     
@@ -33,7 +33,7 @@
                 $user_id = sanitize($_POST['user_id']);
                 $action = sanitize($_POST['action']);
 
-                include_once '../../php/mysql.php';
+                include_once '/php/mysql.php';
     
                 $bdh = new DBHandler();
 

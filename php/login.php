@@ -23,7 +23,7 @@
 			$registered = $reqregister->rowCount();
 
 			if($registered == 1){
-				header("Location: /login.php?error=confirmation");
+				header("Location: /login?error=confirmation");
 				exit;
 			}
 
@@ -36,7 +36,7 @@
 				$userdata = $requserdata->fetch();
 
 				if($userdata['banned']){
-					header("Location: /login.php?error=banned");
+					header("Location: /login?error=banned");
 					exit;
 				}
 
@@ -47,16 +47,16 @@
 
 					header("Location: /");
 				} else {
-					header("Location: /login.php?error=password");
+					header("Location: /login?error=password");
 				}
 			} else {
-				header("Location: /login.php?error=missing");
+				header("Location: /login?error=missing");
 			}
 		} else {
-			header("Location: /login.php?error=completion");
+			header("Location: /login?error=completion");
 		}
 	} else {
-		header("Location: /login.php?error=validation");
+		header("Location: /login?error=validation");
 	}
 
 	function sanitize($donne){   

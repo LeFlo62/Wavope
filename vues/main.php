@@ -31,8 +31,8 @@
                 <?php
                     if(!isset($_SESSION['id'])) { 
                         echo '<div class="buttons">
-                        <a href="inscription.php" class="register_button" >S\'INSCRIRE</a>
-                        <a href="login.php" class="login_button">SE CONNECTER</a>
+                        <a href="/inscription" class="register_button" >S\'INSCRIRE</a>
+                        <a href="/login" class="login_button">SE CONNECTER</a>
                             </div>';
                     }
                 ?>
