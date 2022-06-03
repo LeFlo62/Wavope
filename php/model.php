@@ -143,7 +143,7 @@
 
         $reqconfirmation = $bdh->getInstance()->prepare('INSERT INTO register_confirmation(token, user_id) VALUES (:token, :user_id)');
         $reqconfirmation->bindparam('token', $token, PDO::PARAM_STR);
-        $reqconfirmation->bindparam('user_id', $createdId, PDO::PARAM_INT);
+        $reqconfirmation->bindparam('user_id', $userId, PDO::PARAM_INT);
         $reqconfirmation->execute();
 
         return $token;

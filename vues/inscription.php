@@ -85,7 +85,7 @@
                             <input type="submit" name="forminscription" class="submit_btn" value="S'INSCRIRE"/>
                         </div>
                 </form>
-                <p class="alreadySubscrire">Deja inscrit? <a href="login.php">Se connecter</a></p>
+                <p class="alreadySubscrire">Deja inscrit? <a href="/login">Se connecter</a></p>
             </div>
             <script src="/js/inscription.js"></script>
         </div>

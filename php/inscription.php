@@ -36,21 +36,21 @@
 
                         sendRegisterConfirmationMail($email, $firstname . ' ' . $lastname, $token);
 
-                        header("Location: /login.php?registrationSuccess=1");
+                        header("Location: /login?registrationSuccess=1");
                     } else {
-                        header("Location: /inscription.php?error=number_registered");
+                        header("Location: /inscription?error=number_registered");
                     }
                 } else {
-                    header("Location: /inscription.php?error=user_exists");
+                    header("Location: /inscription?error=user_exists");
                 }
             } else {
-                header("Location: /inscription.php?error=product_number");
+                header("Location: /inscription?error=product_number");
             }
         } else {
-            header("Location: /inscription.php?error=completion");
+            header("Location: /inscription?error=completion");
         }
     } else {
-        header("Location: /inscription.php?error=validation");
+        header("Location: /inscription?error=validation");
     }
 
     function sanitize($donne){
