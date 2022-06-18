@@ -3,6 +3,8 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
+    require_once $_SERVER["DOCUMENT_ROOT"]. '/php/passwords.php';
+
     require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/Exception.php';
     require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/PHPMailer.php';
     require_once $_SERVER["DOCUMENT_ROOT"]. '/phpmailer/src/SMTP.php';
@@ -269,7 +271,7 @@
             $mail->Port = 587;
 
             $mail->Username = 'noreply.wavope@gmail.com'; // YOUR gmail email
-            $mail->Password = 'IJHqJl^BW8u5D6G9'; // YOUR gmail password
+            $mail->Password = $emailPassword; // YOUR gmail password
 
             // Sender and recipient settings
             $mail->setFrom('noreply.wavope@gmail.com', 'Wavope');

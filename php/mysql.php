@@ -1,12 +1,14 @@
 <?php
 
+	require_once $_SERVER["DOCUMENT_ROOT"]. '/php/passwords.php';
+
 	class DBHandler{
 		private $db;
 	
 		private $address = '149.202.75.88';
 		private $database = 'wavope';
 		private $username = 'wavope';
-		private $password = '07modIXrejFX9d!c0d^ysb9WHAH#daBw';
+		private $password = $databasePassword;
 
 		function __construct(){
 			$this->connect();
