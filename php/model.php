@@ -231,7 +231,7 @@
         global $bdh;
         $sensorTypes=array(1 => "Sonore", 3 => "Température", 4 => "Humidité");
 
-        $reqsensordata = $bdh->getInstance()->prepare('SELECT * FROM sensor_data JOIN products ON sensor_data.product_number = products.product_number WHERE user_id = :id ORDER BY sensor_type,date');
+        $reqsensordata = $bdh->getInstance()->prepare('SELECT * FROM sensor_data JOIN products ON sensor_data.product_number = products.product_number WHERE user_id = :id AND date >= NOW() - INTERVAL 30 MINUTE ORDER BY sensor_type,date');
         $reqsensordata->bindparam('id', $id, PDO::PARAM_INT);
         $reqsensordata->execute();
         $sensordata = $reqsensordata->fetchAll();
