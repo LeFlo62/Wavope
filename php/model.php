@@ -229,7 +229,7 @@
 
     function getSensors($id){
         global $bdh;
-        $sensorTypes=["Température","Sonore","Cardiaque"];
+        $sensorTypes=array(1 => "Sonore", 3 => "Température", 4 => "Humidité");
 
         $reqsensordata = $bdh->getInstance()->prepare('SELECT * FROM sensor_data JOIN products ON sensor_data.product_number = products.product_number WHERE user_id = :id ORDER BY sensor_type,date');
         $reqsensordata->bindparam('id', $id, PDO::PARAM_INT);
@@ -245,12 +245,21 @@
             if($currentType == -1 || $sensorType != $currentType){
                 if($currentType != -1){
                     array_push($sensors, new Sensor($sensorTypes[$currentType],$x,$y));
+                    
+                    $x = [];
+                    $y = [];
                 }
                 $currentType = $sensorType;
             }
 
+            $data = $row['data'];
+
+            if($sensorType == 3 || $sensorType == 4){
+                $data /= 10;
+            }
+
             array_push($x, str_replace(":",".",substr($row['date'],11,5)));
-            array_push($y, $row['data']);
+            array_push($y, $data);
         }
         if(!empty($x) && !empty($y)){
             array_push($sensors, new Sensor($sensorTypes[$currentType],$x,$y));
