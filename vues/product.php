@@ -91,7 +91,7 @@
     Nouveau nom du produit
 </div>
 <div class="blockField">
-    <input type="field" id="productName" name="productName" class="field" value="<?php echo  $product['name'];?>">
+    <input type="field" id="productName" name="productName" maxlength="22" class="field" value="<?php echo  $product['name'];?>">
 </div>
 
     

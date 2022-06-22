@@ -124,7 +124,40 @@
         $reqmodify->bindparam('user_data', $productName, PDO::PARAM_STR);
         $reqmodify->bindparam('product_number', $productNumber, PDO::PARAM_INT);
         $reqmodify->execute();
+
+        if($productNumber == '39544932'){
+            $hexName = ascii2hex($productName);
+            for($i = 0; $i < strlen($productName); $i+=4){
+                $part = substr($productName, $i, 4);
+
+                $part = str_replace(' ', '_', $part);
+
+                while(strlen($part) != 4){
+                    $part .= '_';
+                }
+
+                $trame = '1010D2A'. sprintf("%'.02d", $i/4) . '' . $part . '004200';
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, "http://projets-tomcat.isep.fr:8080/appService/?ACTION=COMMAND&TEAM=010D&TRAME=". $trame);
+                curl_setopt($ch, CURLOPT_HEADER, FALSE);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                $data = curl_exec($ch);
+                curl_close($ch);
+                usleep(100000);
+            }
+        }
     }
+
+    function ascii2hex($ascii) {
+        $hex = '';
+        for ($i = 0; $i < strlen($ascii); $i++) {
+          $byte = strtoupper(dechex(ord($ascii[$i])));
+          $byte = str_repeat('0', 2 - strlen($byte)).$byte;
+          $hex.=$byte." ";
+        }
+        return $hex;
+      }
 
     function updateUserData($userId, $dataType, $data){
         global $bdh;
@@ -240,6 +273,13 @@
         $currentType = -1;
         $x = [];
         $y = [];
+
+        if(empty($sensordata)){
+            array_push($sensors, new Sensor($sensorTypes[1],[0],[0]));
+            array_push($sensors, new Sensor($sensorTypes[3],[0],[0]));
+            array_push($sensors, new Sensor($sensorTypes[4],[0],[0]));
+        }
+
         foreach($sensordata as $row){
             $sensorType = $row['sensor_type'];
             if($currentType == -1 || $sensorType != $currentType){
